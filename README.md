@@ -39,7 +39,7 @@ Things you may want to cover:
 - has_one :useradress
 - has_many :products
 
-## creditCardsテーブル
+## credit_cardsテーブル
 |Column|Type|Options|
 |cardnumber|int|null: false|
 |month|int|null: false|
@@ -56,7 +56,7 @@ Things you may want to cover:
 |city|text|null: false|
 |address|text|null: false|
 |building|text|null: false|
-|phone-number|int|null: false|
+|phone_number|int|null: false|
 
 ### Association
 - has_one :user
@@ -69,17 +69,17 @@ Things you may want to cover:
 
 ### Association
 - has_one :useraddress
-- has_many :product
+- has_many :products
 
 ## productsテーブル
 |Column|Type|Options|
-|name|int|null: false|
+|name|text|null: false|
 |content|text|null: false|
-|condition|text|null: false|
+|condition|int|null: false|
 |status|text|null: false|
-|payment|int|null: false|
+|payment|text|null: false|
 |delivery_date|int|null: false|
-|derivery_method|int|null: false|
+|derivery_method|text|null: false|
 |price|int|null: false|
 |user_id|int|null: false, foreign_key: true|
 |prefecture_id|int|null: false, foreign_key: true|
