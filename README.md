@@ -45,6 +45,7 @@ Things you may want to cover:
 |month|int|null: false|
 |year|int|null: false|
 |css_number|int|null: false|
+|user_id|int|null: false, foreign_key: true|
 
 
 ### Association
@@ -52,15 +53,17 @@ Things you may want to cover:
 
 ## useraddressesテーブル
 |Column|Type|Options|
+|prefecture|text|null: false|
 |postal_code|int|null: false|
 |city|text|null: false|
 |address|text|null: false|
 |building|text|null: false|
 |phone_number|int|null: false|
+|user_id|int|null: false, foreign_key: true|
 
 ### Association
 - has_one :user
-- has_one :prefecture
+
 
 
 ## prefectureテーブル
@@ -78,15 +81,15 @@ Things you may want to cover:
 |condition|int|null: false|
 |status|text|null: false|
 |payment|text|null: false|
+|prefecture|text|null: false|
 |delivery_date|int|null: false|
 |derivery_method|text|null: false|
 |price|int|null: false|
 |user_id|int|null: false, foreign_key: true|
-|prefecture_id|int|null: false, foreign_key: true|
+
 
 ### Association
 - belongs_to :user
-- belongs_to :prefecture
 - has_many :categories
 - has_many :blands
 - has_many :images
