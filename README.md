@@ -66,14 +66,6 @@ Things you may want to cover:
 
 
 
-## prefectureテーブル
-|Column|Type|Options|
-|name|string|null: false|
-
-### Association
-- has_one :useraddress
-- has_many :products
-
 ## productsテーブル
 |Column|Type|Options|
 |name|string|null: false|
@@ -87,6 +79,7 @@ Things you may want to cover:
 |price|int|null: false|
 |user_id|int|null: false, foreign_key: true|
 |bland_id|int|null: false, foreign_key: true|
+|category_id|int|null: false, foreign_key: true|
 
 
 ### Association
@@ -108,19 +101,14 @@ Things you may want to cover:
 |Column|Type|Options|
 |name|string|null: false|
 
-
-
 ### Association
 - has_many :products
 
 ## categoriesテーブル
 |Column|Type|Options|
-|parent_category|string|null: false|
-|middle_category|string|null: false|
-|child_category|string|null: false|
-|product_id|int|null: false, foreign_key: true|
-
+|name|int|null: false|
 
 ### Association
 - has_many :products
+- has_ancestory
 
