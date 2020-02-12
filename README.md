@@ -53,7 +53,6 @@ Things you may want to cover:
 
 ## useraddressesテーブル
 |Column|Type|Options|
-|prefecture|text|null: false|
 |postal_code|int|null: false|
 |city|string|null: false|
 |address|text|null: false|
