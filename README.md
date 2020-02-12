@@ -49,7 +49,7 @@ Things you may want to cover:
 
 
 ### Association
-- has_one :user
+- belongs_to :user
 
 ## useraddressesテーブル
 |Column|Type|Options|
@@ -62,7 +62,7 @@ Things you may want to cover:
 |user_id|int|null: false, foreign_key: true|
 
 ### Association
-- has_one :user
+- belongs_to :user
 
 
 
@@ -86,12 +86,13 @@ Things you may want to cover:
 |derivery_method|string|null: false|
 |price|int|null: false|
 |user_id|int|null: false, foreign_key: true|
+|bland_id|int|null: false, foreign_key: true|
 
 
 ### Association
 - belongs_to :user
-- has_many :categories
-- has_many :blands
+- belongs_to :category
+- belongs_to :bland
 - has_many :images
 
 ## imagesテーブル
@@ -106,11 +107,11 @@ Things you may want to cover:
 ## blandsテーブル
 |Column|Type|Options|
 |name|string|null: false|
-|product_id|int|null: false, foreign_key: true|
+
 
 
 ### Association
-- belongs_to :product
+- has_many :products
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -121,5 +122,5 @@ Things you may want to cover:
 
 
 ### Association
-- belongs_to :product
+- has_many :products
 
