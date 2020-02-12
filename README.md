@@ -26,14 +26,14 @@ Things you may want to cover:
 # freemarket_sample_68th DB設計
 ## usersテーブル
 |Column|Type|Options|
-|nickname|text|null: false|
+|nickname|string|null: false|
 |mail|string|null: false|
 |password|string|null: false|
 |confirm_password|string|null: false|
 |name|string|null: false|
 |name_zenkaku|string|null: false|
-|birthday|data|null: false|
-|phone-number|text|null: false|
+|birthday|string|null: false|
+|phone-number|string|null: false|
 ### Association
 - has_one :credit_card
 - has_one :useradress
@@ -55,7 +55,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |prefecture|text|null: false|
 |postal_code|int|null: false|
-|city|text|null: false|
+|city|string|null: false|
 |address|text|null: false|
 |building|text|null: false|
 |phone_number|int|null: false|
@@ -68,7 +68,7 @@ Things you may want to cover:
 
 ## prefectureテーブル
 |Column|Type|Options|
-|name|text|null: false|
+|name|string|null: false|
 
 ### Association
 - has_one :useraddress
@@ -76,14 +76,14 @@ Things you may want to cover:
 
 ## productsテーブル
 |Column|Type|Options|
-|name|text|null: false|
+|name|string|null: false|
 |content|text|null: false|
 |condition|int|null: false|
-|status|text|null: false|
-|payment|text|null: false|
-|prefecture|text|null: false|
+|status|string|null: false|
+|payment|string|null: false|
+|prefecture|string|null: false|
 |delivery_date|int|null: false|
-|derivery_method|text|null: false|
+|derivery_method|string|null: false|
 |price|int|null: false|
 |user_id|int|null: false, foreign_key: true|
 
@@ -105,7 +105,7 @@ Things you may want to cover:
 
 ## blandsテーブル
 |Column|Type|Options|
-|name|text|null: false|
+|name|string|null: false|
 |product_id|int|null: false, foreign_key: true|
 
 
@@ -114,9 +114,9 @@ Things you may want to cover:
 
 ## categoriesテーブル
 |Column|Type|Options|
-|parent_category|text|null: false|
-|middle_category|text|null: false|
-|child_category|text|null: false|
+|parent_category|string|null: false|
+|middle_category|string|null: false|
+|child_category|string|null: false|
 |product_id|int|null: false, foreign_key: true|
 
 
