@@ -33,10 +33,10 @@ Things you may want to cover:
 |name|string|null: false|
 |name_zenkaku|string|null: false|
 |birthday|string|null: false|
-|phone-number|string|null: false|
+|phone_number|string|null: false|
 ### Association
 - has_one :credit_card
-- has_one :useradress
+- has_one :useraddress
 - has_many :products
 
 ## credit_cardsテーブル
@@ -60,9 +60,13 @@ Things you may want to cover:
 |building|text|null: false|
 |phone_number|int|null: false|
 |user_id|int|null: false, foreign_key: true|
+|prefecture_id|int|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
+- belongs_to_active_hash :prefecture
+
+
 
 
 
@@ -73,20 +77,21 @@ Things you may want to cover:
 |condition|int|null: false|
 |status|string|null: false|
 |payment|string|null: false|
-|prefecture|string|null: false|
 |delivery_date|int|null: false|
 |derivery_method|string|null: false|
 |price|int|null: false|
 |user_id|int|null: false, foreign_key: true|
-|bland_id|int|null: false, foreign_key: true|
+|brand_id|int|null: false, foreign_key: true|
 |category_id|int|null: false, foreign_key: true|
+|prefecture_id|int|null: false, foreign_key: true|
 
 
 ### Association
 - belongs_to :user
 - belongs_to :category
-- belongs_to :bland
+- belongs_to :brand
 - has_many :images
+- belongs_to_active_hash :prefecture
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -97,7 +102,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :product
 
-## blandsテーブル
+## brandsテーブル
 |Column|Type|Options|
 |name|string|null: false|
 
@@ -107,6 +112,7 @@ Things you may want to cover:
 ## categoriesテーブル
 |Column|Type|Options|
 |name|int|null: false|
+|ancestory|text|---|
 
 ### Association
 - has_many :products
