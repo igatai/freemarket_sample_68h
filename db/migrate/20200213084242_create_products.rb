@@ -8,6 +8,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :payment, null: false
       t.integer :delivery_date, null: false
       t.string :delivery_method, null: false
+      t.integer :price, null: false
 
       t.timestamps
     end
