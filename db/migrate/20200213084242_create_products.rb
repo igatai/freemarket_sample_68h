@@ -6,6 +6,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.integer :condition, null: false
       t.string :status, null: false
       t.string :payment, null: false
+      t.integer :delivery_date, null: false
 
       t.timestamps
     end
