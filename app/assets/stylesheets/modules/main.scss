@@ -40,9 +40,7 @@
         &__app {
           margin-right: 10px;
           img {
-            width: 180px;
-            height: 53px;
-            vertical-align: bottom;
+            @include img;
           }
           img:hover {
             opacity: 0.5;
@@ -51,9 +49,7 @@
         &__google {
           margin-right: 10px;
           img {
-            width: 180px;
-            height: 53px;
-            vertical-align: bottom;
+            @include img;
           }
           img:hover {
             opacity: 0.5;
@@ -73,14 +69,7 @@
       position: relative;
       text-align: center;
       &::after {
-        content: "";
-        width: 70px;
-        height: 4px;
-        background-color: #3CCACE;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        @include after;
       } 
     }
     &__lists {
@@ -109,7 +98,7 @@
             text-align: center;
             margin: 0 5px 0 0;
             padding: 10px 20px;
-            background-color: #3CCACE;
+            background-color: $aqua;
             color: #fff;
           }
           img {
@@ -123,7 +112,7 @@
           line-height: 50px;
           margin: 0 0 0 2px;
           span {
-            color: #3CCACE;
+            color: $aqua;
           }
         }
         &__subtext {
@@ -164,9 +153,7 @@
         &__app {
           margin-right: 10px;
           img {
-            width: 180px;
-            height: 53px;
-            vertical-align: bottom;
+            @include img;
           }
           img:hover {
             opacity: 0.5;
@@ -175,9 +162,7 @@
         &__google {
           margin-right: 10px;
           img {
-            width: 180px;
-            height: 53px;
-            vertical-align: bottom;
+            @include img;
           }
           img:hover {
             opacity: 0.5;
@@ -198,14 +183,7 @@
       padding-bottom: 15px;
       position: relative;
       &::after {
-        content: "";
-        width: 70px;
-        height: 4px;
-        background-color: #3CCACE;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        @include after;
       } 
     }
     &__styles {
@@ -259,7 +237,7 @@
         a {
           font-size: 24px;
           text-decoration: none;
-          color: #3CCACE;
+          color: $aqua;
           font-weight: bold;
           h3 {
             font-weight: bold;

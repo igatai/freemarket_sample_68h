@@ -1,0 +1,33 @@
+.header
+  .header__box
+    .header__box__main
+      %h1.icon
+        %a{:href => "/"}
+          %img{:src => "/images/logo.png"}/
+      .header-search
+        %form{"accept-charset" => "UTF-8", :action => "#", :method => "get",class:'form'}
+          %input{:name => "utf8", :type => "hidden", :value => "✓",class: 'form__input'}/
+          %input.header-search-input{:name => "key", :placeholder => "キーワードから探す"}/
+          %button{:type => "submit",class: 'submit'}
+            .header-search__icon
+              %img{:src => "/images/icon-search.png"}/
+          %input{:name => "authenticity_token", :type => "hidden", :value => "MFdLfFtvpzKoiFo/KJTV2jmpZZrNvP5fqDn7VRwM4P1+h07wG0uDUotK6nQvpYOdWB61GXFUiXDUDjSK/WIGZg=="}/
+      %ul.resultLists
+    .header-menu
+      %ul.header-menu__left
+        %li.header-menu__left__categories
+          %a#catBtn{:href => "#"} 
+            = "カテゴリー"
+          .header-menu__left__categories__tree
+            %ul.categoryTree
+        %li.header-menu__brand
+          %a#brandBtn{:href => "#"} 
+            = "ブランド"
+          %ul.brandsPulldown.displayNone
+      %ul.header-menu__right
+        %li.header-menu__right-login
+          %a{:href => "#"} 
+            = "ログイン"
+        %li.header-menu__right-new
+          %a{:href => "#"} 
+            = "新規会員登録"
