@@ -70,15 +70,15 @@
           a{
             color: black;
           }
-        }
-      }   
-          .header-menu__left__categories__tree{
+          &__tree {
             z-index: 2;
             position: absolute;
             background-color: #fff;
             width: 240px;
             top: 40px;
           }
+        }
+      }   
             .categoryTree{
               background-color: #fff;
               display: flex;
