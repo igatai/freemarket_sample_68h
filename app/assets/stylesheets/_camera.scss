@@ -1,0 +1,23 @@
+.camera {
+  background-color: #3ccace;
+  height: 120px;
+  width: 120px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 5px;
+  a {
+    text-decoration: none;
+  }
+  &_sell {
+    padding-top: 15px;
+    color: #fff;
+    text-align: center;
+  }
+  &_btn {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding-top: 5px;
+  }
+}
