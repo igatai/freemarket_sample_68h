@@ -26,6 +26,7 @@ Things you may want to cover:
 # freemarket_sample_68th DB設計
 ## usersテーブル
 |Column|Type|Options|
+|------|----|-------|
 |nickname|string|null: false|
 |mail|string|null: false|
 |password|string|null: false|
@@ -41,6 +42,7 @@ Things you may want to cover:
 
 ## credit_cardsテーブル
 |Column|Type|Options|
+|------|----|-------|
 |cardnumber|int|null: false|
 |month|int|null: false|
 |year|int|null: false|
@@ -53,6 +55,7 @@ Things you may want to cover:
 
 ## useraddressesテーブル
 |Column|Type|Options|
+|------|----|-------|
 |postal_code|int|null: false|
 |city|string|null: false|
 |address|text|null: false|
@@ -71,6 +74,7 @@ Things you may want to cover:
 
 ## productsテーブル
 |Column|Type|Options|
+|------|----|-------|
 |name|string|null: false|
 |content|text|null: false|
 |condition|int|null: false|
@@ -94,6 +98,7 @@ Things you may want to cover:
 
 ## imagesテーブル
 |Column|Type|Options|
+|------|----|-------|
 |image|text|null: false|
 |product_id|int|null: false, foreign_key: true|
 
@@ -103,6 +108,7 @@ Things you may want to cover:
 
 ## brandsテーブル
 |Column|Type|Options|
+|------|----|-------|
 |name|string|null: false|
 
 ### Association
@@ -110,6 +116,7 @@ Things you may want to cover:
 
 ## categoriesテーブル
 |Column|Type|Options|
+|------|----|-------|
 |name|int|null: false|
 |ancestory|text|---|
 
