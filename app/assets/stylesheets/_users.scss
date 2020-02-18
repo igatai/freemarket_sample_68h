@@ -1,0 +1,148 @@
+// 新規会員登録トップ
+.account_body {
+  background-color: rgb(245, 245, 245);
+  height: 100vh;
+  width: 100vw;
+  font-family: "Source Sans Pro", "Helvetica", "Arial", "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", "sans-serif";
+  .account_header {
+    height: 20%;
+    display: table;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_logo {
+    }
+    a {
+      margin: 0px 8px 0px 0px;
+    }
+  }
+  .account_main {
+    background-color: rgb(255, 255, 255);
+    height: 50%;
+    width: 700px;
+    margin: 0px auto;
+    position: relative;
+    &_top {
+      height: 10%;
+      max-height: 97px;
+      padding: 32px;
+      border-bottom: 1px solid rgb(245, 245, 245);
+      h1 {
+        font-size: 22px;
+        text-align: center;
+      } 
+    }
+    
+    &_bottom {
+      height: 70%;
+      color: rgb(51, 51, 51);
+      position: relative;
+      padding: 24px 0px;
+      &_bar {
+        height: 100%;
+        a {
+          text-decoration: none;
+        }
+        &_btn{
+          display: block;
+          height: 50px;
+          line-height: 50px;
+          width: 343px;
+          margin: 0 auto;
+          border-radius: 5px;
+          text-align: center;
+          &_mail {
+            background-color: #ea352d;
+            color: #fff;
+            position: relative;
+            .account_icon_mail {
+              top: 10px;
+              left: 15px;
+              position: absolute;
+              font-size: 30px;
+            }
+          }
+          &_facebook {
+            background-color: #385185;
+            color: #fff;
+            margin-top: 16px;
+            position: relative;
+            .account_icon_facebook {
+              position: absolute;
+              top: 10px;
+              left: 15px;
+              font-size: 30px;
+            }
+          }
+          &_google {
+            background-color: #ffffff;
+            color: #333;
+            margin-top: 16px;
+            position: relative;
+            border: 1px solid rgb(119, 119, 119);
+            .account_icon_google {
+              display: inline-block;
+              position: absolute;
+              top: 10px;
+              left: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .account_footer {
+    height: 500px;
+    width: 456px;
+    margin: 0 auto;
+    padding: 40px 0px;
+    vertical-align: bottom;
+    position: relative;
+    text-align: center;
+    &_container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 12px;
+      &_explanation {
+        margin: 0 auto;
+        display: flex;
+        padding-bottom: 20px;
+        a{
+          font-size: 12px;
+          color: #333;
+          text-decoration: none;
+          padding-right: 20px;
+        }
+      }
+      .logo_gray {
+        padding-top: 30px;
+      }
+    }
+  }
+}
+
+.camera {
+  background-color: #3ccace;
+  height: 120px;
+  width: 120px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 5px;
+  a {
+    text-decoration: none;
+  }
+  &_sell {
+    padding-top: 15px;
+    color: #fff;
+    text-align: center;
+  }
+  &_btn {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding-top: 5px;
+  }
+}
