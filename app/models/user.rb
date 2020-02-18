@@ -11,6 +11,6 @@ class User < ApplicationRecord
   validates :birthyear,             presence: true
   validates :birthmonth,            presence: true
   validates :birthday,              presence: true
-  validates :phone_number,          presence: true
+  # validates :phone_number,          presence: true
 
 end

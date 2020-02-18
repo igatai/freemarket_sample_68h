@@ -53,7 +53,11 @@
           %br/
         .field__box__right
           必須
-      = f.text_field :name_zenkaku, placeholder: "例) ヤマダ　アヤ", autofocus: true, autocomplete: "name_zenkaku", class: "field__input"
+      .field__bottom
+        .field__bottom__content
+          = f.text_field :family_name_zenkaku, placeholder: "例) ヤマダ", autofocus: true, autocomplete: "family_name_zenkaku", class: "field__input"
+        .field__bottom__content
+          = f.text_field :first_name_zenkaku, placeholder: "例) アヤ", autofocus: true, autocomplete: "first_name_zenkaku", class: "field__input"
     .field
       .field__box
         .field__box__left
@@ -62,16 +66,11 @@
           %br/
         .field__box__right
           必須
-      = f.text_field :name, placeholder: "例) 山田　綾", autofocus: true, autocomplete: "name", class: "field__input"
-    .field
-      .field__box
-        .field__box__left
-          年齢
-          - f.label :age
-          %br/
-        .field__box__right
-          必須
-      = f.text_field :age, placeholder: "例) 18", autofocus: true, autocomplete: "age", class: "field__input"
+      .field__bottom
+        .field__bottom__content
+          = f.text_field :family_name, placeholder: "例) 山田", autofocus: true, autocomplete: "family_name", class: "field__input"
+        .field__bottom__content
+          = f.text_field :first_name, placeholder: "例) 綾", autofocus: true, autocomplete: "first_name", class: "field__input"
     .field
       .field__box
         .field__box__left
@@ -95,4 +94,3 @@
           「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
     .actions
       = f.submit "次へ進む", class: "actions__input"
-  -# = render "devise/shared/links"

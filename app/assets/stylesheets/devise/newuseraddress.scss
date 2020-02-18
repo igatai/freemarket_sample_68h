@@ -1,0 +1,93 @@
+$red: #e62017;
+$gray: rgb(245, 245, 245);
+
+
+*{
+  margin: 0px;
+  padding: 0px;
+  }
+
+body{
+  background-color: $gray;
+ 
+  .box{
+    background-color: #fff;
+    width:700px;
+    height: 1400px;
+    margin:0 auto;
+
+    h2{
+      width:100%;
+      // height: 50px;
+      text-align: center;
+      padding:40px;
+      border-bottom: $gray solid 1px;
+    }
+    .new_user_address{
+      width:50%;
+      height: 100vh;
+      margin:0 auto;
+
+      .field{
+        margin-top:24px;
+        &__box{
+          display:flex;
+          align-items: center;
+          margin:10px;
+
+          &__left{
+            font-weight:bold;
+            font-size: 14px;
+            color: #333333;
+          }
+          &__right{
+            font-size:12px;
+            color:#fff;
+            background-color:$red;
+            margin-left:10px;
+            padding: 0 4px;
+            border-radius:2px;
+          }
+        }
+        &__input{
+          color:black;
+          background-color: #fff;
+          height:48px;
+          padding: 5px;
+          width:100%;
+          border:1px solid rgb(177, 177, 177);
+          border-radius: 4px;
+        }
+      }
+      .text{
+        margin-top:24px;
+        font-size:16px;
+        &__comment{
+          margin-top:5px;
+          font-size: 14px;
+          color:gray;
+        }
+        &__recomment{
+          color:black;
+          font-size:14px;
+          margin:14px;
+          text-align: center;
+
+        }
+      }
+      .actions{
+        margin-top:20px;
+        &__input{
+          color:black;
+          background-color: $red;
+          height:48px;
+          padding: 5px;
+          width:100%;
+          border:1px solid rgb(177, 177, 177);
+          border-radius: 4px;
+          color:#fff;
+        }
+      }
+    }
+  }
+}
