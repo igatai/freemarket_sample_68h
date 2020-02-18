@@ -41,7 +41,7 @@ Things you may want to cover:
 |phone_number|string|null: false|
 ### Association
 - has_one :credit_card
-- has_one :useraddress
+- has_one :address
 - has_many :products
 
 ## credit_cardsテーブル
@@ -57,7 +57,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## useraddressesテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|int|null: false|
