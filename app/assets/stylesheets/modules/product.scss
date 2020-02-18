@@ -212,8 +212,7 @@ html,body {
       color: #0099e8;
       font-weight: bold;
     }
-
-    .product_of_user__contents{
+    &__contents{
       width: 700px;
       display: flex;
       flex-wrap: wrap;
@@ -262,7 +261,7 @@ html,body {
       color: #0099e8;
       font-weight: bold;
     }
-    .products_of_category__contents{
+    &__contents{
       width: 700px;
       display: flex;
       flex-wrap: wrap;
