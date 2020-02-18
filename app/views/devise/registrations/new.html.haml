@@ -1,0 +1,98 @@
+.box
+  %h2 会員情報入力
+  = form_for(@user, url: user_registration_path) do |f|
+    = render "devise/shared/error_messages", resource: @user
+    .field
+      .field__box
+        .field__box__left
+          ニックネーム
+          - f.label :nickname
+          %br/
+        .field__box__right
+          必須
+      = f.text_field :nickname, placeholder: "例) メルカリ太郎", autofocus: true, autocomplete: "nickname", class: "field__input"
+    .field
+      .field__box
+        .field__box__left
+          メールアドレス
+          - f.label :email
+          %br/
+        .field__box__right
+          必須
+      = f.email_field :email, placeholder: "PC・携帯　どちらでも可", autofocus: true, autocomplete: "email", class: "field__input"
+    .field
+      .field__box
+        .field__box__left
+          パスワード
+          - f.label :password
+          - if @minimum_password_length
+            %em
+          -# (#{@minimum_password_length} characters minimum)
+          %br/
+        .field__box__right
+          必須
+      = f.password_field :password, placeholder: "７文字以上の半角英数字", autocomplete: "new-password", class: "field__input"
+    .field
+      .field__box
+        .field__box__left
+          パスワード(確認用)
+          - f.label :password_confirmation
+          %br/
+        .field__box__right
+          必須
+      = f.password_field :password_confirmation, placeholder: "７文字以上の半角英数字", autocomplete: "new-password", class: "field__input"
+    .text
+      本人確認
+      .text__comment
+        安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+    .field
+      .field__box
+        .field__box__left
+          お名前(全角)
+          - f.label :name_zenkaku
+          %br/
+        .field__box__right
+          必須
+      = f.text_field :name_zenkaku, placeholder: "例) ヤマダ　アヤ", autofocus: true, autocomplete: "name_zenkaku", class: "field__input"
+    .field
+      .field__box
+        .field__box__left
+          お名前(カナ)
+          - f.label :name
+          %br/
+        .field__box__right
+          必須
+      = f.text_field :name, placeholder: "例) 山田　綾", autofocus: true, autocomplete: "name", class: "field__input"
+    .field
+      .field__box
+        .field__box__left
+          年齢
+          - f.label :age
+          %br/
+        .field__box__right
+          必須
+      = f.text_field :age, placeholder: "例) 18", autofocus: true, autocomplete: "age", class: "field__input"
+    .field
+      .field__box
+        .field__box__left
+          誕生日
+          - f.label :birthday
+          %br/
+        .field__box__right
+          必須
+      .field__birthday
+        = f.text_field :birthyear, autofocus: true, autocomplete: "birthyear", class: "field__birth"
+        年
+        = f.text_field :birthmonth, autofocus: true, autocomplete: "birthmonth", class: "field__birth"
+        月
+        = f.text_field :birthday, autofocus: true, autocomplete: "birthday", class: "field__birth"
+        日
+      -# != sprintf(f.date_select(:birthday, prefix:'birthday',prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+      .text
+        .text__comment
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .text__recomment
+          「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+    .actions
+      = f.submit "次へ進む", class: "actions__input"
+  -# = render "devise/shared/links"
