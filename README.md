@@ -31,8 +31,12 @@ Things you may want to cover:
 |mail|string|null: false|
 |password|string|null: false|
 |confirm_password|string|null: false|
-|name|string|null: false|
-|name_zenkaku|string|null: false|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_zenkaku|string|null: false|
+|first_name_zenkaku|string|null: false|
+|birthyear|string|null: false|
+|birthmonth|string|null: false|
 |birthday|string|null: false|
 |phone_number|string|null: false|
 ### Association
