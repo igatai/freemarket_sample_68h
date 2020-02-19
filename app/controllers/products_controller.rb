@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
 
   end
 
+  def new
+
+  end
+
   def show
 
   end
