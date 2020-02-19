@@ -77,3 +77,4 @@ gem 'fog-aws'
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 gem "pry-rails"
 gem 'font-awesome-sass'
+gem 'ancestry'
