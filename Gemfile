@@ -76,3 +76,4 @@ gem 'mini_magick'
 gem 'fog-aws' 
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 gem "font-awesome-sass"
+gem "pry-rails"
