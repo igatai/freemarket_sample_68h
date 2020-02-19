@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  has_one :address
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,5 +14,7 @@ class User < ApplicationRecord
   validates :birthyear,             presence: true
   validates :birthmonth,            presence: true
   validates :birthday,              presence: true
+
+
 
 end

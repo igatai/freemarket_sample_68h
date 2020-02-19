@@ -1,17 +1,32 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.account_body
+  = render 'shared/header' 
+  -# ヘッダー部分テンプレート
+  .account_main
+    .account_main_top
+      %p アカウントをお持ちでない方はこちらから
+      .account_main_top_new
+        = link_to "新規会員登録", new_user_registration_path 
+    .account_main_middle
+      = link_to "https://www.facebook.com/", class: "account_main_middle_bar_btn account_main_middle_bar_btn_facebook" do
+        = icon('fab', 'facebook-square',  class: "account_icon_facebook")
+        Facebookでログインする
+      = link_to "https://www.google.com/", class: "account_main_middle_bar_btn account_main_middle_bar_btn_google" do
+        = image_tag "google_logo.png", size: "25x25", class: "account_icon_google"
+        Googleでログインする
+    .account_main_bottom
+      .account_main_bottom_bar
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .account_main_bottom_bar_mail
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+          .account_main_bottom_bar_password
+            = f.password_field :password, autocomplete: "current-password"
+          .account_main_bottom_bar_robot
+            = image_tag "robot.png", size: "300x75"
+          .account_main_bottom_bar_login
+            = f.submit "ログイン", class: "account_main_bottom_bar_login_btn"
+            
+         
+            -# = render "devise/shared/links"
+            
+  = render "shared/footer"
+  
