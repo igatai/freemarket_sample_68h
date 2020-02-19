@@ -1,0 +1,18 @@
+.main__pickup__box__items__item
+  %a{:href => "#"}
+    %figure.main__pickup__box__items__item__img
+      - @product.each do |product|
+        = product.images
+      -# %img{src: "/images/icon-04.png"}
+  .main__pickup__box__items__item__content
+    %h3.main__pickup__box__items__item__content__name
+      = product.name
+    .main__pickup__box__items__item__content__detail
+      %ul
+        %li
+          = product.price
+        %li
+          = icon("fas","star")
+          = "0"
+      %p
+        = "(税込)"
