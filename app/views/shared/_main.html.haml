@@ -105,51 +105,5 @@
           %h3.main__pickup__box__subtitleline__subtitle
             = "アーカイブ"
       .main__pickup__box__items
-        .main__pickup__box__items__item
-          %a{:href => "#"}
-            %figure.main__pickup__box__items__item__img
-              %img{src: "/images/icon-04.png"}
-            .main__pickup__box__items__item__content
-              %h3.main__pickup__box__items__item__content__name
-                = "product"
-              .main__pickup__box__items__item__content__detail
-                %ul
-                  %li
-                    = "30000円"
-                  %li
-                    = icon("fas","star")
-                    = "0"
-                %p
-                  (税込)
-        .main__pickup__box__items__item
-          %a{:href => "#"}
-            %figure.main__pickup__box__items__item__img
-              %img{src: "/images/icon-04.png"}
-            .main__pickup__box__items__item__content
-              %h3.main__pickup__box__items__item__content__name
-                = "product"
-              .main__pickup__box__items__item__content__detail
-                %ul
-                  %li
-                    = "30000円"
-                  %li
-                    = icon("fas","star")
-                    = "0"
-                %p
-                  (税込)
-        .main__pickup__box__items__item
-          %a{:href => "#"}
-            %figure.main__pickup__box__items__item__img
-              %img{src: "/images/icon-04.png"}
-            .main__pickup__box__items__item__content
-              %h3.main__pickup__box__items__item__content__name
-                = "product"
-              .main__pickup__box__items__item__content__detail
-                %ul
-                  %li
-                    = "30000円"
-                  %li
-                    = icon("fas","star")
-                    = "0"
-                %p
-                  (税込)
+        = render @brand
+        
