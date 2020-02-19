@@ -1,0 +1,51 @@
+.account_body
+  %main.purchase-main
+    %section.purchase-mainbox
+      %h2.purchase-head.title-head 購入内容の確認
+      %section.purchase-content.purchase-item
+        .purchase-content-inner
+          .purchase-item-box
+            %h3.purchase-item-image
+              %img.purchase-item-image__img{alt: "", "data-src" => "https://static.mercdn.net/thumb/photos/m88831516255_1.jpg?1581176568", :src => "https://static.mercdn.net/thumb/photos/m88831516255_1.jpg?1581176568"}/
+            .purchase-item-detail
+              %p.purchase-item-detail__name グレイル　ボアブルゾン
+              %p.purchase-price
+                %span ¥3,200
+                %span.purchase-price__fee （税込）送料込み
+      %section.purchase-content.purchase-item
+        .purchase-content-inner
+          %form.purchase-form{action: ""}
+            %ul.purchase-price-data
+              %li.purchase-price-row.purchase-you-pay.bold
+                .purchase-price-cell.purchase-price-cell-label 支払い金額
+                .purchase-price-cell
+                  %span{"data-purchase-pay" => "3200"} ¥3,200
+            %ul.purchase-accordion
+              %li.accordion-parent
+                .purchase-use-poin
+                  %input{type: "checkbox", value: "1"}/
+                  %i.icon-check
+                  %label{for: "status_all"} ポイントを使用 (所持ポイント: P300)
+            %section.purchase-content.purchase-user-info{"data-buy" => "pay-method"}
+              .purchase-content-inner
+                %h3 支払い方法
+                %a{href: ""}
+                  %p.purchase-user-info-text
+                    %i.icon-plus-circle
+                      = icon('fas','plus-circle',class:'icon')
+                    = link_to "#", class: "purchase-register-text" do
+                      登録してください
+
+            %section.purchase-content.purchase-user-info
+              .purchase-content-inner
+                %h3 配送先
+                %a{href: ""}
+                  %p.purchase-user-info-text
+                    %i.icon-plus-circle
+                      = icon('fas','plus-circle',class:'icon')
+                    = link_to "#", class: "purchase-register-text" do
+                      登録してください
+            %section.purchase-content.purchase-user-info
+              %button.btn-default.btn-red.bold{disabled: "disabled", type: "submit"} 購入する
+              %input#user_info_is_not_complete{type: "hidden"}/
+        %section
