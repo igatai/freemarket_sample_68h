@@ -5,19 +5,19 @@
   margin: 0px auto;
   position: relative;
   &_top {
-    height: 10%;
+    height: 50%;
     max-height: 97px;
     padding: 8px 24px 0 24px;
     border-bottom: 1px solid rgb(245, 245, 245);
     h1 {
-      font-size: 18px;
+      font-size: 24px;
       text-align: center;
       font-weight: bold;
     }
   }
   &_content {
     width: 60%;
-    height: 87%;
+    height: 400px;
     margin: 0 auto;
     padding: 0 0 0 8%;
     &_formbox {
