@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :create]
   resources :registration, only: [:index, :new, :create]
 
+  resources :useraddress, only: [:index]
+  resources :purchase, only: :new
+  resources :credit, only: :new
+  resources :useraddress, only: :new
 end
