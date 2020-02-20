@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', ()=> {
 
   $('.hidden-destroy').hide();
 
-  $('.contents__image__box__area').on('change', '.js-file', function(e) {
+  $('.contents__image__box__area__previews').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
@@ -29,18 +29,18 @@ $(document).on('turbolinks:load', ()=> {
       img.setAttribute('src', blobUrl);
     } else {
       $('.contents__image__box__area__previews').append(buildImg(targetIndex, blobUrl));
-      $('.contents__image__box__area').append(buildFileField(fileIndex[0]));
+      $('.contents__image__box__area__previews').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
 
-  $('.contents__image__box__area').on('click', '.js-remove', function() {
+  $('.contents__image__box__area__previews').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index')
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
-    if ($('.js-file').length == 0) $('.contents__image__box__area').append(buildFileField(fileIndex[0]));
+    if ($('.js-file').length == 0) $('.contents__image__box__area__previews').append(buildFileField(fileIndex[0]));
   });
 });
