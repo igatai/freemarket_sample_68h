@@ -75,6 +75,11 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws' 
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
+
+
+gem 'devise'
+gem 'active_hash'
+
 gem "pry-rails"
 gem 'font-awesome-sass'
 gem 'ancestry'
