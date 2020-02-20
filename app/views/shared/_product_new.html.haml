@@ -13,8 +13,12 @@
               必須
           %p 最大10枚までアップロードできます
           .contents__image__box__area
+            %label.contents__image__box__area__drop
+              =f.file_field :image
+              ドラッグ&ドロップ
+              %br
+              またはクリックしてファイルをアップロード
             .contents__image__box__area__mask
-              drag&dropをJSで入れる
       
       .contents__product
         .contents__product__area 
