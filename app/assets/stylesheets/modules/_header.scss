@@ -3,6 +3,7 @@
 }
 .header{
   padding: 0 60px;
+  max-height: 97px;
   &__box{
     max-width: 1040px;
     width: 100%;
@@ -64,6 +65,7 @@
       &__left{
         position: relative;
         display: flex;
+        z-index: 1;
         &__categories{
           text-decoration: none;
           padding: 0;
@@ -85,14 +87,61 @@
               flex-direction: column;
               position: relative;
             }
+
         .header-menu__brand{
-          display: flex;
+          display: block;
           line-height: 38px;
           padding: 0 0 0 16px;
-        }
-          a{
-            color: black;
+          &__box{
+            a:hover{
+              background-color: #fff;
+              &__list{
+                display: none;
+                background-color: #fff;
+                // visibility: hidden;
+              }
+            }
           }
+        }
+        ul {
+          ul {
+            display: none;
+          }
+        
+          li:hover > ul {
+            display: block;
+          }
+        }
+            // ul:hover{
+            //   display: block;
+            // }
+            
+            a{
+              display: block;
+              color: black;
+              &:hover{
+                background-color: white;
+              }
+            }
+          
+        
+          // a{
+          //   color: black;
+          // }
+          // %ul.brandsPulldown{
+          //   display: none;
+          //   visibility: hidden;
+          //   display: block;
+          //   %li.a{
+          //     display: block;
+          //   }
+          // }
+          // .brandsPulldown:hover {
+          //   opacity: 0.5;
+          //   filter: alpha(opacity=50);
+          //   zoom: 1;
+          // }
+
       .header-menu__right{
         margin-left: auto;
         display: flex;
