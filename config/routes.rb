@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :create]
   resources :registration, only: [:index, :new, :create]
 
+  resources :products, only: [:index, :new, :create]
   resources :useraddress, only: [:index]
   resources :purchase, only: :new
   resources :credit, only: :new

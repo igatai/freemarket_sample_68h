@@ -10,8 +10,13 @@
 @import "devise/new";
 @import "devise/newaddress";
 @import "devise/login";
+
+@import "form_input_address";
+
 @import "users";
 @import "useraddress";
+
 @import "modules/credit";
 @import "modules/account_header";
 @import "modules/account_footer";
+@import "products_new";
