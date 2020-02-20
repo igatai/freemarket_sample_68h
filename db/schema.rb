@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_02_19_101031) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "prefecture"
     t.integer "zipcode"
     t.text "city"
     t.text "address"
@@ -59,9 +60,9 @@ ActiveRecord::Schema.define(version: 2020_02_19_101031) do
     t.integer "user_id", null: false
     t.integer "brand_id", null: false
     t.integer "category_id", null: false
+    t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "prefecture_id", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -75,9 +76,9 @@ ActiveRecord::Schema.define(version: 2020_02_19_101031) do
     t.string "first_name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "remember_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
