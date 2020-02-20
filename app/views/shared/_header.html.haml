@@ -25,9 +25,12 @@
             = "ブランド"
           %ul.brandsPulldown.displayNone
       %ul.header-menu__right
-        %li.header-menu__right-login
-          %a{:href => "#"} 
-            = "ログイン"
-        %li.header-menu__right-new
-          %a{:href => "#"} 
-            = "新規会員登録"
+        - if user_signed_in?
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %li.header-menu__right-login
+            = link_to "ログイン", new_user_session_path
+          %li.header-menu__right-new
+            = link_to "新規登録", new_user_registration_path
+
+
