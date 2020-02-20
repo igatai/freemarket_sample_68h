@@ -1,6 +1,15 @@
 .mypage__body
   .mypage__header
     = render "shared/header"
+
+  %nav
+    %ul
+      %li
+        = link_to "#" do
+          メルカリ
+          %i.fas.fa-chevron-right
+      %li
+        %p マイページ
   .mypage__main
   .mypage__footer
     = render "shared/footer"
