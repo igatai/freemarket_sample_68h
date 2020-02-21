@@ -47,6 +47,50 @@ $gray: rgb(245, 245, 245);
       background-color:#fff;
       border-bottom: 1px solid $gray ;
       &__box{
+        &__area{
+          display: flex;
+          position: relative;          
+          &__preview{
+            display:flex;
+            &__box{
+              background-color:(245, 245, 245);
+              width: 118px;
+              height: 151px;
+              position: relative;
+              align-items: center;
+              margin-left: 5px; 
+              &__thumb{
+                width: 118px;
+                height: 118px;
+                display: block;
+              }
+              .js-remove{
+                width:50px;
+                color:skyblue;
+                display: block;
+                height: 25px;
+                position: absolute;
+                top: 120px;
+                line-height: 25px;
+                font-size: 15px;
+                text-align:center;
+                border:1px solid gray;
+                margin-left: 34px;
+                }
+                // .js-remove{
+                //   height: 30px;
+                //   font-size:14px;
+                //   border:1px solid black;
+                //}
+            }
+          }
+          .js-file_group{
+            width:100%;
+            .js-file{
+              // display: none;
+            }
+          }
+        }
         
         &__comment{
           display:flex;
@@ -71,23 +115,12 @@ $gray: rgb(245, 245, 245);
           margin:16px 0;
         }
         &__area{
-          position: relative;
           width:100%;
           height:150px;
           background-color: $gray;
           align-items: center;
           line-height: 150px;
           margin: -8px, -4px, 0px;
-          &__drop{
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            font-size: 12px;
-            input{
-              display:none;
-
-            }
-          }
         }
       }
     }

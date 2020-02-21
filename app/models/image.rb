@@ -1,4 +1,4 @@
 class Image < ApplicationRecord
-  has_many :images
-  accepts_nested_attributes_for :images, allow_destroy: true
+  mount_uploader :src, ImageUploader
+  belongs_to :product
 end

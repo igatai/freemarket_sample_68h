@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: [:index, :new, :create]
+  # before_action :set_product, except: [:index, :new, :create]
 
   def index
     @product = Product.where(brand_id: "1").first(3)

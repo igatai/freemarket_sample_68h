@@ -12,26 +12,22 @@
             .contents__image__box__comment__caution
               必須
           %p 最大10枚までアップロードできます
-          .contents__image__box__area
-            .contents__image__box__area__drop
-            .contents__image__box__area__previews
-              - if @product.persisted?
-                - @product.image.each_with_index do |image, i|
-                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
-            = f.fields_for :images do |image|
-              .js-file_group{"data-index" => "#{image.index}"}
-                = image.file_field :image, class: 'js-file'
-                %br/
-                %span.js-remove 削除
-              - if @product.persisted?
-                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+        .contents__image__box__area
+          .contents__image__box__area__preview
             - if @product.persisted?
-              .js-file_group{"data-index" => "#{@product.images.count}"}
-                = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
-                .js-remove 削除
-
-            .contents__image__box__area__mask
-      
+              - @product.image.each_with_index do |image, i|
+                = image_tag image.src.url, data: { index: i }, class: "preview-box__thumb", width: "118", height: '118'
+          = f.fields_for :images do |image|
+            %label.js-file_group{"data-index" => "#{image.index}"}
+              = image.file_field :image, class: 'js-file'
+            - if @product.persisted?
+              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+          - if @product.persisted?
+            .js-file_group{"data-index" => "#{@product.images.count}"}
+              = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'js-file'
+              .js-remove 削除
+          .contents__image__box__area__mask
+    
       .contents__product
         .contents__product__area 
           .contents__product__area__name
@@ -54,7 +50,6 @@
             -# = f.text_area :content, rows: 7,class: 'contents__product__area__title', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
         -# .contents__product__counter
         -#   JS実装します..
-
       .contents__detail
         .contents__detail__box
           .contents__detail__box__text
