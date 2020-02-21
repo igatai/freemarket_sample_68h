@@ -3,7 +3,7 @@
     .header__box__main
       %h1.icon
         %a{:href => "/"}
-          %img{:src => "/images/logo.png"}/
+          %img{:src => "/images/logo.png"}
       .header-search
         %form{"accept-charset" => "UTF-8", :action => "#", :method => "get",class:'form'}
           %input{:name => "utf8", :type => "hidden", :value => "✓",class: 'form__input'}/
@@ -18,12 +18,44 @@
         %li.header-menu__left__categories
           %a#catBtn{:href => "#"} 
             = "カテゴリー"
-          .header-menu__left__categories__tree
+          %ul.header-menu__left__categories__tree
+            %li.header-menu__left__categories__tree
+              %li
+                %a{:href => "#"}
+                  - @parents.each do |parent|
+                    = render partial: 'shared/header_parent', locals: { parent: parent }
+            %div.header-menu__left__categories__tree__child
+              %li
+                %a{:href => "#"}
+                - @parents.each do |parent|
+                  - parent.children.each do |child|
+                    = render partial: 'shared/header_child', locals: { child: child }
+            %div.header-menu__left__categories__tree__grandchild
+              %li
+                %a{:href => "#"}
+                - @parents.each do |parent|
+                  - parent.children.each do |child|
+                    - child.children.each do |grandchild|
+                      = render partial: 'shared/header_grandchild', locals: { grandchild: grandchild }
+
             %ul.categoryTree
+
         %li.header-menu__brand
-          %a#brandBtn{:href => "#"} 
-            = "ブランド"
-          %ul.brandsPulldown.displayNone
+          %li.header-menu__brand__box
+            %a{:href => "#"} ブランド
+            %ul.header-menu__brand__box__list
+              %li
+                %a{:href => "#"} シャネル
+              %li
+                %a{:href => "#"} ナイキ
+              %li
+                %a{:href => "#"} ルイヴィトン
+              %li
+                %a{:href => "#"} シュプリーム
+              %li
+                %a{:href => "#"} アディダス
+              %li
+                %a{:href => "#"} ブランド一覧
       %ul.header-menu__right
         - if user_signed_in?
           = link_to "ログアウト", destroy_user_session_path, method: :delete

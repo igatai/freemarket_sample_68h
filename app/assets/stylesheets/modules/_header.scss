@@ -2,7 +2,9 @@
   box-sizing: border-box;
 }
 .header{
+  background-color: #fff;
   padding: 0 60px;
+  max-height: 97px;
   &__box{
     max-width: 1040px;
     width: 100%;
@@ -45,6 +47,7 @@
           width: calc(100% - 26px);
           height: 36px;
           padding: 0 0 0 5px;
+          border: 1px solid rgb(230, 229, 229);
         }
         .submit{
           width: 36px;
@@ -61,21 +64,54 @@
       font-size: 14px;
       display: flex;
       margin-bottom: 10px;
+      overflow: hidden;
       &__left{
         position: relative;
         display: flex;
+        z-index: 1;
+        height: 450px;
+        width: 400px;
         &__categories{
+          width: 70px;
+          height: 400px;
           text-decoration: none;
           padding: 0;
+          position: relative;
+          &:hover > li {
+            display: block;
+            background-color: #fff;
+          }
           a{
             color: black;
+            &:hover {
+              color: blue;
+            }
           }
           &__tree {
             z-index: 2;
             position: absolute;
             background-color: #fff;
             width: 240px;
-            top: 40px;
+            display: none;
+            &:hover > li {
+              display: block;
+              background-color: #fff;
+            }
+            &__child {
+              position: absolute;
+            background-color: #fff;
+            top: 0px;
+            left: 240px;
+            width: 240px;
+            top: 0;
+            }
+            &__grandchild {
+              position: absolute;
+              top: 0px;
+              left: 480px;
+              width: 240px;
+              background-color: #fff;
+            }
           }
         }
       }   
@@ -85,14 +121,49 @@
               flex-direction: column;
               position: relative;
             }
+
         .header-menu__brand{
-          display: flex;
+          display: block;
           line-height: 38px;
           padding: 0 0 0 16px;
-        }
-          a{
-            color: black;
+          &__box{
+            a:hover{
+              background-color: #fff;
+              &__list{
+                display: none;
+                background-color: #fff;
+                // visibility: hidden;
+              }
+            }
           }
+          ul {
+            ul {
+              display: none;
+            }
+          
+            li:hover > ul {
+              display: block;
+            }
+          }
+        }
+        ul {
+          ul {
+            display: none;
+          }
+        
+          li:hover > ul {
+            display: block;
+          }
+        }
+            
+            a{
+              display: block;
+              color: black;
+              &:hover{
+                background-color: white;
+              }
+            }
+          
       .header-menu__right{
         margin-left: auto;
         display: flex;

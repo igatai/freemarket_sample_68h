@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   root 'products#index'
 
-  resources :users, only: [:index, :new, :create]
+  resources :users, only: [:index, :new, :create, :show]
   resources :registration, only: [:index, :new, :create]
 
   resources :products, only: [:index, :new, :create]
