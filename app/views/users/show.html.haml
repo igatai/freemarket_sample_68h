@@ -216,9 +216,8 @@
                 電話番号の確認
               %i.fas.fa-chevron-right
           %li 
-            = link_to root_path, class:"mypage_information" do
-              %h3
-                ログアウト
+            = link_to destroy_user_session_path, method: :delete do
+              %h3 ログアウト
               %i.fas.fa-chevron-right
 
   .mypage__footer

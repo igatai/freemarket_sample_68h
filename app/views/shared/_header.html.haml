@@ -39,6 +39,8 @@
                 %a{:href => "#"} ブランド一覧
       %ul.header-menu__right
         - if user_signed_in?
+          = link_to "/users/#{current_user.id}" do
+            マイページ 
           = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           %li.header-menu__right-login
