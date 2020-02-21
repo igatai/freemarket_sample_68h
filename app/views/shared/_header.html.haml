@@ -20,10 +20,23 @@
             = "カテゴリー"
           .header-menu__left__categories__tree
             %ul.categoryTree
+
         %li.header-menu__brand
-          %a#brandBtn{:href => "#"} 
-            = "ブランド"
-          %ul.brandsPulldown.displayNone
+          %li.header-menu__brand__box
+            %a{:href => "#"} ブランド
+            %ul.header-menu__brand__box__list
+              %li
+                %a{:href => "#"} シャネル
+              %li
+                %a{:href => "#"} ナイキ
+              %li
+                %a{:href => "#"} ルイヴィトン
+              %li
+                %a{:href => "#"} シュプリーム
+              %li
+                %a{:href => "#"} アディダス
+              %li
+                %a{:href => "#"} ブランド一覧
       %ul.header-menu__right
         - if user_signed_in?
           = link_to "ログアウト", destroy_user_session_path, method: :delete
