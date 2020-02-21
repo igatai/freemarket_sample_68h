@@ -24,13 +24,13 @@
                 %a{:href => "#"}
                   - @parents.each do |parent|
                     = render partial: 'shared/header_parent', locals: { parent: parent }
-            %li.header-menu__left__categories__tree__child
+            %div.header-menu__left__categories__tree__child
               %li
                 %a{:href => "#"}
                 - @parents.each do |parent|
                   - parent.children.each do |child|
                     = render partial: 'shared/header_child', locals: { child: child }
-            %li.header-menu__left__categories__tree__grandchild
+            %div.header-menu__left__categories__tree__grandchild
               %li
                 %a{:href => "#"}
                 - @parents.each do |parent|
