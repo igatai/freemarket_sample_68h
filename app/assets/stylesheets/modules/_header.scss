@@ -64,22 +64,54 @@
       font-size: 14px;
       display: flex;
       margin-bottom: 10px;
+      overflow: hidden;
       &__left{
         position: relative;
         display: flex;
         z-index: 1;
+        height: 450px;
+        width: 400px;
         &__categories{
+          width: 70px;
+          height: 400px;
           text-decoration: none;
           padding: 0;
+          position: relative;
+          &:hover > li {
+            display: block;
+            background-color: #fff;
+          }
           a{
             color: black;
+            &:hover {
+              color: blue;
+            }
           }
           &__tree {
             z-index: 2;
             position: absolute;
             background-color: #fff;
             width: 240px;
-            top: 40px;
+            display: none;
+            &:hover > li {
+              display: block;
+              background-color: #fff;
+            }
+            &__child {
+              position: absolute;
+            background-color: #fff;
+            top: 0px;
+            left: 240px;
+            width: 240px;
+            top: 0;
+            }
+            &__grandchild {
+              position: absolute;
+              top: 0px;
+              left: 480px;
+              width: 240px;
+              background-color: #fff;
+            }
           }
         }
       }   
@@ -104,6 +136,15 @@
               }
             }
           }
+          ul {
+            ul {
+              display: none;
+            }
+          
+            li:hover > ul {
+              display: block;
+            }
+          }
         }
         ul {
           ul {
@@ -114,9 +155,6 @@
             display: block;
           }
         }
-            // ul:hover{
-            //   display: block;
-            // }
             
             a{
               display: block;
@@ -126,24 +164,6 @@
               }
             }
           
-        
-          // a{
-          //   color: black;
-          // }
-          // %ul.brandsPulldown{
-          //   display: none;
-          //   visibility: hidden;
-          //   display: block;
-          //   %li.a{
-          //     display: block;
-          //   }
-          // }
-          // .brandsPulldown:hover {
-          //   opacity: 0.5;
-          //   filter: alpha(opacity=50);
-          //   zoom: 1;
-          // }
-
       .header-menu__right{
         margin-left: auto;
         display: flex;

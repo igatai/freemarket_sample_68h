@@ -18,7 +18,26 @@
         %li.header-menu__left__categories
           %a#catBtn{:href => "#"} 
             = "カテゴリー"
-          .header-menu__left__categories__tree
+          %ul.header-menu__left__categories__tree
+            %li.header-menu__left__categories__tree
+              %li
+                %a{:href => "#"}
+                  - @parents.each do |parent|
+                    = render partial: 'shared/header_parent', locals: { parent: parent }
+            %div.header-menu__left__categories__tree__child
+              %li
+                %a{:href => "#"}
+                - @parents.each do |parent|
+                  - parent.children.each do |child|
+                    = render partial: 'shared/header_child', locals: { child: child }
+            %div.header-menu__left__categories__tree__grandchild
+              %li
+                %a{:href => "#"}
+                - @parents.each do |parent|
+                  - parent.children.each do |child|
+                    - child.children.each do |grandchild|
+                      = render partial: 'shared/header_grandchild', locals: { grandchild: grandchild }
+
             %ul.categoryTree
 
         %li.header-menu__brand
