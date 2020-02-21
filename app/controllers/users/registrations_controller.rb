@@ -50,7 +50,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:address).permit(:prefecture_id, :zipcode, :city, :address, :building, :phone_number )
+    params.require(:address).permit(:prefecture_id, :zipcode, :city, :address, :building, :phone_number ).merge(user_id: current_user.id)
   end
 
 end
