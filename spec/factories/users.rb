@@ -13,4 +13,4 @@ FactoryBot.define do
     password                {"testtest"}
   end
 
-    end
+end
