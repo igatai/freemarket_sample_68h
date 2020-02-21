@@ -22,16 +22,16 @@
       }
     }
   }
+  li{
+    display: list-item;
+    a{
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 32px;
+    }
+  }
 } 
-      li{
-        display: list-item;
-        a{
-          color: #fff;
-          text-decoration: none;
-          font-size: 12px;
-          line-height: 32px;
-        }
-      }
   .footer__logo{
     max-width: 160px;
     width: 100%;

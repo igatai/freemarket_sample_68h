@@ -9,29 +9,6 @@
   background-color: rgb(245, 245, 245);
 }
 
-/*****HEADER*****/
-.mypage__header{
-  background-color: #fff;
-  height: 100px;
-  width:100%;
-  overflow: hidden;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &_sentence {
-  }
-}
-
-
-// .mypage__header{
-//   display: block;
-//   width:60%;
-//   margin-left: 20%;
-//   overflow: hidden;
-//   text-align: center;
-// }
-
 /*****NAV*****/
 nav{
   height: 49px;
@@ -51,6 +28,7 @@ nav ul{
   li {
     line-height: 16px;
     a {
+      color: black;
       text-decoration: none;
     }
     a:hover {
@@ -62,7 +40,6 @@ nav ul{
     p {
       font-weight: bold;
     }
-
   }
 }
 
@@ -269,7 +246,7 @@ nav ul{
     }
     &__middle {
       h5 {
-        background-color: rgb(254, 254, 254);
+        background-color: rgb(245, 245, 245);
         font-weight: bold;
         padding-top: 40px;
         font-size: 16px;
