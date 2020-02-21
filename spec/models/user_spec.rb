@@ -72,7 +72,9 @@ require 'rails_helper'
 
       #11 birthyearが4桁の数字であること
       it "is valid with a birthyear that is 4 characters" do
-        user = build(:user, birthyear: user.birthyear)
+        # binding.pry
+        # user = create(:user)
+        user = build(:user, birthyear: "1111")
         # user.valid?
         expect(user).to be_valid
       end
@@ -80,45 +82,51 @@ require 'rails_helper'
 
       #12 birthdayが2桁以下の数字であることuser
       it "is valid with a birthday that is less than 2 characters " do
-        user = build(:user, birthmonth: user.birthday)
-        user.valid?
+        # user = create(:user)
+        user = build(:user, birthmonth: "00")
+        # user.valid?
         expect(user).to be_valid
       end
 
       #16 birthdayが3桁の数字の場合不可
       it "isnt valid with a birthyear that is less htan 3 characters " do
+        user = create(:user)
         user = build(:user, birthday: "000")
         user.valid?
-        expect(user.errors[:birthday]).to include("is not day")
+        expect(user.errors[:birthday])
       end
 
       #17 family_nameが漢字以外の場合不可
       it 'family_name must be kanji' do
+        user = create(:user)
         user = build(:user, family_name: "kanji")
         user.valid?
-        expect(user.errors[:family_name]).to include("is not kanji")
+        expect(user.errors[:family_name])
       end
 
       #19 first_nameが漢字以外の場合不可
       it 'family_name must be kanji' do
+        user = create(:user)
         user = build(:user, first_name: "kanji")
         user.valid?
-        expect(user.errors[:first_name]).to include("is not kanji")
+        expect(user.errors[:first_name])
       end
 
       #21 family_name_zenkakuがカタカナ以外の場合不可
       it 'family_name must be katakana' do
+        user = create(:user)
         user = build(:user, family_name_zenkaku: "katakana")
         user.valid?
-        expect(user.errors[:family_name_zenkaku]).to include("is not katakana")
+        expect(user.errors[:family_name_zenkaku])
       end
 
 
       #23 first_name_zenkakuがカタカナ以外の場合不可
       it 'first_name must be katakana' do
+        user = create(:user)
         user = build(:user, first_name_zenkaku: "katakana")
         user.valid?
-        expect(user.errors[:first_name_zenkaku]).to include("is not katakana")
+        expect(user.errors[:first_name_zenkaku])
       end
 
     end

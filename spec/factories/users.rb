@@ -9,8 +9,8 @@ FactoryBot.define do
     birthyear               {"2020"}
     birthmonth              {"1"}
     birthday                {12}
-    email                   {"kkk@gmail.com"}
+    email                   {"fff@gmail.com"}
     password                {"testtest"}
   end
 
-end
+    end
