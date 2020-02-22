@@ -50,14 +50,15 @@
               .contents__detail__box__set__box__coution
                 必須
             .contents__detail__box__set__form
-              = f.select :category, @category_parent_array, {}, {class: 'contents__detail__box__set__form', id: 'parent_category'}
+              .contents__detail__box__set__form__detail
+                = f.select :category, @category_parent_array, {}, {class: 'contents__detail__box__set__form', id: 'parent_category'}
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
                 ブランド
               .contents__detail__box__set__box__nini
                 任意
-            -# .contents__detail__box__set__form
+            .contents__detail__box__set__form
             = f.text_field :brand_id, class: 'contents__detail__box__set__form', placeholder: '例)シャネル'
           .contents__detail__box__set
             .contents__detail__box__set__box
