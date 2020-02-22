@@ -15,7 +15,7 @@
           .contents__image__box__area
             .contents__image__box__area__mask
               drag&dropをJSで入れる
-      
+
       .contents__product
         .contents__product__area 
           .contents__product__area__name
@@ -47,10 +47,11 @@
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
                 カテゴリー
+              -# = f.label 'カテゴリー', class: 'contents__detail__box__set__box__text'
               .contents__detail__box__set__box__coution
                 必須
-            .contents__detail__box__set__form
-              -# = f.collection_select :category_id,  ,class: 'contents__detail__box__set__form', prompt: '選択してください'
+            .contents__detail__box__set__form_select
+              = f.select :category_id, @category_parent_array.map{ |cat1| [cat1[:name] , cat1[:id]] }
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
