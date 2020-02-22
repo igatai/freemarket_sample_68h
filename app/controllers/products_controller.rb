@@ -1,8 +1,10 @@
 class ProductsController < ApplicationController
 
   def index
-    @product = Product.where(brand_id: "1").first(3)
+    @product = Product.where(category_id: "1").first(3)
+    @category = Product.where(category_id: "1").first(3)
     @brand = Product.where(brand_id: "2").first(3)
+    @parents = Category.all.order("ancestry ASC").limit(13)
   end
 
   def new
@@ -57,7 +59,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-
   end
 
   private
