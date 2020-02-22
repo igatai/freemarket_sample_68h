@@ -116,17 +116,17 @@
                 .contents__price__value__first__left__box__coution
                   必須
             .contents__price__value__first__right
-              = f.number_field :price, min:300, max:9999999,class: "contents__price__value__first__right__input"
+              = f.number_field :price, min:300, max:9999999,class: "contents__price__value__first__right__input",id: "input_price"
           .contents__price__value__second
             .contents__price__value__second__left
               販売手数料（10%）
-            .contents__price__value__second__right
-              -
+            .contents__price__value__second__right{id: "commision" }
+              -# = text_field( :commision, option = {:id "commision"})
           .contents__price__value__third
             .contents__price__value__third__left
               販売利益
-            .contents__price__value__third__right
-              -
+            .contents__price__value__third__right{id: "profit" }
+              -# = text_field :profit, :id "profit"
         .contents__price__submit
           .contents__price__submit__throw
             = f.submit '出品する' ,class: 'contents__price__submit__throw__btn'
