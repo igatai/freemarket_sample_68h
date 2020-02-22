@@ -8,13 +8,20 @@ class ProductsController < ApplicationController
   end
 
   def new
-
-  end
-
-
-  def new
+    
     @product = Product.new
+    @category_parent_array = ["---"]
+    #親カテゴリーのみ抽出 => 配列
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+
+
+    end
+    # binding.pry
   end
+
+
+
 
   def create
     @product = Product.new(product_params)
