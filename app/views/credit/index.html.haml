@@ -12,6 +12,21 @@
 
   .mypage__main
     .mypage__main__right
+      .mypage__main__right__top
+        %h1 支払い方法
+      .mypage__main__right__bottom
+        %p1 クレジットカード一覧
+        .mypage__main__right__bottom__btn
+          = link_to new_credit_path, class: "credit__btn" do            
+            %i.far.fa-credit-card
+            %p2 クレジットカードを追加する
+        .mypage__main__right__bottom__border
+        .mypage__main__right__bottom__pay
+          = link_to new_credit_path, class: "credit__btn" do
+            %p3 支払い方法について
+            %i.fas.fa-chevron-right
+
+
 
 
     .mypage__main__left
