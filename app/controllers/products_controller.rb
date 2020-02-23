@@ -27,7 +27,11 @@ class ProductsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
-
+  def get_selected_grandchild
+    # @selected_id = Category.find("#{params[:grandchild_id]}").id
+    # @selected_id = params[:grandchild_id]
+    @category_grandchild = Category.find("#{params[:grandchild_id]}")
+  end
 
   def create
     @product = Product.new(product_params)
