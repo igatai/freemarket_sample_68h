@@ -54,12 +54,15 @@ class ProductsController < ApplicationController
   end
 
   def create
-    begin
-      @product = Product.new(product_params)
-      @product.save!
-    rescue
-      redirect_to new_product_path
-    end
+    @user = current_user
+    @product = Product.new(product_params)
+    @product.save!
+    # begin
+    #   @product = Product.new(product_params)
+    #   @product.save!
+    # rescue
+    #   redirect_to new_product_path
+    # end
   end
 
   def show
@@ -68,7 +71,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id ,:image_id, :prefecture_id)
-  end  
+    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id ,:image_id, :prefecture_id).merge(user_id: current_user.id)
+  end
 
 end
