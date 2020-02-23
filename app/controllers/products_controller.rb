@@ -54,8 +54,12 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    @product.save!
+    begin
+      @product = Product.new(product_params)
+      @product.save!
+    rescue
+      redirect_to new_product_path
+    end
   end
 
   def show
