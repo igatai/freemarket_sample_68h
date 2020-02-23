@@ -12,7 +12,7 @@ $(function(){
     var secondhtml = 
               `
                   
-                    <select class = "contents__detail__box__set__form", id = "children_category">
+                    <select class = "contents__detail__box__set__form", id = "children_category", name = "product[category]">
                       <option value="---">---</option>
                       ${insertHTML}
                     </select>
@@ -25,7 +25,7 @@ $(function(){
     var thirdhtml = 
               `
                   
-                    <select class = "contents__detail__box__set__form", id = "grandchildren_category">
+                    <select class = "contents__detail__box__set__form", id = "grandchildren_category", name = "product[category]">
                       <option value="---">---</option>
                       ${insertHTML}
                     </select>
