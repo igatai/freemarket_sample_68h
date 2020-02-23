@@ -51,7 +51,8 @@
                 必須
             .contents__detail__box__set__form
               .contents__detail__box__set__form__detail
-                = f.select :category, @category_parent_array, {}, {class: 'contents__detail__box__set__form', id: 'parent_category'}
+                = f.select :category_id, @category_parent_array, {}, {class: 'contents__detail__box__set__form', id: 'parent_category'}
+                -# = f.select :category, [@category_parent_name_array, @category_parent_id_array], {}, {class: 'contents__detail__box__set__form', id: 'parent_category'}
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text

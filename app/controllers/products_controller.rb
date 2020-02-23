@@ -10,16 +10,36 @@ class ProductsController < ApplicationController
   def new
     
     @product = Product.new
-    @category_parent_array = ["---"]
+    # @category_parent_array = ["---"]
+    # @category_parent_array = [id: nil, name: "---"]
+    # @category_parent_name_array = ["---"]
+    # @category_parent_id_array = [""]
+    @category_parent_pare = ["---",""]
+    @category_parent_array = []
+    @category_parent_array << @category_parent_pare
     #親カテゴリーのみ抽出 => 配列
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+      # @category_parent_array << parent.name
+
+      # category_parent_hash = {id: parent.id, name: parent.name}
+      # @category_parent_array << category_parent_hash
+
+      # category_parent_pare = [parent.id, parent.name]
+      # @category_parent_array << category_parent_hash
+
+      category_parent_pare = [parent.name, parent.id]
+      @category_parent_array << category_parent_pare
+
+
+      # @category_parent_name_array << parent.name
+      # @category_parent_id_array << parent.id
     end
     # binding.pry
   end
 
   def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    # binding.pry
+    @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
   end
 
   def get_category_grandchildren
@@ -35,6 +55,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.save!
   end
 
   def show
@@ -43,7 +64,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category ,:image_id, :prefecture_id)
+    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id ,:image_id, :prefecture_id)
   end  
 
 end

@@ -9,7 +9,9 @@ class Api::ProductController < ApplicationController
   # 親カテゴリー選択後のアクション
   def get_category_children
     # 選択された親カテゴリーに紐づく子カテゴリーの配列を取得
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    # binding.pry
+    @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
+
   end
 
   # 子カテゴリーが選択された後に動くアクション

@@ -2,18 +2,27 @@ $(function(){
 
   function appendCategory(child){
     var html = `
-                <option value = "${child.name}" data-category="${child.id}">${child.name}</option>
+                <option value = ${child.id} data-category="${child.id}">${child.name}</option>
               `;
     return html;
     
   };
 
   function appendchildrenbox(insertHTML){
-    var secondhtml = 
+    // var secondhtml = 
+    //           `
+                  
+    //                 <select class = "contents__detail__box__set__form", id = "children_category", name = "product[category]">
+    //                   <option value="---">---</option>
+    //                   ${insertHTML}
+    //                 </select>
+                
+    //           `;
+        var secondhtml = 
               `
                   
-                    <select class = "contents__detail__box__set__form", id = "children_category", name = "product[category]">
-                      <option value="---">---</option>
+                    <select class = "contents__detail__box__set__form", id = "children_category", name = "product[category_id]">
+                      <option value>---</option>
                       ${insertHTML}
                     </select>
                 
@@ -25,8 +34,8 @@ $(function(){
     var thirdhtml = 
               `
                   
-                    <select class = "contents__detail__box__set__form", id = "grandchildren_category", name = "product[category]">
-                      <option value="---">---</option>
+                    <select class = "contents__detail__box__set__form", id = "grandchildren_category", name = "product[category_id]">
+                      <option value>---</option>
                       ${insertHTML}
                     </select>
                   
@@ -37,11 +46,12 @@ $(function(){
   $("#parent_category").on("change", function(){
     var parentCategory = document.getElementById('parent_category').value;
     console.log(parentCategory);
-    if (parentCategory != "---"){ 
+    if (parentCategory != ""){ 
+      // console.log(parentCategory);
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
-        data: { parent_name: parentCategory },
+        data: { parent_id: parentCategory },
         dataType: 'json'
       })
       .done(function(children){
