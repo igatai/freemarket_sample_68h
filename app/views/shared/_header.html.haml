@@ -24,19 +24,19 @@
                 %a{:href => "#"}
                   - @parents.each do |parent|
                     = render partial: 'shared/header_parent', locals: { parent: parent }
-            %div.header-menu__left__categories__tree__child
-              %li
-                %a{:href => "#"}
-                - @parents.each do |parent|
-                  - parent.children.each do |child|
-                    = render partial: 'shared/header_child', locals: { child: child }
-            %div.header-menu__left__categories__tree__grandchild
-              %li
-                %a{:href => "#"}
-                - @parents.each do |parent|
-                  - parent.children.each do |child|
-                    - child.children.each do |grandchild|
-                      = render partial: 'shared/header_grandchild', locals: { grandchild: grandchild }
+            -# %div.header-menu__left__categories__tree__child
+            -#   %li
+            -#     %a{:href => "#"}
+            -#     - @parents.each do |parent|
+            -#       - parent.children.each do |child|
+            -#         = render partial: 'shared/header_child', locals: { child: child }
+            -# %div.header-menu__left__categories__tree__grandchild
+            -#   %li
+            -#     %a{:href => "#"}
+            -#     - @parents.each do |parent|
+            -#       - parent.children.each do |child|
+            -#         - child.children.each do |grandchild|
+            -#           = render partial: 'shared/header_grandchild', locals: { grandchild: grandchild }
 
             %ul.categoryTree
 
@@ -44,18 +44,18 @@
           %li.header-menu__brand__box
             %a{:href => "#"} ブランド
             %ul.header-menu__brand__box__list
-              %li
+              %li.header-menu__brand__box__list__name
                 %a{:href => "#"} シャネル
               %li
-                %a{:href => "#"} ナイキ
+                %a.header-menu__brand__box__list__name{:href => "#"} ナイキ
               %li
-                %a{:href => "#"} ルイヴィトン
+                %a.header-menu__brand__box__list__name{:href => "#"} ルイヴィトン
               %li
-                %a{:href => "#"} シュプリーム
+                %a.header-menu__brand__box__list__name{:href => "#"} シュプリーム
               %li
-                %a{:href => "#"} アディダス
+                %a.header-menu__brand__box__list__name{:href => "#"} アディダス
               %li
-                %a{:href => "#"} ブランド一覧
+                %a.header-menu__brand__box__list__name{:href => "#"} ブランド一覧
       %ul.header-menu__right
         - if user_signed_in?
           = link_to "マイページ", user_path(current_user.id)

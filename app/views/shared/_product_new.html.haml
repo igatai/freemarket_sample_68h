@@ -12,10 +12,23 @@
             .contents__image__box__comment__caution
               必須
           %p 最大10枚までアップロードできます
-          .contents__image__box__area
-            .contents__image__box__area__mask
-              drag&dropをJSで入れる
-      
+          .contents__image__box__container
+            .contents__image__box__container__drop-box
+              #image-box
+                #previews
+                  - if @product.persisted?
+                    - @product.images.each_with_index do |image, i|
+                      = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+                = f.fields_for :images do |image|
+                  .js-file_group{"data-index" => "#{image.index}"}
+                    = image.file_field :image, class: 'js-file'
+                    %span.js-remove 削除
+                  - if @product.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                - if @product.persisted?
+                  .js-file_group{"data-index" => "#{@product.images.count}"}
+                    = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'js-file'
+                    %span.js-remove 削除     
       .contents__product
         .contents__product__area 
           .contents__product__area__name
@@ -35,7 +48,6 @@
             - product_description1 = '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）'
             - product_description2 = '例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
             = f.text_area :content, rows: 7,class: 'contents__product__area__form_text_area', placeholder: text_placeholder(product_description1,product_description2)
-
       .contents__detail
         .contents__detail__box
           .contents__detail__box__text

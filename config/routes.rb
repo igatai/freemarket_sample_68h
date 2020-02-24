@@ -12,16 +12,18 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   resources :registration, only: [:index, :new, :create]
 
-  resources :products, only: [:index, :new, :create]do
+
+  resources :products, only: [:index, :new, :create, :show]do
   #Ajax用
-  collection do
-    get 'get_category_children', defaults: { format: 'json' }
-    get 'get_category_grandchildren', defaults: { format: 'json' }
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
   end
-end
+
 
   resources :useraddress, only: [:index]
   resources :purchase, only: :new
-  resources :credit, only: :new
+  resources :credit, only: [:index, :new, :create]
   resources :useraddress, only: :new
 end
