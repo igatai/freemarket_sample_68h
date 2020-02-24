@@ -14,11 +14,9 @@ class ProductsController < ApplicationController
     @product = Product.new
     @product.images.new
     @category_parent_array = ["---"]
-    #親カテゴリーのみ抽出 => 配列
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
-    # binding.pry
+    #親カテゴリーのみ抽出 => 配列に追加
+    @category_parent_array.concat(Category.where(ancestry: nil).pluck(:name))
+    
   end
 
   def get_category_children
@@ -35,7 +33,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    binding.pry
+    
     if @product.save
       redirect_to root_path
     else

@@ -60,7 +60,7 @@ $(function(){
 
   $(".contents__detail__box__set").on("change", '#children_category', function(){
     var childContent = $('#children_category option:selected').data('category');
-    console.log(childContent);
+   
     if (childContent != "---"){ 
       
       $.ajax({
@@ -71,7 +71,7 @@ $(function(){
       })
       .done(function(grandChildren){
         var insertHTML = '';
-        console.log(grandChildren);
+       
 
         grandChildren.forEach(function(grandchild){
           insertHTML += appendCategory(grandchild);
