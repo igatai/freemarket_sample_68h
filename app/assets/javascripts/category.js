@@ -76,7 +76,7 @@ $(function(){
         grandChildren.forEach(function(grandchild){
           insertHTML += appendCategory(grandchild);
         });
-        console.log(insertHTML)
+      
         appendgrandchildrenbox(insertHTML);
       })
       .fail(function(){
