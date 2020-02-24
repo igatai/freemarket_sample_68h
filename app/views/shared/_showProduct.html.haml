@@ -46,9 +46,15 @@
     %span.product_price__bold¥5000
     %span.product_price__tax (税込)
     %span.product_price__delivery送料込み
-
-  .product_buy
-    = link_to "購入画面に進む", '', class: 'buy-btn'
+  - if user_signed_in? && current_user.id == @product.user_id
+    .product_editbox
+      .product_editbox_edit
+        = link_to = link_to "編集する", '', class: 'buy-btn'
+      .product_editbox_delete
+        = link_to "削除する", '', class: 'buy-btn'
+  - else
+    .product_buy
+      = link_to "購入画面に進む", '', class: 'buy-btn'
 
   %p.product_describe
     ああああああ
