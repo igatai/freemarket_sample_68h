@@ -3,52 +3,62 @@
   .product_content
     .product_content__photo
       .product_content__photo__mainImage
-        = image_tag src="/images/sample01.png"
+        = @image.image
+        -# = image_tag src="/images/sample01.png"
       .product_content__photo__subImage
         .product_content__photo__subImage__thumb
-          = image_tag src="/images/sample02.png"
-          = image_tag src="/images/sample03.png"
-          = image_tag src="/images/sample04.png"
+          -# = image_tag src="/images/sample02.png"
+          -# = image_tag src="/images/sample03.png"
+          -# = image_tag src="/images/sample04.png"
     %table.product_content__detail-table
       %tbody
         %tr
           %th出品者
           %td
-            = link_to "コロナウイルス", ''
+            = @product.user.nickname
+            -# = link_to "コロナウイルス", ''
         %tr
           %thカテゴリ
-          %td菌
-        %tr
-          %th出品者
-          %tdコロナウイルス
+          %td
+            = @product.category_id
+        -# %tr
+        -#   %th出品者
+        -#   %tdコロナウイルス
         %tr
           %thブランド
-          %td中国
+          %td
+            = @product.brand_id
         %tr
           %th商品の状態
-          %td傷や汚れあり
+          %td
+            = @product.status
         %tr
           %th配送料の負担
-          %td送料込み（出品者負担）
+          %td
+            = @product.payment      
         %tr
           %th配送の方法
-          %td普通郵便(定形、定形外)
+          %td
+            = @product.delivery_method
         %tr
           %th配送元地域
-          %td千葉県
+          %td
+            = @product.delivery_date
         %tr
           %th発送日の目安
-          %td発送日の目安
+          %td
+            
 
 
       
   .product_price
-    %span.product_price__bold¥5000
+    %span.product_price__bold
+      = @product.price
     %span.product_price__tax (税込)
     %span.product_price__delivery送料込み
 
   .product_buy
-    = link_to "購入画面に進む", '', class: 'buy-btn'
+    = link_to "購入画面に進む", new_purchase_path, class: 'buy-btn'
 
   %p.product_describe
     ああああああ
