@@ -1,50 +1,67 @@
 class ProductsController < ApplicationController
+  # before_action :set_product, except: [:index, :new, :create]
 
   def index
-    @product = Product.where(brand_id: "1").first(3)
+    @product = Product.where(category_id: "1").first(3)
+    @category = Product.where(category_id: "1").first(3)
     @brand = Product.where(brand_id: "2").first(3)
-  end
-
-  def new
-
+    @parents = Category.all.order("ancestry ASC").limit(13)
   end
 
 
   def new
+    
     @product = Product.new
+    @product.images.new
+    @category_parent_array = ["---"]
+    #親カテゴリーのみ抽出 => 配列に追加
+    @category_parent_array.concat(Category.where(ancestry: nil).pluck(:name))
+    
   end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+
+  end
+
+
 
   def create
     @product = Product.new(product_params)
-    # @product = Product.new(user_id: @current_user.id)
-  end
-
-  def show
-    @product = Product.find(params[:id])
-    @image = Image.find(params[:id])
-    @product = Product.find_by(id: params[:id])
-    if user_signed_in?
-      if @product.user_id == current_user_id
-        redirect_to("/products/1")
-      else
-        redirect_to("/products/1")
-      end
+    
+    if @product.save
+      redirect_to root_path
+    else
+      redirect_to new_product_path
     end
   end
 
   def update
-    # @product = current_user
+    if @product.update(product_params)
+      redirect_to ''
+    else
+      render :edit
+    end
   end
 
-  def destroy
-    # @product = current_user
+  def show
+    @parents = Category.all.order("ancestry ASC").limit(13)
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:name, :content, :image_id)
-  end  
+    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :bland_id, :category_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge( user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
   def current
     @current_user = Current_user_id

@@ -1,4 +1,4 @@
-= render './login/header' 
+= render './shared/account_header' 
 .box
   %h2 会員情報入力
   = form_for(@user, url: user_registration_path) do |f|
@@ -49,19 +49,6 @@
       .field__box
         .field__box__left
           お名前(全角)
-          - f.label :name_zenkaku
-          %br/
-        .field__box__right
-          必須
-      .field__bottom
-        .field__bottom__content
-          = f.text_field :family_name_zenkaku, placeholder: "例) ヤマダ", autofocus: true, autocomplete: "family_name_zenkaku", class: "field__input"
-        .field__bottom__content
-          = f.text_field :first_name_zenkaku, placeholder: "例) アヤ", autofocus: true, autocomplete: "first_name_zenkaku", class: "field__input"
-    .field
-      .field__box
-        .field__box__left
-          お名前(カナ)
           - f.label :name
           %br/
         .field__box__right
@@ -71,6 +58,19 @@
           = f.text_field :family_name, placeholder: "例) 山田", autofocus: true, autocomplete: "family_name", class: "field__input"
         .field__bottom__content
           = f.text_field :first_name, placeholder: "例) 綾", autofocus: true, autocomplete: "first_name", class: "field__input"
+    .field
+      .field__box
+        .field__box__left
+          お名前カナ(全角)
+          - f.label :name_zenkaku
+          %br/
+        .field__box__right
+          必須
+      .field__bottom
+        .field__bottom__content
+          = f.text_field :family_name_zenkaku, placeholder: "例) ヤマダ", autofocus: true, autocomplete: "family_name_zenkaku", class: "field__input"
+        .field__bottom__content
+          = f.text_field :first_name_zenkaku, placeholder: "例) アヤ", autofocus: true, autocomplete: "first_name_zenkaku", class: "field__input"
     .field
       .field__box
         .field__box__left
@@ -93,4 +93,4 @@
           「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
     .actions
       = f.submit "次へ進む", class: "actions__input"
-= render './login/footer' 
+= render './shared/account_footer' 

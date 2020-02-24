@@ -4,26 +4,18 @@
     .product_content__photo
       .product_content__photo__mainImage
         = @image.image
-        -# = image_tag src="/images/sample01.png"
       .product_content__photo__subImage
         .product_content__photo__subImage__thumb
-          -# = image_tag src="/images/sample02.png"
-          -# = image_tag src="/images/sample03.png"
-          -# = image_tag src="/images/sample04.png"
     %table.product_content__detail-table
       %tbody
         %tr
           %th出品者
           %td
             = @product.user.nickname
-            -# = link_to "コロナウイルス", ''
         %tr
           %thカテゴリ
           %td
             = @product.category_id
-        -# %tr
-        -#   %th出品者
-        -#   %tdコロナウイルス
         %tr
           %thブランド
           %td
@@ -56,9 +48,15 @@
       = @product.price
     %span.product_price__tax (税込)
     %span.product_price__delivery送料込み
-
-  .product_buy
-    = link_to "購入画面に進む", new_purchase_path, class: 'buy-btn'
+  - if user_signed_in? && current_user.id == @product.user_id
+    .product_editbox
+      .product_editbox_edit
+        = link_to = link_to "編集する", '', class: 'buy-btn'
+      .product_editbox_delete
+        = link_to "削除する", '', class: 'buy-btn'
+  - else
+    .product_buy
+      = link_to "購入画面に進む", '', class: 'buy-btn'
 
   %p.product_describe
     ああああああ
