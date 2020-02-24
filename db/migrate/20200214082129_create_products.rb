@@ -4,13 +4,16 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :name , null: false
       t.text :content , null: false
       t.integer :condition , null: false
-      t.string :status , null: false
+      # t.string :status , null: false
+      t.string :status , null: false, default: '出品中'
       t.string :payment , null: false
       t.integer :delivery_date , null: false
-      t.string :delivery_method , null: false
+      # t.string :delivery_method , null: false
+      t.string :delivery_method , null: false , default: '未定'
       t.integer :price , null: false
       t.integer :user_id , null: false
-      t.integer :brand_id , null: false
+      # t.integer :brand_id , null: false
+      t.integer :brand_id
       t.integer :category_id , null: false
       t.integer :prefecture_id , null: false
       t.datetime :created_at , null: false

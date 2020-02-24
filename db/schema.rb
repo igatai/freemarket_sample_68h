@@ -52,13 +52,13 @@ ActiveRecord::Schema.define(version: 2020_02_19_101031) do
     t.string "name", null: false
     t.text "content", null: false
     t.integer "condition", null: false
-    t.string "status", null: false
+    t.string "status", default: "出品中", null: false
     t.string "payment", null: false
     t.integer "delivery_date", null: false
-    t.string "delivery_method", null: false
+    t.string "delivery_method", default: "未定", null: false
     t.integer "price", null: false
     t.integer "user_id", null: false
-    t.integer "brand_id", null: false
+    t.integer "brand_id"
     t.integer "category_id", null: false
     t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
