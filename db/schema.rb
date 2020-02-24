@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_02_19_101031) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "phone_number"
+    t.text "phone_number"
     t.integer "prefecture_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
