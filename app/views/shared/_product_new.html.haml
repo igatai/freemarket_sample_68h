@@ -48,9 +48,6 @@
             - product_description1 = '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）'
             - product_description2 = '例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
             = f.text_area :content, rows: 7,class: 'contents__product__area__form_text_area', placeholder: text_placeholder(product_description1,product_description2)
-            -# = f.text_area :content, rows: 7,class: 'contents__product__area__title', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
-        -# .contents__product__counter
-        -#   JS実装します..
       .contents__detail
         .contents__detail__box
           .contents__detail__box__text
@@ -62,14 +59,15 @@
               .contents__detail__box__set__box__coution
                 必須
             .contents__detail__box__set__form
-              -# = f.collection_select :category_id,  ,class: 'contents__detail__box__set__form', prompt: '選択してください'
+              .contents__detail__box__set__form__detail
+                = f.select :category, @category_parent_array, {}, {class: 'contents__detail__box__set__form', id: 'parent_category'}
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
                 ブランド
               .contents__detail__box__set__box__nini
                 任意
-            -# .contents__detail__box__set__form
+            .contents__detail__box__set__form
             = f.text_field :brand_id, class: 'contents__detail__box__set__form', placeholder: '例)シャネル'
           .contents__detail__box__set
             .contents__detail__box__set__box
