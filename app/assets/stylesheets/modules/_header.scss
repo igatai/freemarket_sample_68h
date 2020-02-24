@@ -64,23 +64,16 @@
       font-size: 14px;
       display: flex;
       margin-bottom: 10px;
-      overflow: hidden;
       &__left{
         position: relative;
         display: flex;
         z-index: 1;
-        height: 415px;
         width: 400px;
         text-decoration: none;
         &__categories{
           width: 70px;
-          height: 400px;
           padding: 0;
           position: relative;
-          &:hover > li {
-            display: block;
-            background-color: #fff;
-          }
           a{
             color: black;
             &:hover {
@@ -97,7 +90,6 @@
               font-size: 20px;
             }
             &:hover > li {
-              display: block;
               background-color: #fff;
             }
             &__child {
@@ -136,9 +128,10 @@
           line-height: 38px;
           padding: 0 0 0 16px;
           &__box{
-            a:hover{
+            a:hover {
               background-color: #fff;
               color: blue;
+              display: block;
             }
             &__list {
               &__name {
@@ -151,7 +144,7 @@
               display: none;
             }
           
-            li:hover > ul {
+            ul:hover > li {
               display: block;
             }
           }
