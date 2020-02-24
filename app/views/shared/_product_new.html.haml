@@ -97,6 +97,8 @@
                 必須
             .contents__detail__box__set__form
               = f.select :payment, ["購入者負担","出品者負担"]
+            .contents__detail__box__set__form__method
+              = f.select :delivery_method, [["ゆうパック","ゆうパック"], ["クロネコヤマト", "クロネコヤマト"], ["佐川急便", "佐川急便"]]
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
