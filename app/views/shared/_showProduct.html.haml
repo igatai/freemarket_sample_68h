@@ -14,36 +14,41 @@
         %tr
           %th出品者
           %td
-            = link_to "コロナウイルス", ''
+            = @product.user.nickname
         %tr
           %thカテゴリ
-          %td菌
-        %tr
-          %th出品者
-          %tdコロナウイルス
+          %td
+            = @product.category_id
         %tr
           %thブランド
-          %td中国
+          %td
+            = @product.brand_id
         %tr
           %th商品の状態
-          %td傷や汚れあり
+          %td
+            = @product.status
         %tr
           %th配送料の負担
-          %td送料込み（出品者負担）
+          %td
+            = @product.payment      
         %tr
           %th配送の方法
-          %td普通郵便(定形、定形外)
+          %td
+            = @product.delivery_method
         %tr
           %th配送元地域
-          %td千葉県
+          %td
+            = @product.delivery_date
         %tr
           %th発送日の目安
-          %td発送日の目安
+          %td
+            
 
 
       
   .product_price
-    %span.product_price__bold¥5000
+    %span.product_price__bold
+      = @product.price
     %span.product_price__tax (税込)
     %span.product_price__delivery送料込み
   - if current_user.id == @product.user_id

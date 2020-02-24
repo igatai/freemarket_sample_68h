@@ -1,6 +1,5 @@
 $red: #e62017;
 $gray: rgb(245, 245, 245);
-// $font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 
 *{
   margin: 0px;
@@ -20,13 +19,11 @@ $gray: rgb(245, 245, 245);
   margin:0 auto;
   .contents{
     font-size:20px;
-    // font-weight:bold;
 
     &__header{
       height:120px;
       width:calc(100% );
       border-bottom: 2px solid $gray ;
-      // line-height: 30px;
       display:flex;
       justify-content: center;
       align-items: center;
@@ -36,14 +33,77 @@ $gray: rgb(245, 245, 245);
     &__image{
       padding:40px ;
       width:calc(100%);
-      height:300px;
+      min-height: 300px;
+      height: auto;
       background-color:#fff;
       border-bottom: 1px solid $gray ;
       &__box{
-        
+      .contents__image__box__container {
+        display: flex;
+        margin: 16px auto 0;
+        min-height: 158px;
+        height: auto ;
+        &__drop-box {
+          width: 620px;
+          background: #F5F5F5;
+          border: 1px dashed #ccc;
+          &-file {
+            .form-mask {
+              display: inline-grid;
+              img{
+                height: 100px;
+                width: 100px;
+                margin: 0px 3px;
+                .delete_img {
+                }
+              }
+              .hiddon-new {
+              }
+              input {
+                display: none;
+              }
+            }
+          }
+          #image-box {
+            display: flex;
+            flex-wrap: wrap;
+          }
+          #previews {
+            width: 100%;
+            img {
+              padding-left: 18px;
+              padding-top: 20px;
+            }
+          }
+          .js-file_group {
+            padding-left: 16px;
+            padding-top: 10px;
+            font-size: 13px;
+            width: 46%;
+            
+          }
+          .js-remove {
+            display: inline-block;
+            max-width: 180px;
+            text-align: left;
+            border: 1px solid black;
+            font-size: 12px;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 1px 8px;
+            border-radius: 4px;
+            transition: .4s;
+            &:hover {
+              background-color: black;
+              border-color: black;
+              color: #FFF;
+            }
+          }
+        }
+      }        
         &__comment{
           display:flex;
-          // justify-content: center;
           align-items: center;
           &__text{
             font-weight:bold;
@@ -63,16 +123,17 @@ $gray: rgb(245, 245, 245);
           font-size:14px;
           margin:16px 0;
         }
-        &__area{
-          width:100%;
-          height:150px;
-          background-color: $gray;
-          align-items: center;
-          line-height: 150px;
-          margin: -8px, -4px, 0px;
-        }
+        // &__area{
+        //   width:100%;
+        //   height:150px;
+        //   background-color: $gray;
+        //   align-items: center;
+        //   line-height: 150px;
+        //   margin: -8px, -4px, 0px;
+        // }
       }
     }
+
     &__product{
       padding:40px ;
       width:calc(100%);
@@ -116,10 +177,6 @@ $gray: rgb(245, 245, 245);
         &__form_select {
 
           select#product_condition {
-            // height:30px;
-            // width:30px;
-            // border:1px solid $gray;
-            // font-size: 30px;
           }
 
         }
@@ -144,7 +201,6 @@ $gray: rgb(245, 245, 245);
       &__box{
         &__question{
           display: flex;
-          
           align-items: center;
           &__icon{
             color:rgb(62, 180, 219);
@@ -186,11 +242,11 @@ $gray: rgb(245, 245, 245);
           &__form{
             color:black;
             background-color: #fff;
-            height:48px;
+            min-height:48px;
             padding: 5px;
             width:100%;
-            // font-size: 20px;
-            // border:1px solid rgb(177, 177, 177);
+            margin-top:10px;
+            border:1px solid rgb(177, 177, 177);
             border-radius: 4px;
           }
         }
@@ -202,7 +258,6 @@ $gray: rgb(245, 245, 245);
       width:calc(100%);
       height:558px;
       background-color:#fff;
-      // border-bottom: 1px solid $gray ;
       font-size:13px;
       color:gray;
       &__text{
@@ -281,19 +336,15 @@ $gray: rgb(245, 245, 245);
       &__submit{
         height:140px;
         width:90%;
-        // display:flex;
-        // justify-content: center;
         margin: 0 auto;
-        // &__box{
 
 
         &__throw {
-          // width:100%;
-          // height:48px;
+
           
           &__btn{
             width:100%;
-          height:48px;
+            height:48px;
             background-color: $red;
             color:white;
             font-weight: bold;
@@ -303,24 +354,10 @@ $gray: rgb(245, 245, 245);
             text-align: center;
             border-radius: 10px;
             padding: 14px 24px;
-            // margin: 0 auto;
-            // margin-left: 20%;
             margin-bottom: 20px;
           }
         }
         &__back{
-          // width:100%;
-          // height:48px;
-          // background-color: $gray;
-          // color:black;
-          // font-weight: bold;
-          // font-size:17px;
-          // line-height:17px;
-          // border-radius: 10px;
-          // text-align: center;
-          // padding: 14px 24px;
-          // // margin-left: 20%;
-          // text-decoration: none;
           a{
             display: block;
             width:100%;
@@ -333,23 +370,9 @@ $gray: rgb(245, 245, 245);
             border-radius: 10px;
             text-align: center;
             padding: 14px 24px;
-            // margin-left: 20%;
             text-decoration: none;
           }
         }
-        // a.btn {
-        //   width:100%;
-        //   height:48px;
-        //   background-color: $gray;
-        //   color:black;
-        //   font-weight: bold;
-        //   font-size:17px;
-        //   line-height:17px;
-        //   border-radius: 10px;
-        //   text-align: center;
-        //   padding: 14px 24px;
-        // }
-        // }
       }
       p{
         font-size:12px;
