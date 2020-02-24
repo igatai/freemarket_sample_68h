@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   # before_action :set_product, except: [:index, :new, :create]
+  # before_action :authenticate_user! ,only: [:new]
 
   def index
     @product = Product.where(category_id: "1").first(3)
@@ -62,20 +63,11 @@ class ProductsController < ApplicationController
   def create
     @user = current_user
     @product = Product.new(product_params)
-    @product.save!
-    # begin
-    #   @product = Product.new(product_params)
-    #   @product.save!
-    # rescue
-    #   redirect_to new_product_path
-    # end
-
-#    binding.pry
-#    if @product.save
-#      redirect_to root_path
-#    else
-#      redirect_to new_product_path
-#    end
+    if @product.save
+      redirect_to root_path
+    else
+      redirect_to new_product_path
+    end
   end
 
   def update
