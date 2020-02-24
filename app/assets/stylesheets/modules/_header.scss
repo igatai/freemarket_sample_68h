@@ -181,10 +181,11 @@
         display: flex;
         a{
           display: flex;
-          align-items: center;
           color: black;
           text-decoration: none;
+          height: 32px;
           line-height: 32px;
+          padding-right: 30px;
         }
         .header-menu__right-new{
           padding: 0 0 0 16px;
