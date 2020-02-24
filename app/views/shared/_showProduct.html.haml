@@ -3,10 +3,10 @@
   .product_content
     .product_content__photo
       .product_content__photo__mainImage
-        = image_tag src="/images/sample01.png"
+        = @product.images[0]
       .product_content__photo__subImage
         .product_content__photo__subImage__thumb
-          = image_tag src="/images/sample02.png"
+          = @product.images[1]
           = image_tag src="/images/sample03.png"
           = image_tag src="/images/sample04.png"
     %table.product_content__detail-table
