@@ -63,4 +63,12 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def current
+    @current_user = Current_user_id
+  end
+
 end
+
+# if @products.user_id != @current_user
+#   redirect_to("/purchase/new")
+# end

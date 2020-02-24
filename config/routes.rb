@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   resources :purchase, only: :new
   resources :credit, only: [:index, :new, :create]
   resources :useraddress, only: :new
+  resources :products, only: :show
 end
