@@ -11,12 +11,10 @@ $(function(){
   function appendchildrenbox(insertHTML){
     var secondhtml = 
               `
-                  
                     <select class = "contents__detail__box__set__form", id = "children_category">
                       <option value="---">---</option>
                       ${insertHTML}
                     </select>
-                
               `;
     $('.contents__detail__box__set__form__detail').append(secondhtml);
   };
@@ -24,19 +22,16 @@ $(function(){
   function appendgrandchildrenbox(insertHTML){
     var thirdhtml = 
               `
-                  
                     <select class = "contents__detail__box__set__form", id = "grandchildren_category">
                       <option value="---">---</option>
                       ${insertHTML}
                     </select>
-                  
               `;
     $('.contents__detail__box__set__form__detail').append(thirdhtml);
   };
 
   $("#parent_category").on("change", function(){
     var parentCategory = document.getElementById('parent_category').value;
-    console.log(parentCategory);
     if (parentCategory != "---"){ 
       $.ajax({
         url: 'get_category_children',
@@ -46,7 +41,6 @@ $(function(){
       })
       .done(function(children){
         var insertHTML = '';
-        
         children.forEach(function(child){
           insertHTML += appendCategory(child);
         });
@@ -60,9 +54,7 @@ $(function(){
 
   $(".contents__detail__box__set").on("change", '#children_category', function(){
     var childContent = $('#children_category option:selected').data('category');
-   
     if (childContent != "---"){ 
-      
       $.ajax({
         url: 'get_category_grandchildren',
         type: 'GET',
@@ -71,12 +63,9 @@ $(function(){
       })
       .done(function(grandChildren){
         var insertHTML = '';
-       
-
         grandChildren.forEach(function(grandchild){
           insertHTML += appendCategory(grandchild);
         });
-      
         appendgrandchildrenbox(insertHTML);
       })
       .fail(function(){
