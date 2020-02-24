@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
     
     @product = Product.new
     @product.images.new
+
     # @category_parent_array = ["---"]
     # @category_parent_array = [id: nil, name: "---"]
     # @category_parent_name_array = ["---"]
@@ -37,6 +38,12 @@ class ProductsController < ApplicationController
       # @category_parent_id_array << parent.id
     end
     # binding.pry
+
+    ### keep!!!
+    #@category_parent_array = ["---"]
+    #親カテゴリーのみ抽出 => 配列に追加
+    #@category_parent_array.concat(Category.where(ancestry: nil).pluck(:name))
+    
   end
 
   def get_category_children
@@ -47,6 +54,7 @@ class ProductsController < ApplicationController
   def get_category_grandchildren
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find("#{params[:child_id]}").children
+
   end
 
   def get_selected_grandchild
@@ -62,20 +70,11 @@ class ProductsController < ApplicationController
   def create
     @user = current_user
     @product = Product.new(product_params)
-    @product.save!
-    # begin
-    #   @product = Product.new(product_params)
-    #   @product.save!
-    # rescue
-    #   redirect_to new_product_path
-    # end
-
-#    binding.pry
-#    if @product.save
-#      redirect_to root_path
-#    else
-#      redirect_to new_product_path
-#    end
+    if @product.save
+      redirect_to root_path
+    else
+      redirect_to new_product_path
+    end
   end
 
   def update
@@ -102,4 +101,12 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def current
+    @current_user = Current_user_id
+  end
+
 end
+
+# if @products.user_id != @current_user
+#   redirect_to("/purchase/new")
+# end
