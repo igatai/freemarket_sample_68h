@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  # before_action :set_product, except: [:index, :new, :create]
 
   def index
     @product = Product.where(category_id: "1").first(3)
@@ -51,6 +52,10 @@ class ProductsController < ApplicationController
     # @selected_id = Category.find("#{params[:grandchild_id]}").id
     # @selected_id = params[:grandchild_id]
     @category_grandchild = Category.find("#{params[:grandchild_id]}")
+
+
+    @product.images.new
+
   end
 
   def create
@@ -63,16 +68,37 @@ class ProductsController < ApplicationController
     # rescue
     #   redirect_to new_product_path
     # end
+
+#    binding.pry
+#    if @product.save
+#      redirect_to root_path
+#    else
+#      redirect_to new_product_path
+#    end
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to ''
+    else
+      render :edit
+    end
   end
 
   def show
+    @parents = Category.all.order("ancestry ASC").limit(13)
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id, :prefecture_id).merge(user_id: current_user.id)
+    #params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id, :prefecture_id).merge(user_id: current_user.id)
     # params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id ,:image_id, :prefecture_id).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :bland_id, :category_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge( user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
 end
