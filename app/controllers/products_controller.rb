@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   def new
     
     @product = Product.new
+    @product.images.new
     # @category_parent_array = ["---"]
     # @category_parent_array = [id: nil, name: "---"]
     # @category_parent_name_array = ["---"]
