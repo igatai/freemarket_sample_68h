@@ -78,7 +78,7 @@
               .contents__detail__box__set__box__coution
                 必須
             .contents__detail__box__set__form_select
-              = f.select :condition, ["-","新品","中古"]
+              = f.select :condition, [["-", 1], ["新品", 2], ["中古", 3]]
 
       .contents__detail
         .contents__detail__box
@@ -94,7 +94,9 @@
               .contents__detail__box__set__box__coution
                 必須
             .contents__detail__box__set__form
-              = f.select :delivery_method, ["購入者負担","出品者負担"]
+              = f.select :payment, [["購入者負担","購入者負担"], ["出品者負担","出品者負担"]]
+            .contents__detail__box__set__form__method
+              = f.select :delivery_method, [["ゆうパック","ゆうパック"], ["クロネコヤマト","クロネコヤマト"], ["佐川急便","佐川急便"]]
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
@@ -110,7 +112,7 @@
               .contents__detail__box__set__box__coution
                 必須
             .contents__detail__box__set__form
-              = f.select :delivery_date, ["１〜２日で発送","３〜4日で発送","1週間以内に発送"]
+              = f.select :delivery_date, [["１〜２日で発送", 1], ["３〜4日で発送", 2], ["1週間以内に発送", 3]]
       .contents__price
         .contents__price__text
           .contents__price__text__comment
@@ -127,7 +129,7 @@
                 .contents__price__value__first__left__box__coution
                   必須
             .contents__price__value__first__right
-              = f.number_field :price, min:300, max:9999999,class: "contents__price__value__first__right__input"
+              = f.number_field :price, min:300, max:9999999, class: "contents__price__value__first__right__input"
           .contents__price__value__second
             .contents__price__value__second__left
               販売手数料（10%）

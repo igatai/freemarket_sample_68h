@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   # before_action :set_product, except: [:index, :new, :create]
+  before_action :authenticate_user! ,only: [:new]
 
   def index
     @product = Product.where(category_id: "1").first(3)
@@ -26,7 +27,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to ''
+      redirect_to root_path
     else
       render :edit
     end
@@ -39,7 +40,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :bland_id, :category_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge( user_id: current_user.id)
+    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :bland_id, :category_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_product
