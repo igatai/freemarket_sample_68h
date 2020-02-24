@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   # before_action :set_product, except: [:index, :new, :create]
+  # before_action :authenticate_user! ,only: [:new]
 
   def index
     @product = Product.where(category_id: "1").first(3)
