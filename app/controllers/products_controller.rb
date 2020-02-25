@@ -1,6 +1,4 @@
 class ProductsController < ApplicationController
-  # before_action :set_product, except: [:index, :new, :create]
-  # before_action :authenticate_user! ,only: [:new]
   before_action :set_brand, only: [:new]
 
   def index
@@ -13,68 +11,27 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.new
-    # binding.pry
 
-    # @category_parent_array = ["---"]
-    # @category_parent_array = [id: nil, name: "---"]
-    # @category_parent_name_array = ["---"]
-    # @category_parent_id_array = [""]
-
-
-    # @category_parent_pare = ["---",""]
-    # @category_parent_array = []
-    # @category_parent_array << @category_parent_pare
-
-    ###
-    # # 親カテゴリーのみ抽出 => 配列
-    # Category.where(ancestry: nil).each do |parent|
-    #   category_parent_pare = [parent.name, parent.id]
-    #   @category_parent_array << category_parent_pare
-    # end
-    # binding.pry
-
-    ### keep!!!
     @category_parent_array = ["---"]
-    #親カテゴリーのみ抽出 => 配列に追加
+    #親カテゴリーのみ抽出 => 配列に追加（[表示する値,取得する値] = [parent.name, parent.id]）
     @category_parent_array.concat(Category.where(ancestry: nil).pluck(:name,:id))
-    # binding.pry
   end
 
   def get_category_children
-    # binding.pry
     @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
-    # @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end
 
   def get_category_grandchildren
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-    # @category_grandchildren = Category.find("#{params[:child_id]}").children
-    # @category_grandchildren = Category.find(:child_id).children
-    # binding.pry
     @category_grandchildren = Category.find(params[:child_id]).children
 
   end
 
-  def get_selected_grandchild
-    # @selected_id = Category.find("#{params[:grandchild_id]}").id
-    # @selected_id = params[:grandchild_id]
-    # @category_grandchild = Category.find("#{params[:grandchild_id]}")
-    @category_grandchild = Category.find(:grandchild_id)
-
-
-    @product.images.new
-
-  end
-
   def create
-    # binding.pry
     @user = current_user
     @product = Product.new(product_params)
-    # @product.save!
     if @product.save
-      # binding.pry
       redirect_to product_path(@product.id)
-      # redirect_to root_path
     else
       redirect_to new_product_path
     end
@@ -106,9 +63,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    #params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id, :prefecture_id).merge(user_id: current_user.id)
-    # params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id ,:image_id, :prefecture_id).merge(user_id: current_user.id)
-    # params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id, :prefecture_id, images_attributes: [:src, :_destroy, :id]).merge( user_id: current_user.id)
     params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge( user_id: current_user.id)
   end
 
@@ -123,11 +77,6 @@ class ProductsController < ApplicationController
   def set_brand
     @brand_array = []
     @brand_array.concat(Brand.all.pluck(:name, :id))
-    # binding.pry
   end
 
 end
-
-# if @products.user_id != @current_user
-#   redirect_to("/purchase/new")
-# end

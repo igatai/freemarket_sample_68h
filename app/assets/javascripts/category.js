@@ -9,15 +9,6 @@ $(function(){
   };
 
   function appendchildrenbox(insertHTML){
-    // var secondhtml = 
-    //           `
-                  
-    //                 <select class = "contents__detail__box__set__form", id = "children_category", name = "product[category]">
-    //                   <option value="---">---</option>
-    //                   ${insertHTML}
-    //                 </select>
-                
-    //           `;
         var secondhtml = 
               `
                     <select class = "contents__detail__box__set__form", id = "children_category", name = "product[category_id]">
@@ -48,7 +39,6 @@ $(function(){
         url: 'get_category_children',
         type: 'GET',
         data: { parent_id: parentCategory },
-        // data: { parent_name: parentCategory },
         dataType: 'json'
       })
       .done(function(children){
@@ -66,7 +56,6 @@ $(function(){
 
   $(".contents__detail__box__set").on("change", '#children_category', function(){
     var childContent = $('#children_category option:selected').data('category');
-    // console.log(data('category'));
     console.log(childContent);
     if (childContent != "---"){ 
       $.ajax({
@@ -86,23 +75,5 @@ $(function(){
         alert('孫カテゴリー取得に失敗しました');
       })
     };
-  })
-
-  $(".contents__detail__box__set__form").on("change", '#grandchildren_category', function(){
-    var grandchildContent = $('#grandchildren_category option:selected').data('category');
-    console.log(grandchildContent);
-    return grandchildContent;
-  //   $.ajax({
-  //     url: 'get_selected_grandchild',
-  //     type: 'GET',
-  //     data: { grandchild_id: grandchildContent },
-  //     dataType: 'json'
-  //   })
-  //   .done(function(grandchild){
-  //     return grandchild.id;
-  //   })
-  //   .fail(function(){
-  //     alert('孫カテゴリー取得に失敗しました');
-  //   })
   })
 });

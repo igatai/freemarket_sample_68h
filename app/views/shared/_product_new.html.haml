@@ -62,7 +62,6 @@
             .contents__detail__box__set__form
               .contents__detail__box__set__form__detail
                 = f.select :category_id, @category_parent_array, {}, {class: 'contents__detail__box__set__form', id: 'parent_category'}
-                -# = f.select :category, [@category_parent_name_array, @category_parent_id_array], {}, {class: 'contents__detail__box__set__form', id: 'parent_category'}
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
@@ -70,7 +69,6 @@
               .contents__detail__box__set__box__nini
                 任意
             .contents__detail__box__set__form
-            -# = f.text_field :brand_id, class: 'contents__detail__box__set__form', placeholder: '例)シャネル'
             = f.select :brand_id, @brand_array, {}, {class: 'contents__detail__box__set__form'}
           .contents__detail__box__set
             .contents__detail__box__set__box
@@ -136,12 +134,10 @@
             .contents__price__value__second__left
               販売手数料（10%）
             .contents__price__value__second__right{id: "commision" }
-              -# = text_field( :commision, option = {:id "commision"})
           .contents__price__value__third
             .contents__price__value__third__left
               販売利益
             .contents__price__value__third__right{id: "profit" }
-              -# = text_field :profit, :id "profit"
         .contents__price__submit
           .contents__price__submit__throw
             = f.submit '出品する' ,class: 'contents__price__submit__throw__btn'
