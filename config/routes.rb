@@ -12,7 +12,15 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   resources :registration, only: [:index, :new, :create]
 
-  resources :products, only: [:index, :new, :create]
+
+  resources :products, only: [:index, :new, :create, :show, :destroy]do
+  #Ajax用
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+
   resources :useraddress, only: [:index]
   resources :purchase, only: :new
   resources :useraddress, only: :new
@@ -24,4 +32,5 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
+  resources :products, only: :show
 end

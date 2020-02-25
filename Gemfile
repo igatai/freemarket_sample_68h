@@ -89,4 +89,4 @@ gem 'ancestry'
 
 gem 'payjp'
 gem 'dotenv-rails'
-gem "jquery-rails"
+gem 'jquery-rails'

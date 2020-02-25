@@ -1,12 +1,13 @@
 .product_container
-  %h1.product_name 商品名
+  %h1.product_name
+    = @product.name
   .product_content
     .product_content__photo
       .product_content__photo__mainImage
-        = image_tag src="/images/sample01.png"
+        = @product.images[0]
       .product_content__photo__subImage
         .product_content__photo__subImage__thumb
-          = image_tag src="/images/sample02.png"
+          = @product.images[1]
           = image_tag src="/images/sample03.png"
           = image_tag src="/images/sample04.png"
     %table.product_content__detail-table
@@ -14,63 +15,52 @@
         %tr
           %th出品者
           %td
-            = link_to "コロナウイルス", ''
+            = @product.user.nickname
         %tr
           %thカテゴリ
-          %td菌
-        %tr
-          %th出品者
-          %tdコロナウイルス
+          %td
+            = @product.category.name
         %tr
           %thブランド
-          %td中国
+          %td
+            = @product.brand.name
         %tr
           %th商品の状態
-          %td傷や汚れあり
+          %td
+            = @product.status
         %tr
           %th配送料の負担
-          %td送料込み（出品者負担）
+          %td
+            = @product.payment      
         %tr
           %th配送の方法
-          %td普通郵便(定形、定形外)
+          %td
+            = @product.delivery_method
         %tr
           %th配送元地域
-          %td千葉県
+          %td
+            = @product.delivery_date
         %tr
           %th発送日の目安
-          %td発送日の目安
-
-
-      
+          %td
+            
   .product_price
-    %span.product_price__bold¥5000
+    %span.product_price__bold
+      = @product.price
     %span.product_price__tax (税込)
     %span.product_price__delivery送料込み
-
-  .product_buy
-    = link_to "購入画面に進む", '', class: 'buy-btn'
+  - if user_signed_in? && current_user.id == @product.user_id
+    .product_editbox
+      .product_editbox_edit
+        = link_to = link_to "編集する", '', class: 'buy-btn'
+      .product_editbox_delete
+        = link_to "削除する", '', class: 'buy-btn', method: :delete
+  - else
+    .product_buy
+      = link_to "購入画面に進む", '', class: 'buy-btn'
 
   %p.product_describe
-    ああああああ
-    %br
-    %br
-    ああああああああ
-    %br
-    %br
-    ああああああああ
-    %br
-    %br
-    %br
-    %br
-    ああああああああ
-    %br
-    %br
-    %br
-    ああああああああ
-    %br
-    %br
-    %br
-    ここまで
+    = simple_format(@product.content)
 
 .product_comment
   .comment_form
