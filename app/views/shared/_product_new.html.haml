@@ -1,4 +1,3 @@
-  
 .body
   .contents
     = form_for [ @product ] do |f|
@@ -29,7 +28,7 @@
                 - if @product.persisted?
                   .js-file_group{"data-index" => "#{@product.images.count}"}
                     = file_field_tag :image, name: "product[images_attributes][#{@product.images.count}][image]", class: 'js-file'
-                    %span.js-remove 削除
+                    %span.js-remove 削除     
       .contents__product
         .contents__product__area 
           .contents__product__area__name
@@ -61,7 +60,7 @@
                 必須
             .contents__detail__box__set__form
               .contents__detail__box__set__form__detail
-                = f.select :category_id, @category_parent_array, {}, {class: 'contents__detail__box__set__form', id: 'parent_category'}
+                = f.select :category, @category_parent_array, {}, {class: 'contents__detail__box__set__form', id: 'parent_category'}
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
@@ -69,7 +68,7 @@
               .contents__detail__box__set__box__nini
                 任意
             .contents__detail__box__set__form
-            = f.select :brand_id, @brand_array, {}, {class: 'contents__detail__box__set__form'}
+            = f.text_field :brand_id, class: 'contents__detail__box__set__form', placeholder: '例)シャネル'
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
@@ -93,9 +92,7 @@
               .contents__detail__box__set__box__coution
                 必須
             .contents__detail__box__set__form
-              = f.select :payment, ["購入者負担","出品者負担"]
-            .contents__detail__box__set__form__method
-              = f.select :delivery_method, [["ゆうパック","ゆうパック"], ["クロネコヤマト", "クロネコヤマト"], ["佐川急便", "佐川急便"]]
+              = f.select :delivery_method, ["購入者負担","出品者負担"]
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
@@ -128,16 +125,17 @@
                 .contents__price__value__first__left__box__coution
                   必須
             .contents__price__value__first__right
-              = f.number_field :price, min:300, max:9999999,class: "contents__price__value__first__right__input",id: "input_price", style: "text-align:right;"
-              円
+              = f.number_field :price, min:300, max:9999999,class: "contents__price__value__first__right__input"
           .contents__price__value__second
             .contents__price__value__second__left
               販売手数料（10%）
-            .contents__price__value__second__right{id: "commision" }
+            .contents__price__value__second__right
+              -
           .contents__price__value__third
             .contents__price__value__third__left
               販売利益
-            .contents__price__value__third__right{id: "profit" }
+            .contents__price__value__third__right
+              -
         .contents__price__submit
           .contents__price__submit__throw
             = f.submit '出品する' ,class: 'contents__price__submit__throw__btn'
