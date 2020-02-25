@@ -1,5 +1,5 @@
 .main__pickup__box__items__item
-  %a{:href => "#"}
+  %a{:href => product_path(product.id)}
     %figure.main__pickup__box__items__item__img
       - @product.each do |product|
         = product.images

@@ -76,6 +76,10 @@ class ProductsController < ApplicationController
     # end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
   def update
     if @product.update(product_params)
       redirect_to ''
@@ -85,7 +89,14 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
     @parents = Category.all.order("ancestry ASC").limit(13)
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to root_path
   end
 
   private
