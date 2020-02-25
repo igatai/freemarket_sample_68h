@@ -325,10 +325,12 @@ $gray: rgb(245, 245, 245);
         &__second{
           color:rgba(0, 0, 0, 0.589);
           height:70px;
-          width:100%;
+          width:95%;
           line-height: 48px;
           padding:12px 0;
           border-bottom: 1px solid $gray ;
+          display: flex;
+          justify-content: space-between;
           &__left{
             
           }
@@ -337,12 +339,16 @@ $gray: rgb(245, 245, 245);
         &__third{
           color:rgba(0, 0, 0, 0.589);
           height:70px;
-          width:80%;
+          width:95%;
           line-height: 48px;
+          display: flex;
+          justify-content: space-between;
           &__left{
             padding-bottom: 12px;
           }
-          &__right{}
+          &__right{
+
+          }
         }
       }
       &__submit{

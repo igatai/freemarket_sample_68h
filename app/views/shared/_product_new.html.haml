@@ -130,7 +130,8 @@
                 .contents__price__value__first__left__box__coution
                   必須
             .contents__price__value__first__right
-              = f.number_field :price, min:300, max:9999999,class: "contents__price__value__first__right__input",id: "input_price"
+              = f.number_field :price, min:300, max:9999999,class: "contents__price__value__first__right__input",id: "input_price", style: "text-align:right;"
+              円
           .contents__price__value__second
             .contents__price__value__second__left
               販売手数料（10%）

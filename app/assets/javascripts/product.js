@@ -1,15 +1,15 @@
-// $(function(){
+$(function(){
 
-//   $('#input_price').change(function(){
+  $('#input_price').change(function(){
 
-//     var input_price = $(#input_price).val();
-//     var int_input_price = parseint(input_proce);
+    var p = $('#input_price').val();
+    var int_input_price = parseInt(p);
 
-//     var commision = int_input_price * 0.1;
-//     var profit = int_input_price - commision;
+    var commision = Math.floor(int_input_price * 0.1);
+    var profit = int_input_price - commision;
 
-//     $('#profit').val(profit)
+    $('#commision').text(commision + "円")
+    $('#profit').text(profit + "円")
 
-//   });
-
-// });
+  });
+});
