@@ -123,14 +123,6 @@ $gray: rgb(245, 245, 245);
           font-size:14px;
           margin:16px 0;
         }
-        // &__area{
-        //   width:100%;
-        //   height:150px;
-        //   background-color: $gray;
-        //   align-items: center;
-        //   line-height: 150px;
-        //   margin: -8px, -4px, 0px;
-        // }
       }
     }
 
@@ -242,24 +234,15 @@ $gray: rgb(245, 245, 245);
           }
           &__form{
             &__detail {
-              // color:black;
               background-color: #fff;
-              // min-height:48px;
               padding: 5px;
               width:100%;
               margin-top:10px;
-              // font-size: 20px;
               border:1px solid rgb(177, 177, 177);
-              // border-radius: 4px;
             }
-            // color:black;
-            // background-color: #fff;
-            // min-height:48px;
             width:100%;
             margin-top:10px;
             font-size: 16px;
-            // border:1px solid rgb(177, 177, 177);
-            // border-radius: 4px;
           }
         }
       }
