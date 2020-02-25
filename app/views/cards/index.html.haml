@@ -12,87 +12,29 @@
 
   .mypage__main
     .mypage__main__right
-      %section.mypage__icon
-        =link_to "https://www.mercari.com/jp/u/353905030/" do
-          %figure
-            = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", size: "60x60"
-          %h2.bold 
-          = @user.nickname
-          .mypage__number
-            %div.evaluation
-              評価
-              %span.bold 0
-            %div.sell
-              出品数
-              %span.bold 0
-      %section.mypage__information
-        %ul.mypage__information__tabs
-          %li.tabs__left
-            = link_to root_path do
-              %h3
-                お知らせ
-          %li.tabs__right
-            = link_to root_path do
-              %h3
-                やることリスト
-        .mypage__information__contents
-          %ul
-            %li 
-              = link_to root_path, class:"mypage_information" do
-                .figure
-                  = image_tag "mercari_profile.png", size: "48x48", class: "myphoto"
-                %h3
-                  事務局から個別メッセージ「ログイン通知」
-                %i.fas.fa-chevron-right
-            %li 
-              = link_to root_path, class:"mypage_information" do
-                .figure
-                  = image_tag "mercari_profile.png", size: "48x48", class: "myphoto"
-                %h3
-                  事務局から個別メッセージ「ログイン通知」
-                %i.fas.fa-chevron-right
-            %li 
-              = link_to root_path, class:"mypage_information" do
-                .figure
-                  = image_tag "mercari_profile.png", size: "48x48", class: "myphoto"
-                %h3
-                  事務局から個別メッセージ「ログイン通知」
-                %i.fas.fa-chevron-right
-            %li 
-              = link_to root_path, class:"mypage__information" do
-                .figure
-                  = image_tag "mercari_profile.png", size: "48x48", class: "myphoto"
-                %h3
-                  事務局から個別メッセージ「ログイン通知」
-                %i.fas.fa-chevron-right
-            %li 
-              = link_to root_path, class:"mypage__information" do
-                .figure
-                  = image_tag "mercari_profile.png", size: "48x48", class: "myphoto"
-                %h3
-                  事務局から個別メッセージ「ログイン通知」
-                %i.fas.fa-chevron-right
-            %li 
-              = link_to root_path, class:"mypage__information__all" do
-                .mypage__information__contents__all
-                  一覧を見る
+      .mypage__main__right__top
+        %h1 支払い方法
+      .mypage__main__right__bottom
+        %p1 クレジットカード一覧
+        .mypage__main__right__bottom__btn
+          = form_with url: pay_cards_path do 
+            :plain
+              <script
+                type="text/javascript"
+                src="https://checkout.pay.jp"
+                class="payjp-button"
+                data-key="pk_test_df0d6190b98fd0e093ced649"
+                data-on-created="onCreated"
+                data-text="クレジットカードを追加する"
+                data-submit-text="追加する"
+                data-partial="false">
+              </script>
 
-        .mypage__information__buying
-          %h3
-            購入した商品
-          %ul.mypage__information__tabs
-            %li.tabs__left
-              = link_to root_path do
-                %h6
-                  取引中
-            %li.tabs__right
-              = link_to root_path do
-                %h6
-                  過去の取引
-          %ul.buying__record__detail
-            %li
-              .figure
-                取引中の商品がありません
+        .mypage__main__right__bottom__border
+        .mypage__main__right__bottom__pay
+          = link_to cards_path, class: "card__btn" do
+            %p3 支払い方法について
+            %i.fas.fa-chevron-right
 
     .mypage__main__left
       .mypage_main__left__top
@@ -196,7 +138,7 @@
                 発送元・お届け先住所変更
               %i.fas.fa-chevron-right
           %li 
-            = link_to "/cards", method: :get, class:"mypage_information" do
+            = link_to "/cards", class:"mypage_information" do
               %h3
                 支払い方法
               %i.fas.fa-chevron-right
