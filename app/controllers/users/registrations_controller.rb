@@ -24,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create_address
-    
+    # binding.pry
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
     unless @address.valid?
