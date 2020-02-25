@@ -6,12 +6,6 @@ class CardsController < ApplicationController
     @parents = Category.all.order("ancestry ASC").limit(13)
   end
 
-  # クレジットカード情報入力画面
-  # def new
-  #   card = Card.where(user_id: current_user.id)
-    # redirect_to action: "show" if card.exists?
-  # end
-
   #payjpとCardのデータベース作成を実施します。
   def pay 
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -45,14 +39,15 @@ class CardsController < ApplicationController
       customer.delete
       card.delete
     end
-      redirect_to action: "new"
+      redirect_to action: "index"
   end
   
   # クレジットカード詳細情報
   def show
+    @parents = Category.all.order("ancestry ASC").limit(13)
     card = Card.where(user_id: current_user.id).first
     if card.blank?
-      redirect_to action: "new" 
+      redirect_to action: "index" 
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
