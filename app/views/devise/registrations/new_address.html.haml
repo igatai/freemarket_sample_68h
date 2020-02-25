@@ -20,7 +20,8 @@
           %br/
         .field__box__right
           必須
-      = f.text_field :prefecture_id, placeholder: "例) 埼玉", class: "field__input"
+      = f.collection_select :prefecture_id, Prefecture.all ,:id, :name, class: 'field__input', prompt: '選択してください'
+      -# = f.text_field :prefecture_id, placeholder: "例) 埼玉", class: "field__input"
     .field
       .field__box
         .field__box__left
