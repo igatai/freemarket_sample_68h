@@ -18,16 +18,15 @@ class ProductsController < ApplicationController
   def show
   end
 
-  # require 'payjp'
-
-  # def pay
-  #   Payjp.api_key = "sk_test_ee246f31a4f961880a3c2f94"
-  #   Payjp::Charge.create(
-  #     amount: 809, # 決済する値段
-  #     card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
-  #     currency: 'jpy'
-  #   )
-  # end
+  require 'payjp'
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: @product.price,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+  end
 
   private
 
