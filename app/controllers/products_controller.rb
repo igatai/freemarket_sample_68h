@@ -51,6 +51,8 @@ class ProductsController < ApplicationController
 
   def show
     @parents = Category.all.order("ancestry ASC").limit(13)
+    @product = Product.find(params[:id]) 
+    
   end
 
   private
