@@ -2,17 +2,17 @@ $(function(){
 
   function appendCategory(child){
     var html = `
-                <option value = "${child.name}" data-category="${child.id}">${child.name}</option>
+                <option value = ${child.id} data-category="${child.id}">${child.name}</option>
               `;
     return html;
     
   };
 
   function appendchildrenbox(insertHTML){
-    var secondhtml = 
+        var secondhtml = 
               `
-                    <select class = "contents__detail__box__set__form", id = "children_category">
-                      <option value="---">---</option>
+                    <select class = "contents__detail__box__set__form", id = "children_category", name = "product[category_id]">
+                      <option value>---</option>
                       ${insertHTML}
                     </select>
               `;
@@ -22,8 +22,9 @@ $(function(){
   function appendgrandchildrenbox(insertHTML){
     var thirdhtml = 
               `
-                    <select class = "contents__detail__box__set__form", id = "grandchildren_category">
-                      <option value="---">---</option>
+                  
+                    <select class = "contents__detail__box__set__form", id = "grandchildren_category", name = "product[category_id]">
+                      <option value>---</option>
                       ${insertHTML}
                     </select>
               `;
@@ -32,11 +33,12 @@ $(function(){
 
   $("#parent_category").on("change", function(){
     var parentCategory = document.getElementById('parent_category').value;
+    console.log(parentCategory);
     if (parentCategory != "---"){ 
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
-        data: { parent_name: parentCategory },
+        data: { parent_id: parentCategory },
         dataType: 'json'
       })
       .done(function(children){
@@ -54,6 +56,7 @@ $(function(){
 
   $(".contents__detail__box__set").on("change", '#children_category', function(){
     var childContent = $('#children_category option:selected').data('category');
+    console.log(childContent);
     if (childContent != "---"){ 
       $.ajax({
         url: 'get_category_grandchildren',
