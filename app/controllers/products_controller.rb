@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   # before_action :set_product, except: [:index, :new, :create]
   # before_action :authenticate_user! ,only: [:new]
+  before_action :set_brand, only: [:new]
 
   def index
     @product = Product.where(category_id: "1").first(3)
@@ -10,9 +11,9 @@ class ProductsController < ApplicationController
   end
 
   def new
-    
     @product = Product.new
     @product.images.new
+    # binding.pry
 
     # @category_parent_array = ["---"]
     # @category_parent_array = [id: nil, name: "---"]
@@ -66,14 +67,17 @@ class ProductsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @user = current_user
     @product = Product.new(product_params)
-    @product.save!
-    # if @product.save
-    #   redirect_to root_path
-    # else
-    #   redirect_to new_product_path
-    # end
+    # @product.save!
+    if @product.save
+      # binding.pry
+      redirect_to product_path(@product.id)
+      # redirect_to root_path
+    else
+      redirect_to new_product_path
+    end
   end
 
   def edit
@@ -104,7 +108,8 @@ class ProductsController < ApplicationController
   def product_params
     #params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id, :prefecture_id).merge(user_id: current_user.id)
     # params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id ,:image_id, :prefecture_id).merge(user_id: current_user.id)
-    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :bland_id, :category_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge( user_id: current_user.id)
+    # params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id, :prefecture_id, images_attributes: [:src, :_destroy, :id]).merge( user_id: current_user.id)
+    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge( user_id: current_user.id)
   end
 
   def set_product
@@ -113,6 +118,12 @@ class ProductsController < ApplicationController
 
   def current
     @current_user = Current_user_id
+  end
+
+  def set_brand
+    @brand_array = []
+    @brand_array.concat(Brand.all.pluck(:name, :id))
+    # binding.pry
   end
 
 end

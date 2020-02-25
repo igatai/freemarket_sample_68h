@@ -29,8 +29,14 @@ $(function(){
     const blobUrl = window.URL.createObjectURL(file);
 
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-      img.setAttribute('src', blobUrl);
+      // console.log(img);
+      // console.log(src);
+      // console.log(blobUrl);
+      img.setAttribute('image', blobUrl);
     } else if ($('.js-file').length == 10) {
+      // console.log(img);
+      // console.log(src);
+      // console.log(blobUrl);
       $('#previews').append(buildImg(targetIndex, blobUrl));
     }
     else{
