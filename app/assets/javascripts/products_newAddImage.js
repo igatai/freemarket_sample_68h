@@ -29,7 +29,7 @@ $(function(){
     const blobUrl = window.URL.createObjectURL(file);
 
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-      img.setAttribute('src', blobUrl);
+      img.setAttribute('image', blobUrl);
     } else if ($('.js-file').length == 10) {
       $('#previews').append(buildImg(targetIndex, blobUrl));
     }
