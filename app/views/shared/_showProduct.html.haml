@@ -1,11 +1,15 @@
 .product_container
-  %h1.product_name 商品名
+  %h1.product_name
+    = @product.name
   .product_content
     .product_content__photo
       .product_content__photo__mainImage
-        -# = @image.image
+        = @product.images[0]
       .product_content__photo__subImage
         .product_content__photo__subImage__thumb
+          = @product.images[1]
+          = image_tag src="/images/sample03.png"
+          = image_tag src="/images/sample04.png"
     %table.product_content__detail-table
       %tbody
         %tr
@@ -15,11 +19,11 @@
         %tr
           %thカテゴリ
           %td
-            = @product.category_id
+            = @product.category.name
         %tr
           %thブランド
           %td
-            = @product.brand_id
+            = @product.brand.name
         %tr
           %th商品の状態
           %td
@@ -40,9 +44,6 @@
           %th発送日の目安
           %td
             
-
-
-      
   .product_price
     %span.product_price__bold
       = @product.price
@@ -53,32 +54,13 @@
       .product_editbox_edit
         = link_to = link_to "編集する", '', class: 'buy-btn'
       .product_editbox_delete
-        = link_to "削除する", '', class: 'buy-btn'
+        = link_to "削除する", '', class: 'buy-btn', method: :delete
   - else
     .product_buy
       = link_to "購入画面に進む", '', class: 'buy-btn'
 
   %p.product_describe
-    ああああああ
-    %br
-    %br
-    ああああああああ
-    %br
-    %br
-    ああああああああ
-    %br
-    %br
-    %br
-    %br
-    ああああああああ
-    %br
-    %br
-    %br
-    ああああああああ
-    %br
-    %br
-    %br
-    ここまで
+    = simple_format(@product.content)
 
 .product_comment
   .comment_form

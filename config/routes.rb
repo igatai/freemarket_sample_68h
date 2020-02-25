@@ -13,14 +13,13 @@ Rails.application.routes.draw do
   resources :registration, only: [:index, :new, :create]
 
 
-  resources :products, only: [:index, :new, :create, :show]do
+  resources :products, only: [:index, :new, :create, :show, :destroy]do
   #Ajax用
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
-
 
   resources :useraddress, only: [:index]
   resources :purchase, only: :new
