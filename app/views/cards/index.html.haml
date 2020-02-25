@@ -17,11 +17,6 @@
       .mypage__main__right__bottom
         %p1 クレジットカード一覧
         .mypage__main__right__bottom__btn
-          if 
-
-
-
-          
           = form_with url: pay_cards_path do 
             :plain
               <script
@@ -143,7 +138,7 @@
                 発送元・お届け先住所変更
               %i.fas.fa-chevron-right
           %li 
-            = link_to cards_path, class:"mypage_information" do
+            = link_to "/cards", class:"mypage_information" do
               %h3
                 支払い方法
               %i.fas.fa-chevron-right
