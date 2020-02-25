@@ -2,7 +2,7 @@
   %a{:href => product_path(product.id)}
     %figure.main__pickup__box__items__item__img
       - @product.each do |product|
-        = product.images[0]
+        = product.images
       -# %img{src: "/images/icon-04.png"}
   .main__pickup__box__items__item__content
     %h3.main__pickup__box__items__item__content__name
