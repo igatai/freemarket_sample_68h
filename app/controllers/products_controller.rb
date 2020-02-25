@@ -31,9 +31,10 @@ class ProductsController < ApplicationController
   def create
     @user = current_user
     @product = Product.new(product_params)
-    if @product.save
+    begin
+      @product.save!
       redirect_to product_path(@product.id)
-    else
+    rescue
       redirect_to new_product_path
     end
   end
