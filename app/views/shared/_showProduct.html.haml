@@ -57,7 +57,7 @@
         = link_to "削除する", '', class: 'buy-btn', method: :delete
   - else
     .product_buy
-      = link_to "購入画面に進む", '', class: 'buy-btn'
+      = link_to "購入画面に進む","/purchase/#{@product.id}", class: 'buy-btn'
 
   %p.product_describe
     = simple_format(@product.content)

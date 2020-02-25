@@ -56,8 +56,6 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @parents = Category.all.order("ancestry ASC").limit(13)
-    @product = Product.find(params[:id]) 
-    
   end
 
   def destroy
@@ -81,7 +79,3 @@ class ProductsController < ApplicationController
   end
 
 end
-
-# if @products.user_id != @current_user
-#   redirect_to("/purchase/new")
-# end
