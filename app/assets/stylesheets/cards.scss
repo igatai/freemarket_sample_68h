@@ -27,14 +27,11 @@
           padding-right: 120px;
           }
         &__btn {
-          background-color: #EA352D;
-          font-size: 14px;
-          font-weight: bold;
+          // background-color: #EA352D;
           height: 50px;
           line-height: 50px;
           width: 320px;
           margin: 24px auto;
-          text-align: center;
           a {
             text-decoration: none;
             color: #fff;
@@ -43,6 +40,33 @@
             text-align: center;
             font-size: 16px;
             padding-right: 15px;
+          }
+        }
+        &__card {
+          font-size: 16px;
+          display: flex;
+          justify-content: space-between;
+          margin: 0 126px;
+          li {
+            padding: 24px 0;
+          }
+          form {
+            text-align: start;
+          }
+          .card__delete__button {
+            border: 1px solid red;
+            padding: 4px 6px;
+            color: red;
+            height: 30px;
+            width: 70px;
+            border-radius: 3px;
+            text-align: center;
+            cursor: pointer;
+            .delete__button {
+              font-size: 14px;
+              color: red;
+              cursor: pointer;
+            }
           }
         }
         &__border {

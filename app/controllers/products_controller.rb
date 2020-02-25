@@ -9,8 +9,7 @@ class ProductsController < ApplicationController
   end
 
 
-  def new
-    
+  def new 
     @product = Product.new
     @product.images.new
     @category_parent_array = ["---"]
@@ -62,6 +61,16 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     product.destroy
     redirect_to root_path
+  end
+
+  require 'payjp'
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: @product.price,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
   end
 
   private
