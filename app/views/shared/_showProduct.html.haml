@@ -52,7 +52,7 @@
   - if user_signed_in? && current_user.id == @product.user_id
     .product_editbox
       .product_editbox_edit
-        = link_to = link_to "編集する", '', class: 'buy-btn'
+        = link_to = link_to "編集する", "/products/#{@product.id}/edit", class: 'buy-btn'
       .product_editbox_delete
         = link_to "削除する", '', class: 'buy-btn', method: :delete
   - else
