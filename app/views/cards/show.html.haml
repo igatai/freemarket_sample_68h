@@ -16,18 +16,31 @@
         %h1 支払い方法
       .mypage__main__right__bottom
         %p1 クレジットカード一覧
-        .mypage__main__right__bottom__btn
-          = link_to new_credit_path, class: "credit__btn" do            
-            %i.far.fa-credit-card
-            %p2 クレジットカードを追加する
+        %ul.mypage__main__right__bottom__card
+          %li
+            %form.l-single-content{:action => "https://www.mercari.com/jp/mypage/card/delete/", :method => "POST"}
+              %figure
+                %img{:alt => "visa", :height => "15", :src => "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?807465640", :width => "49"}/
+                .card__payment__list
+                  %form.card__payment__content
+                  .card__list
+                    .card__list__picture  
+                  .card__number 
+                    = "**** **** **** " + @default_card_information.last4
+                  .expire__date 
+                    - exp_month = @default_card_information.exp_month.to_s
+                    - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                    = exp_month + " / " + exp_year
+          = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+            %input{ type: "hidden", name: "card_id", value: "" }
+              .card__delete__button
+                %button.delete__button 削除する
+                
         .mypage__main__right__bottom__border
         .mypage__main__right__bottom__pay
-          = link_to new_credit_path, class: "credit__btn" do
+          = link_to cards_path, class: "card__btn" do
             %p3 支払い方法について
             %i.fas.fa-chevron-right
-
-
-
 
     .mypage__main__left
       .mypage_main__left__top
@@ -131,7 +144,7 @@
                 発送元・お届け先住所変更
               %i.fas.fa-chevron-right
           %li 
-            = link_to credit_index_path, class:"mypage_information" do
+            = link_to "/cards", class:"mypage_information" do
               %h3
                 支払い方法
               %i.fas.fa-chevron-right

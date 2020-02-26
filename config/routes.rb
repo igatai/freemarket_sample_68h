@@ -11,8 +11,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
   resources :registration, only: [:index, :new, :create]
-
-
   resources :products, only: [:index, :new, :create, :show, :destroy, :edit]do
   #Ajax用
     collection do
@@ -22,8 +20,16 @@ Rails.application.routes.draw do
   end
 
   resources :useraddress, only: [:index]
-  resources :purchase, only: :new
+  resources :purchase, only: :show
   resources :credit, only: [:index, :new, :create]
   resources :useraddress, only: :new
+
+  resources :cards, only: [:index, :new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
   resources :products, only: :show
 end
