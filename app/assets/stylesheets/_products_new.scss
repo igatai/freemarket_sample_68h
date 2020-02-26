@@ -98,9 +98,9 @@ $gray: rgb(245, 245, 245);
             }
             #drop-box{
               width: auto;
-              max-width:100%;
-              min-width:1px;              
-              height:158px;
+              height: 158px;
+              p {
+              }
             }
           }
           .js-file_group {
