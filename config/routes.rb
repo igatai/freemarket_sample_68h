@@ -11,9 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
   resources :registration, only: [:index, :new, :create]
-
-
-  resources :products, only: [:index, :new, :create, :show, :destroy]do
+  resources :products, only: [:index, :new, :create, :show, :destroy] do
   #Ajax用
     collection do
       get 'get_category_children', defaults: { format: 'json' }
