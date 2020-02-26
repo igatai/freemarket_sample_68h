@@ -13,21 +13,20 @@
 ActiveRecord::Schema.define(version: 2020_02_25_040813) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "prefecture"
-    t.integer "zipcode"
-    t.text "city"
-    t.text "address"
+    t.integer "prefecture_id", null: false
+    t.integer "zipcode", null: false
+    t.text "city", null: false
+    t.text "address", null: false
     t.text "building"
+    t.text "phone_number"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "phone_number"
-    t.integer "prefecture_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.text "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,11 +48,6 @@ ActiveRecord::Schema.define(version: 2020_02_25_040813) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
-  create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image", null: false
     t.bigint "product_id", null: false
@@ -66,10 +60,10 @@ ActiveRecord::Schema.define(version: 2020_02_25_040813) do
     t.string "name", null: false
     t.text "content", null: false
     t.integer "condition", null: false
-    t.string "status", default: "出品中", null: false
+    t.string "status", null: false
     t.string "payment", null: false
     t.integer "delivery_date", null: false
-    t.string "delivery_method", default: "未定", null: false
+    t.string "delivery_method", null: false
     t.integer "price", null: false
     t.integer "user_id", null: false
     t.integer "category_id", null: false
@@ -97,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_040813) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "brands"

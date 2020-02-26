@@ -8,7 +8,7 @@ FactoryBot.define do
     nickname                {"シンゾー"}
     birthyear               {"2020"}
     birthmonth              {"1"}
-    birthday                {12}
+    birthday                {"12"}
     email                   {"fff@gmail.com"}
     password                {"testtest"}
   end
