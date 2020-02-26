@@ -12,7 +12,7 @@ $(function(){
   }
   
   const buildImg = (index, url)=> {
-    const html = `<div class="preview">
+    const html = `<div data-index="${index}" class="preview">
                     <img data-index="${index}" src="${url}" width="117px" height="117px">
                     <div class="preview__menu">
                       <div class="js-edit">編集</div>
@@ -48,15 +48,25 @@ $(function(){
   });
 
   $('#image-box').on('click', '.js-remove', function() {
-    const targetIndex = $(this).parent().data('index');   //削除ボタンが押された js-file_groupのindexを取得している
-    console.log(this);
-    console.log($(this).parent());
-    console.log(this);
+    const targetIndex = $(this).parents('.preview').data('index');   //削除ボタンが押された js-file_groupのindexを取得している
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-    
+    var div1 = $(this).parent();
+    var targetPreview = $(this).parent().parent();
+    var div3 = $(this).parent().parent().parent();
+    var div4 = $(div3).children();
+
+    console.log(targetIndex);
+    console.log(div1);
+    console.log(targetPreview);
+    console.log(div3);
+    console.log(div4);
+
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
-    $(this).parent().remove();
+    // $(this).parents('.preview').remove();
+    $(`.preview[data-index="${targetIndex}"]`).remove;
+    $($(this).parents('.contents__image__box__container').children(`.js-file_group[data-index="${targetIndex}"]`)).remove;
+    
     $(`img[data-index="${targetIndex}"]`).remove();
 
   
