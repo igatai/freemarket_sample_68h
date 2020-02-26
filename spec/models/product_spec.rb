@@ -10,32 +10,14 @@ require 'rails_helper'
       brand = FactoryBot.create(:brand)
       prefecture = Prefecture.create(name: "高知県")
       category = FactoryBot.create(:category)
-      # category = Category.new( name: "プラダ")
+   
       product = build(:product, user_id: user.id,brand_id: brand.id, prefecture_id: prefecture.id,category_id: category.id)
-      #   brand_id:                  "3",
-      #   prefecture_id:             "5",
-      #   category_id:               "432",
-      #   price:                     "3000",
-      #   delivery_method:           "クロネコヤマト",
-      #   payment:                   "購入者負担",
-      #   status:                    "中古",
-      #   condition:                 "新品",
-      #   content:                   "f彼女からの贈り物で〜",
-      #   name:                      "指輪",
-      #   created_at:                "2020-02-25 10:24:30",
-      #   updated_at:                "2020-02-25 10:24:30",
-      #   # user_id:                   "1"
-      # )
+     
 
       expect(product).to be_valid
     end
 
-    # #2 brand_idが空の場合不可
-    # it "is invalid without a brand_id" do
-    #   product = build(:product, brand_id: "")
-    #   product.valid?
-    #   expect(product.errors[:brand_id]).to include("can't be blank")
-    # end
+    
 
     #3 prefecture_idが空の場合不可
     it "is invalid without a prefecture_id" do
