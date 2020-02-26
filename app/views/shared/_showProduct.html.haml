@@ -4,12 +4,21 @@
   .product_content
     .product_content__photo
       .product_content__photo__mainImage
-        = @product.images[0]
+        = image_tag @product.images[0].image.url
       .product_content__photo__subImage
         .product_content__photo__subImage__thumb
-          = @product.images[1]
-          = image_tag src="/images/sample03.png"
-          = image_tag src="/images/sample04.png"
+          - @product.images.each do |product|
+            = image_tag @product.images.image.url
+          -# = image_tag @product.images[1].image.url
+          -# = image_tag @product.images[2].image.url
+          -# = image_tag @product.images[3].image.url
+          -# = image_tag @product.images[4].image.url
+          -# = image_tag @product.images[5].image.url
+          -# = image_tag @product.images[6].image.url
+          -# = image_tag @product.images[7].image.url
+          -# = image_tag @product.images[8].image.url
+          -# = image_tag @product.images[9].image.url
+          -# = image_tag @product.images[10].image.url
     %table.product_content__detail-table
       %tbody
         %tr

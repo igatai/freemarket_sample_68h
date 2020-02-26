@@ -31,7 +31,8 @@ class ProductsController < ApplicationController
   def create
     @user = current_user
     @product = Product.new(product_params)
-    if @product.save
+    # binding.pry
+    if @product.save!
       redirect_to product_path(@product.id)
     else
       redirect_to new_product_path
