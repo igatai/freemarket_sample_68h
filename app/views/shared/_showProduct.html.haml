@@ -7,7 +7,6 @@
         = image_tag @product.images[0].image.url
       .product_content__photo__subImage
         .product_content__photo__subImage__thumb
-          - @product.images.each do |image|
     %table.product_content__detail-table
       %tbody
         %tr
@@ -29,7 +28,7 @@
         %tr
           %th配送料の負担
           %td
-            = @product.payment      
+            = @product.payment
         %tr
           %th配送の方法
           %td
@@ -203,4 +202,3 @@
         = icon('fas', 'chevron-right')
       %li
         = link_to 'いらすとや', ''
-
