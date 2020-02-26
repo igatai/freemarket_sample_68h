@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   end
 
   resources :useraddress, only: [:index]
-  resources :purchase, only: :new
+  resources :purchase, only: :show
+  resources :credit, only: [:index, :new, :create]
   resources :useraddress, only: :new
 
   resources :cards, only: [:index, :new, :show] do
