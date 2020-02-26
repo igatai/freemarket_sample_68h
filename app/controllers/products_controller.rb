@@ -86,7 +86,6 @@ class ProductsController < ApplicationController
   end
 
   def set_brand
-    @brand_array = []
     @brand_array = Brand.pluck(:name, :id)
   end
 
