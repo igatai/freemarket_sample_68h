@@ -17,7 +17,7 @@
             #image-box
               #previews
                 - if @product.persisted?
-                  - @product.images.each_with_index do |image, i|
+                  - @product.image.each_with_index do |image, i|
                     = image_tag image.image.url, data: { index: i }, width: "117", height: '117'
               -# #drop-box
               -#   %p

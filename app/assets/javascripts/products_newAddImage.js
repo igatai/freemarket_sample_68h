@@ -50,6 +50,8 @@ $(function(){
   $('#image-box').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');   //削除ボタンが押された js-file_groupのindexを取得している
     console.log(this);
+    console.log($(this).parent());
+    console.log(this);
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     
     if (hiddenCheck) hiddenCheck.prop('checked', true);
