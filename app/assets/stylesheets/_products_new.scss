@@ -43,13 +43,16 @@ $gray: rgb(245, 245, 245);
       &__box{
       .contents__image__box__container {
         display: flex;
+        background: #F5F5F5;
         margin: 16px auto 0;
         min-height: 158px;
         height: auto ;
-        &__drop-box {
-          width: 620px;
-          background: #F5F5F5;
-          border: 1px dashed #ccc;
+        border: 1px dashed #ccc;
+        max-width: 620px;
+        // &__drop-box {
+        //   width: 620px;
+        //   background: #F5F5F5;
+        //   border: 1px dashed #ccc;
           &-file {
             .form-mask {
               display: inline-grid;
@@ -68,30 +71,36 @@ $gray: rgb(245, 245, 245);
             }
           }
           #image-box {
+            width:100%;
             display: flex;
             flex-wrap: wrap;
-            width: 100%;
-          }
-          #previews {
-            display: flex;
-            display:wrap;
-            width: 100%;
-            .preview{
-              width: 117px;
-              height: 150px;
-              align-items: center;
-              margin-right: 5px;
-              padding:4px auto;
-              img {
+            min-width: 620px;
+            #previews {
+              background: #F5F5F5;
+              display: flex;
+              flex-wrap: wrap;
+              padding: 4px;
+              min-width: 620px;
+              .preview{
+                width: 117px;
+                height: 150px;
                 display:block;
-                margin-top:4px;
-              }
-              &__menu{
-                text-align: center;
-                margin-bottom: 0;
-                .js-remove{
+                margin-right: 3px;
+                img {
+                  display:block;
+                }
+                &__menu{
+                  display: flex;
+                  margin-top: 3px;
+                  justify-content: center;
                 }
               }
+            }
+            #drop-box{
+              width: auto;
+              max-width:100%;
+              min-width:1px;              
+              height:158px;
             }
           }
           .js-file_group {
@@ -99,15 +108,31 @@ $gray: rgb(245, 245, 245);
             padding-top: 10px;
             font-size: 13px;
             width: 46%;
-            
+            height: 50px;
+          }
+
+          .js-edit {
+            display: inline-block;
+            color: rgb(117, 199, 226);
+            font-size: 12px;
+            border: 1px solid rgb(117, 199, 226);
+            padding: 1px 8px;
+            border-radius: 4px;
+            transition: .4s;
+            margin-right: 7px;
+            cursor: pointer;
+            &:hover {
+              background-color: black;
+              border-color: black;
+              color: #FFF;
+            }
           }
           .js-remove {
             display: inline-block;
-            max-width: 180px;
             text-align: left;
             border: 1px solid black;
             font-size: 12px;
-            color: black;
+            color: rgb(148, 1, 1);
             text-decoration: none;
             font-weight: bold;
             padding: 1px 8px;
@@ -120,7 +145,7 @@ $gray: rgb(245, 245, 245);
               color: #FFF;
             }
           }
-        }
+        // }
       }        
         &__comment{
           display:flex;

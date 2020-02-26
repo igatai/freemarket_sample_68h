@@ -15,6 +15,7 @@ $(function(){
     const html = `<div class="preview">
                     <img data-index="${index}" src="${url}" width="117px" height="117px">
                     <div class="preview__menu">
+                      <div class="js-edit">編集</div>
                       <div class="js-remove">削除</div>
                     </div>
                   </div>`;
@@ -34,14 +35,8 @@ $(function(){
     const blobUrl = window.URL.createObjectURL(file);
 
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-      // console.log(img);
-      // console.log(src);
-      // console.log(blobUrl);
       img.setAttribute('image', blobUrl);
     } else if ($('.js-file').length == 10) {
-      // console.log(img);
-      // console.log(src);
-      // console.log(blobUrl);
       $('#previews').append(buildImg(targetIndex, blobUrl));
     }
     else{
