@@ -26,12 +26,6 @@ require 'rails_helper'
       address.valid?
       expect(address.errors[:address]).to include("can't be blank")
     end
-    #5 buildingが空の場合不可
-    it "is invalid without building" do
-      address = build(:address, building: "")
-      address.valid?
-      expect(address.errors[:building]).to include("can't be blank")
-    end
     #6 prefecture_idが空の場合不可
     it "is invalid without zipcode" do
       address = build(:address, prefecture_id: "")
