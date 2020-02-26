@@ -7,8 +7,8 @@
         = image_tag @product.images[0].image.url
       .product_content__photo__subImage
         .product_content__photo__subImage__thumb
-          - @product.images.each do |product|
-            = image_tag @product.images.image.url
+          - @product.images.each do |image|
+            -# = image_tag @product.images.image.url
           -# = image_tag @product.images[1].image.url
           -# = image_tag @product.images[2].image.url
           -# = image_tag @product.images[3].image.url
