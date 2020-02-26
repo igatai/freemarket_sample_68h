@@ -70,12 +70,28 @@ $gray: rgb(245, 245, 245);
           #image-box {
             display: flex;
             flex-wrap: wrap;
+            width: 100%;
           }
           #previews {
+            display: flex;
+            display:wrap;
             width: 100%;
-            img {
-              padding-left: 18px;
-              padding-top: 20px;
+            .preview{
+              width: 117px;
+              height: 150px;
+              align-items: center;
+              margin-right: 5px;
+              padding:4px auto;
+              img {
+                display:block;
+                margin-top:4px;
+              }
+              &__menu{
+                text-align: center;
+                margin-bottom: 0;
+                .js-remove{
+                }
+              }
             }
           }
           .js-file_group {
@@ -97,6 +113,7 @@ $gray: rgb(245, 245, 245);
             padding: 1px 8px;
             border-radius: 4px;
             transition: .4s;
+            cursor: pointer;
             &:hover {
               background-color: black;
               border-color: black;
