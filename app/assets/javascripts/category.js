@@ -33,7 +33,6 @@ $(function(){
 
   $("#parent_category").on("change", function(){
     var parentCategory = document.getElementById('parent_category').value;
-    console.log(parentCategory);
     if (parentCategory != "---"){ 
       $.ajax({
         url: 'get_category_children',
@@ -56,7 +55,6 @@ $(function(){
 
   $(".contents__detail__box__set").on("change", '#children_category', function(){
     var childContent = $('#children_category option:selected').data('category');
-    console.log(childContent);
     if (childContent != "---"){ 
       $.ajax({
         url: 'get_category_grandchildren',
