@@ -95,7 +95,7 @@
           %h3.main__pickup__box__subtitleline__subtitle
             = "投稿商品"
       .main__pickup__box__items
-        = render @product
+        = render partial: "products/product", collection: @product
   %section.main__pickup
     %p.main__pickup__title
       ピックアップブランド
@@ -105,5 +105,4 @@
           %h3.main__pickup__box__subtitleline__subtitle
             = "アーカイブ"
       .main__pickup__box__items
-        = render @brand
-        
+        = render = render partial: "products/brand", collection: @brand
