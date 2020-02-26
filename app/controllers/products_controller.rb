@@ -87,7 +87,7 @@ class ProductsController < ApplicationController
 
   def set_brand
     @brand_array = []
-    @brand_array.concat(Brand.all.pluck(:name, :id))
+    @brand_array = Brand.pluck(:name, :id)
   end
 
 end
