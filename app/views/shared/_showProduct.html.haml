@@ -7,7 +7,7 @@
         = image_tag @product.images[0].image.url
       .product_content__photo__subImage
         .product_content__photo__subImage__thumb
-          - @product.images.each do |image|
+          -# - @product.images.each do |image|
     %table.product_content__detail-table
       %tbody
         %tr
@@ -50,7 +50,8 @@
   - if user_signed_in? && current_user.id == @product.user_id
     .product_editbox
       .product_editbox_edit
-        = link_to = link_to "編集する", '', class: 'buy-btn'
+        = link_to "編集", edit_product_path(@product.id)
+        -# = link_to = link_to "編集する", '', class: 'buy-btn'
       .product_editbox_delete
         = link_to "削除する", '', class: 'buy-btn', method: :delete
   - else
