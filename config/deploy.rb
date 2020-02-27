@@ -7,7 +7,6 @@ set :application, 'freemarket_sample_68h'
 
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'git@github.com:Masaru-0816/freemarket_sample_68h.git'
-#Masaru-0816/freemarket_sample_68h
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
