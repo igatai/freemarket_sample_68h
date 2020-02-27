@@ -2,10 +2,13 @@ class ProductsController < ApplicationController
   before_action :set_brand, only: [:new]
 
   def index
-    @product = Product.where(category_id: "1").first(3)
-    @category = Product.where(category_id: "1").first(3)
-    @brand = Product.where(brand_id: "2").first(3)
+    @product = Product.where(category_id: "362").first(3)
+    @category = Product.where(category_id: "362").first(3)
+    @brand = Product.where(brand_id: "1").first(3)
     @parents = Category.all.order("ancestry ASC").limit(13)
+    # @image_pickup_category = Image.where(product_id: @product.id)
+    # @image_pickup_category
+    # binding.pry
   end
 
 
@@ -74,7 +77,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge( user_id: current_user.id)
+    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id, :prefecture_id, :derivery_method_id, images_attributes: [:image, :_destroy, :id]).merge( user_id: current_user.id)
   end
 
   def set_product

@@ -101,7 +101,7 @@
               .contents__detail__box__set__box__coution
                 必須
             .contents__detail__box__set__form
-              = f.select :delivery_method, [["選択してください",nil],["ゆうパック","ゆうパック"], ["クロネコヤマト", "クロネコヤマト"], ["佐川急便", "佐川急便"]], {}, {class: 'contents__detail__box__set__form__detail__select'}
+              = f.collection_select :id, DeliveryMethod.all ,:id, :name, {prompt: '選択してください'}, {class: 'contents__detail__box__set__form__detail__select'}
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
