@@ -2,12 +2,10 @@ class ProductsController < ApplicationController
   before_action :set_brand, only: [:new]
 
   def index
-    @product = Product.where(category_id: "1").first(3)
-    @brand = Product.where(brand_id: "2").first(3)
-    # @category = Product.where(category_id: "1").first(3)
+    @product = Product.where(category_id: "1").last(3)
+    @brand = Product.where(brand_id: "2").last(3)
     @parents = Category.all.order("ancestry ASC").limit(13)
-    
-end   
+  end   
 
 
   def new 
