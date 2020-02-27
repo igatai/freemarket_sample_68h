@@ -16,7 +16,6 @@ class ProductsController < ApplicationController
     #親カテゴリーのみ抽出 => 配列に追加（[表示する値,取得する値] = [parent.name, parent.id]）
     @category_parent_array.concat(Category.where(ancestry: nil).pluck(:name,:id))
 
-    # binding.pry
   end
 
   def get_category_children
@@ -97,7 +96,7 @@ class ProductsController < ApplicationController
   end
 
   def set_selection
-    @status = Status.all
+    @condition = Condition.all
     @payment = Payment.all
     @delivery_date = DeliveryDate.all
     @delivery_method = DeliveryMethod.all
