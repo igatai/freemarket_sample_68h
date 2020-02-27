@@ -1,5 +1,5 @@
 .main__pickup__box__items__item
-  %a{:href => product_path(brand)}
+  = link_to  product_path(brand) do
     %figure.main__pickup__box__items__item__img
       = image_tag brand.images[0].image.url
   .main__pickup__box__items__item__content

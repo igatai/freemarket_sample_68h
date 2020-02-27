@@ -59,9 +59,9 @@
         %br/
         = "欲しかったあの商品に出会えるかもしれません。"
       .main__appeal__box2__btn
-        %a.main__appeal__box2__btn__app{:href => "#"}
+        = link_to "#", class:  "main__appeal__box2__btn__app" do
           %img{src: "/images/Download_on_the_App_Store_Badge_JP_blk.png"}
-        %a.main__appeal__box2__btn__google{:href => "#"}
+        = link_to "#", class:  "main__appeal__box2__btn__app" do
           %img{src: "/images/Download_on_the_App_Store_Badge_JP_blk.png"}
   %section.main__description
     %h2.main__description__title
@@ -93,9 +93,8 @@
       ピックアップアイテム
     .main__pickup__box
       .main__pickup__box__subtitleline
-        %a{:href => "#"}
-          %h3.main__pickup__box__subtitleline__subtitle
-            = "投稿商品"
+        = link_to "#", class: "main__pickup__box__subtitleline__subtitle" do 
+          = "投稿商品"
       .main__pickup__box__items
         = render partial: "products/product", collection: @product
   %section.main__pickup
@@ -103,9 +102,8 @@
       ピックアップブランド
     .main__pickup__box
       .main__pickup__box__subtitleline
-        %a{:href => "#"}
-          %h3.main__pickup__box__subtitleline__subtitle
-            = "アーカイブ"
+        = link_to "#", class: "main__pickup__box__subtitleline__subtitle" do 
+          = "アーカイブ"
       .main__pickup__box__items
         = render partial: "products/brand", collection: @brand
   = render "shared/banner"
