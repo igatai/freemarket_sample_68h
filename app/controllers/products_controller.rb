@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
 
 
   def new 
+    # binding.pry
     @product = Product.new
     @product.images.new
 
