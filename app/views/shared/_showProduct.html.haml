@@ -23,26 +23,30 @@
         %tr
           %thブランド
           %td
-            = @product.brand.name
+            = @product.brand&.name
         %tr
           %th商品の状態
           %td
-            = @product.status
+            = @status.name
         %tr
           %th配送料の負担
           %td
-            = @product.payment      
+            = @payment.name
+            -# = @product.payment_id   
         %tr
           %th配送の方法
           %td
-            = @product.delivery_method
+            -# = @product.delivery_method_id
+            = @delivery_method.name
         %tr
           %th配送元地域
           %td
-            = @product.delivery_date
+            = @prefecture.name
+            -# = @product.delivery_date_id
         %tr
           %th発送日の目安
           %td
+            = @delivery_date.name
             
   .product_price
     %span.product_price__bold
