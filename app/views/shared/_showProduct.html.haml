@@ -53,7 +53,7 @@
       .product_editbox_edit
         = link_to "編集する", edit_product_path(@product.id), class: 'buy-btn'
       .product_editbox_delete
-        -# = link_to "削除する", '', class: 'buy-btn', method: :delete
+        = link_to "削除する", '', class: 'buy-btn', method: :delete
   - else
     .product_buy
       = link_to "購入画面に進む","/purchase/#{@product.id}", class: 'buy-btn'
