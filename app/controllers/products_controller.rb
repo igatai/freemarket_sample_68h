@@ -56,7 +56,6 @@ class ProductsController < ApplicationController
 
   def destroy
     product = Product.find(params[:id])
-    product.destroy
     redirect_to root_path if product.destroy
   end
 
