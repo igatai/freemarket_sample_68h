@@ -69,9 +69,6 @@
                 任意
             .contents__detail__box__set__form
               = f.select :brand_id, options_for_select(@brand_array, selected: @product.brand_id)
-              -# = f.select :product, @brand.group(:name).order(id: :desc), :id, :name, {}
-              -# :selected=> 2, {}, {class: 'contents__detail__box__set__form__detail__select'}
-              -# = f.collection_select :brand_id, @brand_array, :id, :name, { prompt: "--" }
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
