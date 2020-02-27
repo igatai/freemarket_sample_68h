@@ -40,7 +40,8 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    @brand = Brand.find(@product.brand)
+    @brand = Brand.find(@product.brand_id)
+    # binding.pry
   end
 
   def update
