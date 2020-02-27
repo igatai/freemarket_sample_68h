@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
 
 
   def new 
-    # binding.pry
     @product = Product.new
     @product.images.new
 
@@ -40,7 +39,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    # binding.pry
     @product = Product.find(params[:id])
   end
 
