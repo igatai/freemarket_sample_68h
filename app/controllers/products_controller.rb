@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_brand, only: [:new]
+  before_action :set_brand, only: [:new, :edit]
 
   def index
     @product = Product.where(category_id: "1").first(3)
