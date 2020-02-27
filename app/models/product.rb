@@ -12,4 +12,15 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :brand, optional: true
   belongs_to :user
+
+  
+  validates :prefecture_id,           presence: true
+  validates :category_id,             presence: true
+  validates :price,                   presence: true
+  validates :delivery_method,         presence: true
+  validates :payment,                 presence: true
+  validates :status,                  presence: true
+  validates :condition,               presence: true
+  validates :content,                 presence: true
+  validates :name,                    presence: true
 end

@@ -1,17 +1,12 @@
 class ProductsController < ApplicationController
-  before_action :set_brand, only: [:new]
+  before_action :set_brand, only: [:new, :edit]
   before_action :set_selection, only: [:new, :edit]
 
   def index
-    @product = Product.where(category_id: "362").first(3)
-    @category = Product.where(category_id: "362").first(3)
-    @brand = Product.where(brand_id: "1").first(3)
+    @product = Product.includes(:images).order("created_at DESC").limit(3)
+    @brand = Product.where(brand_id: "2").last(3)
     @parents = Category.all.order("ancestry ASC").limit(13)
-    # @image_pickup_category = Image.where(product_id: @product.id)
-    # @image_pickup_category
-    # binding.pry
   end
-
 
   def new 
     @product = Product.new
@@ -37,7 +32,7 @@ class ProductsController < ApplicationController
   def create
     @user = current_user
     @product = Product.new(product_params)
-    if @product.save
+    if @product.save!
       redirect_to product_path(@product.id)
     else
       redirect_to new_product_path
