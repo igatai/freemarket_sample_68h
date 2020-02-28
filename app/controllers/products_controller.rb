@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_brand, only: [:new, :edit]
   before_action :set_selection, only: [:new, :edit]
+  before_action :authenticate_user!, only: [:new]
+
 
   def index
     @product = Product.includes(:images).order("created_at DESC").limit(3)
@@ -66,8 +68,7 @@ class ProductsController < ApplicationController
 
   def destroy
     product = Product.find(params[:id])
-    product.destroy
-    redirect_to root_path
+    redirect_to root_path if product.destroy
   end
 
   require 'payjp'
