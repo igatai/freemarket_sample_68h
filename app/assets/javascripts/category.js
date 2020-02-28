@@ -33,17 +33,20 @@ $(function(){
 
   $("#parent_category").on("change", function(){
     var parentCategory = document.getElementById('parent_category').value;
-    if (parentCategory != "---"){ 
+    console.log(parentCategory)
+    if (parentCategory != "---"){      
+      console.log("if")
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
         data: { parent_id: parentCategory },
         dataType: 'json'
       })
+      
       .done(function(children){
         $('#grandchildren_category').remove();
-      $('#children_category').remove();
-
+        $('#children_category').remove();
+        
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendCategory(child);
@@ -51,7 +54,7 @@ $(function(){
         appendchildrenbox(insertHTML);
       })
       .fail(function(){
-        alert('子カテゴリー取得に失敗しました');
+        alert('子カテゴリー取得に失敗しました');        
       })
     } else {
       $('#grandchildren_category').remove();

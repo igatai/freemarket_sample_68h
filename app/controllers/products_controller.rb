@@ -18,15 +18,7 @@ class ProductsController < ApplicationController
 
   end
 
-  def get_category_children
-    @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
-  end
 
-  def get_category_grandchildren
-    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-    @category_grandchildren = Category.find(params[:child_id]).children
-
-  end
 
   def create
     @user = current_user
@@ -40,7 +32,11 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    @brand = Brand.find(@product.brand)
+    @brand = Brand.find(@product.brand_id)
+    @category = Category.find(params[:id])
+    @parents = Category.all.order("ancestry ASC").limit(13)
+    @category_parent_array = ["---"]
+    @category_parent_array.concat(Category.where(ancestry: nil).pluck(:name,:id))
   end
 
   def update
@@ -65,6 +61,18 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     redirect_to root_path if product.destroy
   end
+
+  def get_category_children
+    @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+    @category_grandchildren = Category.find(params[:child_id]).children
+
+  end
+
+
 
   require 'payjp'
   def pay
