@@ -76,7 +76,7 @@
               .contents__detail__box__set__box__nini
                 任意
             .contents__detail__box__set__form
-            = f.select :brand_id, @brand_array, {}, {class: 'contents__detail__box__set__form'}
+              = f.select :brand_id, options_for_select(@brand_array, selected: @product.brand_id)
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
@@ -84,7 +84,7 @@
               .contents__detail__box__set__box__coution
                 必須
             .contents__detail__box__set__form_select
-              = f.select :condition, ["-","新品","中古"]
+              = f.collection_select :condition_id, Condition.all, :id, :name, prompt: "--"
 
       .contents__detail
         .contents__detail__box
@@ -100,10 +100,9 @@
               .contents__detail__box__set__box__coution
                 必須
             .contents__detail__box__set__form
-              = f.select :payment, ["購入者負担","出品者負担"]
+              = f.collection_select :payment_id, Payment.all, :id, :name, prompt: "--"
             .contents__detail__box__set__form__method
-              -# =@product.delivery_method
-              = f.select :delivery_method, [["ゆうパック","ゆうパック"], ["クロネコヤマト", "クロネコヤマト"], ["佐川急便", "佐川急便"]]
+              = f.collection_select :delivery_method_id, DeliveryMethod.all, :id, :name, prompt: "--"
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
@@ -119,7 +118,7 @@
               .contents__detail__box__set__box__coution
                 必須
             .contents__detail__box__set__form
-              = f.select :delivery_date, ["１〜２日で発送","３〜4日で発送","1週間以内に発送"]
+              = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :name, prompt: "--"
       .contents__price
         .contents__price__text
           .contents__price__text__comment
