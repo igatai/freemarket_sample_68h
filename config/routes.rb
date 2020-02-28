@@ -20,7 +20,15 @@ Rails.application.routes.draw do
   end
 
   resources :useraddress, only: [:index]
-  resources :purchase, only: :show
+  
+  resources :purchase, only: [:show] do
+    collection do
+      get 'show', to: 'purchase#show'
+      post 'pay', to: 'purchase#pay'
+      get 'done', to: 'purchase#done'
+    end
+  end
+
   resources :credit, only: [:index, :new, :create]
   resources :useraddress, only: :new
 
