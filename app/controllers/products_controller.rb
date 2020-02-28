@@ -42,11 +42,14 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update(product_params)
-      redirect_to ''
-    else
-      render :edit
-    end
+    product = Product.find(params[:id])
+    product.update(product_params)
+    redirect_to product_path
+    # if @product.update(product_params)
+      
+    # else
+    #   render :edit
+    # end
   end
 
   def show

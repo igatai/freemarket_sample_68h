@@ -1,3 +1,4 @@
+= render "shared/account_header"
 .body
   .contents
     = form_for [ @product ] do |f|
@@ -110,7 +111,7 @@
               .contents__detail__box__set__box__coution
                 必須
             .contents__detail__box__set__form
-              = f.collection_select :prefecture_id, Prefecture.all ,:id, :name, class: 'contents__detail__box__set__form', prompt: '選択してください'
+              = f.collection_select :prefecture_id, @prefecture ,:id, :name, {prompt: '選択してください'}, {class: 'contents__detail__box__set__form__detail__select'}
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
@@ -121,11 +122,10 @@
               = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :name, prompt: "--"
       .contents__price
         .contents__price__text
-          .contents__price__text__comment
-            価格（¥300〜9,999,999）
           .contents__price__text__icon
             = icon 'far', 'question-circle'
-
+          .contents__price__text__comment
+            価格（¥300〜9,999,999）
         .contents__price__value
           .contents__price__value__first
             .contents__price__value__first__left
@@ -149,6 +149,7 @@
           .contents__price__submit__throw
             = f.submit '変更する' ,class: 'contents__price__submit__throw__btn'
           .contents__price__submit__back
-            = link_to "キャンセル", product_path, class: 'btn contents__price__submit__back__btn'
+            = link_to "戻る", root_path, class: 'btn contents__price__submit__back__btn'
 
         %P 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+= render "shared/account_footer"
