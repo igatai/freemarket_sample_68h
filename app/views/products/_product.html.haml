@@ -1,7 +1,7 @@
 .main__pickup__box__items__item
   = link_to  product_path(product) do
     %figure.main__pickup__box__items__item__img
-      = image_tag product.images[0].image.url
+      -# = image_tag product.images[0].image.url
   .main__pickup__box__items__item__content
     %h3.main__pickup__box__items__item__content__name
       = product.name
