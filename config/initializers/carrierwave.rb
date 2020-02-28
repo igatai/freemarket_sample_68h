@@ -12,8 +12,8 @@ CarrierWave.configure do |config|
       aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
       region: 'ap-northeast-1' # 東京はap-northeast-1  ❶
     }
-    config.fog_directory  = 'your-bucket-name' #S3のバケット名❷
-    config.asset_host = 'https://s3-your_region.amazonaws.com/your_bucket_name'  # ③
+    config.fog_directory  = 'taiti0614' #S3のバケット名❷
+    config.asset_host = 'https://s3-your_region.amazonaws.com/taiti0614'  # ③
   else
     config.storage :file # 開発環境:public/uploades下に保存
     config.enable_processing = false if Rails.env.test? #test:処理をスキップ
