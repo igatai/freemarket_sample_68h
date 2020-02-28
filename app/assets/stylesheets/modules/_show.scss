@@ -28,6 +28,12 @@ html,body {
       width: 300px;
       height: 420px;
       background-color: #fafafa;
+      font-size: 25px;
+      font-style: oblique;
+      a {
+        padding-left: 35%;
+        line-height: 400px;
+      }
       &__mainImage img {
         width: 300px;
         height: 300px;

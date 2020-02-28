@@ -254,6 +254,7 @@
           width: 220px;
           display: inline-block;
           float: left;
+          text-align: center;
           &:hover {
             opacity: 0.5;
           }
@@ -269,6 +270,9 @@
             overflow: hidden;
             margin: 0;
             z-index: auto;
+            line-height: 150px;
+            color: gray;
+            font-style: oblique;
             img {
               position: absolute;
               top: 0;

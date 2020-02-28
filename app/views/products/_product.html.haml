@@ -1,7 +1,11 @@
 .main__pickup__box__items__item
   = link_to  product_path(product) do
-    %figure.main__pickup__box__items__item__img
-      -# = image_tag product.images[0].image.url
+    - unless product.images[0].nil?
+      %figure.main__pickup__box__items__item__img 
+        = image_tag product.images[0].image.url
+    - else
+      %figure.main__pickup__box__items__item__img 
+        = "No Image"
   .main__pickup__box__items__item__content
     %h3.main__pickup__box__items__item__content__name
       = product.name

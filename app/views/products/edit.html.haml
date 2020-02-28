@@ -61,7 +61,15 @@
                 必須
             .contents__detail__box__set__form
               .contents__detail__box__set__form__detail
-                -# = f.select :category_id, @category_parent_array, {}, {class: 'contents__detail__box__set__form__detail__select', id: 'parent_category'}
+                - id = @product.category.parent.parent.id
+                = f.select :category_id, id, {}, {class: 'contents__detail__box__set__form__detail__select', id: 'parent_category'} do
+                  %option{value: "#{@product.category.parent.parent.id}",class: "root"} #{@product.category.parent.parent.name}
+                  - @parents.each do |parent|
+                    %option{value: "#{parent.id}"} #{parent.name}
+                = f.select :category_id, @product.category.parent.id, {}, {class: 'contents__detail__box__set__form__detail__select', id: "children_category"} do
+                  %option{value: "#{@product.category.parent.id}",class: "root"} #{@product.category.parent.name}
+                = f.select :category_id, @category.name, {}, {class: 'contents__detail__box__set__form__detail__select', id: 'grandchildren_category'} do
+                  %option{value: "#{@product.category.id}",class: "root"} #{@product.category.name}
           .contents__detail__box__set
             .contents__detail__box__set__box
               .contents__detail__box__set__box__text
