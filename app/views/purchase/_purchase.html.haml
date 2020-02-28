@@ -77,6 +77,5 @@
                   = @user.first_name_zenkaku
 
             %section.purchase-content.purchase-user-info
-              %button.btn-default.btn-red.bold{disabled: "disabled", type: "submit"} 購入する
-              %input#user_info_is_not_complete{type: "hidden"}/
-        %section
+              = form_tag(pay_purchase_index_path(id: @product.id), method: :post) do
+                %button.btn-default 購入する
