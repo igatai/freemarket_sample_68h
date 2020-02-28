@@ -3,8 +3,12 @@
     = @product.name
   .product_content
     .product_content__photo
-      .product_content__photo__mainImage
-        = image_tag @product.images[0].image.url
+      - unless @product.images[0].nil?
+        .product_content__photo__mainImage
+          = image_tag @product.images[0].image.url
+      - else
+        %a.product_content__photo__mainImage
+          = "No Image"
       .product_content__photo__subImage
         .product_content__photo__subImage__thumb
           - @product.images.each do |image|
