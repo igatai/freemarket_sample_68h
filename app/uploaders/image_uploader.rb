@@ -44,5 +44,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-  process resize_to_fit: [100, 100]
+  process resize_to_fit: [250, 250]
+
+  if Rails.env.development? || Rails.env.test? 
+    storage :file
+  else
+    storage :fog
+  end
 end

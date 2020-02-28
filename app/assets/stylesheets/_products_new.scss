@@ -208,7 +208,7 @@ $gray: rgb(245, 245, 245);
           &__box{
             display:flex;
             align-items: center;
-            margin:15px 0;
+            margin:15px 0 5px 0;
             &__text{
               font-weight:bold;
               font-size: 14px;
@@ -233,16 +233,23 @@ $gray: rgb(245, 245, 245);
             }
           }
           &__form{
+            width:100%;
+            font-size: 16px;
             &__detail {
               background-color: #fff;
               padding: 5px;
               width:100%;
-              margin-top:10px;
-              border:1px solid rgb(177, 177, 177);
+              margin:5px 0 10px 0 ;
+
+              &__select {
+                height:30px;
+                width: 100%;
+                margin: 5px 0 10px 0;
+                font-size: 15px;
+                background-color: white;
+                border: 1px solid silver;
+              }
             }
-            width:100%;
-            margin-top:10px;
-            font-size: 16px;
           }
         }
       }
@@ -301,7 +308,7 @@ $gray: rgb(245, 245, 245);
               height: 40px;
               padding:0 10px;
               font-size: 20px;
-              
+              border: 1px solid silver;
             }
           }
         }

@@ -1,13 +1,14 @@
 class ProductsController < ApplicationController
-  before_action :set_brand, only: [:new]
+  before_action :set_brand, only: [:new, :edit]
+  before_action :set_selection, only: [:new, :edit]
+  before_action :authenticate_user!, only: [:new]
+
 
   def index
-    @product = Product.where(category_id: "1").first(3)
-    @category = Product.where(category_id: "1").first(3)
-    @brand = Product.where(brand_id: "2").first(3)
+    @product = Product.includes(:images).order("created_at DESC").limit(3)
+    @brand = Product.where(brand_id: "2").last(3)
     @parents = Category.all.order("ancestry ASC").limit(13)
   end
-
 
   def new 
     @product = Product.new
@@ -16,6 +17,7 @@ class ProductsController < ApplicationController
     @category_parent_array = ["---"]
     #親カテゴリーのみ抽出 => 配列に追加（[表示する値,取得する値] = [parent.name, parent.id]）
     @category_parent_array.concat(Category.where(ancestry: nil).pluck(:name,:id))
+
   end
 
   def get_category_children
@@ -40,25 +42,33 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @brand = Brand.find(@product.brand_id)
   end
 
   def update
-    if @product.update(product_params)
-      redirect_to ''
-    else
-      render :edit
-    end
+    product = Product.find(params[:id])
+    product.update(product_params)
+    redirect_to product_path
+    # if @product.update(product_params)
+      
+    # else
+    #   render :edit
+    # end
   end
 
   def show
     @product = Product.find(params[:id])
     @parents = Category.all.order("ancestry ASC").limit(13)
+    @status = Status.find(@product.status_id)
+    @payment = Payment.find(@product.payment_id)
+    @delivery_date = DeliveryDate.find(@product.delivery_date_id)
+    @delivery_method = DeliveryMethod.find(@product.delivery_method_id)
+    @prefecture = Prefecture.find(@product.prefecture_id)
   end
 
   def destroy
     product = Product.find(params[:id])
-    product.destroy
-    redirect_to root_path
+    redirect_to root_path if product.destroy
   end
 
   require 'payjp'
@@ -74,7 +84,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :content, :condition, :status, :payment, :delivery_date, :delivery_method, :price, :user_id, :brand_id, :category_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge( user_id: current_user.id)
+    params.require(:product).permit(:name, :content, :condition_id, :status_id, :payment_id, :delivery_date_id, :delivery_method_id, :price, :user_id, :brand_id, :category_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge( user_id: current_user.id)
   end
 
   def set_product
@@ -87,6 +97,14 @@ class ProductsController < ApplicationController
 
   def set_brand
     @brand_array = Brand.pluck(:name, :id)
+  end
+
+  def set_selection
+    @condition = Condition.all
+    @payment = Payment.all
+    @delivery_date = DeliveryDate.all
+    @delivery_method = DeliveryMethod.all
+    @prefecture = Prefecture.all
   end
 
 end

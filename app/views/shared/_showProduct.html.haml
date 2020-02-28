@@ -7,6 +7,8 @@
         = image_tag @product.images[0].image.url
       .product_content__photo__subImage
         .product_content__photo__subImage__thumb
+          - @product.images.each do |image|
+            = image_tag image.image.url
     %table.product_content__detail-table
       %tbody
         %tr
@@ -20,27 +22,32 @@
         %tr
           %thブランド
           %td
-            = @product.brand.name
+            = @product.brand&.name
         %tr
           %th商品の状態
           %td
-            = @product.status
+            = @status.name
         %tr
           %th配送料の負担
           %td
             = @product.payment
+            = @payment.name
+            -# = @product.payment_id
         %tr
           %th配送の方法
           %td
-            = @product.delivery_method
+            -# = @product.delivery_method_id
+            = @delivery_method.name
         %tr
           %th配送元地域
           %td
-            = @product.delivery_date
+            = @prefecture.name
+            -# = @product.delivery_date_id
         %tr
           %th発送日の目安
           %td
-            
+            = @delivery_date.name
+
   .product_price
     %span.product_price__bold
       = @product.price
@@ -49,7 +56,7 @@
   - if user_signed_in? && current_user.id == @product.user_id
     .product_editbox
       .product_editbox_edit
-        = link_to = link_to "編集する", '', class: 'buy-btn'
+        = link_to "編集する", edit_product_path(@product.id), class: 'buy-btn'
       .product_editbox_delete
         = link_to "削除する", '', class: 'buy-btn', method: :delete
   - else
@@ -73,7 +80,7 @@
       前の商品へ
   %li.link_next
     =link_to '' do
-      後ろの商品へ  
+      後ろの商品へ
       = icon('fas', 'chevron-right', class: 'icon-next')
 
 .sns_container

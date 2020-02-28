@@ -1,15 +1,14 @@
 .main__pickup__box__items__item
-  %a{:href => "#"}
+  = link_to  product_path(brand) do
     %figure.main__pickup__box__items__item__img
-      - @product.each do |product|
-        = product.images
+      = image_tag brand.images[0].image.url
   .main__pickup__box__items__item__content
     %h3.main__pickup__box__items__item__content__name
-      = product.name
+      = brand.name
     .main__pickup__box__items__item__content__detail
       %ul
         %li
-          = product.price
+          = brand.price
         %li
           = icon("fas","star")
           = "0"
