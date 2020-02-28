@@ -24,4 +24,5 @@ class Product < ApplicationRecord
   validates :condition_id,            presence: true
   validates :content,                 presence: true
   validates :name,                    presence: true
+  validates :images,                   presence: true
 end

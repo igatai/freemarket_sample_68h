@@ -7,7 +7,7 @@
         .product_content__photo__mainImage
           = image_tag @product.images[0].image.url
       - else
-        .product_content__photo__mainImage
+        %a.product_content__photo__mainImage
           = "No Image"
       .product_content__photo__subImage
         .product_content__photo__subImage__thumb
