@@ -192,9 +192,37 @@
       font-size: 14px;
       text-align: center;
     }
-    .input{
-      border: 0;
-      outline: 0;
-    }
   }  
+}
+
+.purchase__done__body {
+  background-color: #fff;
+  height: 200px;
+  width: 700px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 30px 20px;
+  
+  &__upper {
+    height: calc(100%/2);
+    line-height: 70px;
+  }
+  &__middle {
+    height: calc(100%/2);
+    line-height: 70px;
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+    .btn-default{
+      margin: 0 auto;
+      color: #fff;
+      background: #3CCACE;
+      display: block;
+      width: 30%;
+      line-height: 48px;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
 }
