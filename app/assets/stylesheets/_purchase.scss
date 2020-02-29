@@ -1,0 +1,228 @@
+.purchase-main{
+  display: block;
+  color: #333;
+}
+.purchase-mainbox{
+  background-color: #fff;
+  width: 700px;
+  margin: 0 auto;
+  h2{
+    font-size: 22px;
+    font-weight: bolder;
+    padding: 32px;
+    text-align: center;
+  }
+}
+.purchase-content{
+  margin: 0;
+  padding: 32px 16px;
+  border-top: 1px solid#f5f5f5;
+}
+.purchase-item{
+  text-align: center;
+}
+.purchase-content-inner{
+  max-width: 343px;
+  margin: 0 auto;
+  &-way {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-delivery {
+    display: flex;
+    justify-content: space-between;
+  }
+  .purchase-form-price {
+    padding-bottom: 30px;
+    .purchase-price-cell {
+      font-size: 23px;
+      font-weight: bold;
+      padding-bottom: 20px;
+    }
+  }
+  .purchase-item-box{
+    display: flex;
+    .purchase-item-image{
+      height: 80px;
+      width: 80px;
+      min-width: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
+      -webkit-box-pack: center;
+      -webkit-box-align: center;
+      .item-image {
+        width: auto;
+        max-width: 80px;
+      }
+    }
+  .purchase-item-detail{
+    margin: 0 0 16px 15px;
+    &__name{
+      font-size: 14px;
+      margin: 0;
+      padding: 0 0 8px;
+      line-height: 1.5;
+      text-align: left;
+    }
+    .purchase-price-ja{
+      margin: 0;
+      text-align: left;
+      font-size: 15px;
+      font-weight: 600;
+      &__fee{
+        font-size: 12px;
+        display: inline-block;
+      }
+    }
+  }
+  }
+  .purchase-price-data {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    &:first-child {
+      margin: 0;
+    }
+    .purchase-price-cell-label {
+      font-size: 18px;
+    }
+  }
+  
+  .purchase-price-row {
+    display: table-row;
+    &:first-child {
+      border: 0;
+    }
+  }
+  
+  .purchase-price-cell {
+    display: table-cell;
+    padding: 0;
+    text-align: right;
+    &:first-child {
+      text-align: left;
+    }
+    &.purchase-accordion {
+      padding: 0;
+      .accordion-toggle {
+        padding: 16px 0;
+      }
+    }
+  }
+  .purchase-accrdion{
+    margin: 24px 0;
+  }
+    .use-point-accordion{
+      text-align: left;
+      position: relative;
+      cursor: pointer;
+    }
+      .icon-check{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 1;
+        width: 20px;
+        border-radius: 2px;
+        background: #fff;
+        font-size: 10px;
+        line-height: 17px;
+        text-align: center;
+        color: white;
+      }
+  .purchase-user-info{
+    text-align: left;
+    padding-top: 32px;
+    border-top: 1px solid #f5f5f5;
+    font-size: 14px;
+    .purchase-content-inner {
+      padding-bottom: 5px;
+    }
+    .purchase-content-zipcode {
+
+    }
+    .purchase-user-info-card {
+      margin:10px 0;
+    }
+    
+    h3{
+      font-weight: bold;
+    }
+    a{
+      color: #0099e8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    p{
+      line-height: 1.5;
+      text-align: left;
+      margin: 8px 0 0;
+      font-size: 14px;
+    }
+    i{
+      display: inline-block;
+      font-style: normal;
+      font-weight: 400;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      text-decoration: inherit;
+      vertical-align: inherit;
+      border-style: solid;
+      border-width: 0;
+      height: 14px;
+      width: 14px;
+      color: #0099e8;
+      font-weight: 900;
+    }
+    span{
+      text-decoration: none;
+      margin: 0 0 0 4px;
+      }
+    .btn-default{
+      color: #fff;
+      background: #3CCACE;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      text-align: center;
+    }
+  }  
+}
+
+.purchase__done__body {
+  background-color: #fff;
+  height: 200px;
+  width: 700px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 30px 20px;
+  
+  &__upper {
+    height: calc(100%/2);
+    line-height: 70px;
+  }
+  &__middle {
+    height: calc(100%/2);
+    line-height: 70px;
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+    .btn-default{
+      margin: 0 auto;
+      color: #fff;
+      background: #3CCACE;
+      display: block;
+      width: 30%;
+      line-height: 48px;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}

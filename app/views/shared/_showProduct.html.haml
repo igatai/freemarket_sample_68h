@@ -34,23 +34,21 @@
         %tr
           %th配送料の負担
           %td
+            = @product.payment
             = @payment.name
-            -# = @product.payment_id   
         %tr
           %th配送の方法
           %td
-            -# = @product.delivery_method_id
             = @delivery_method.name
         %tr
           %th配送元地域
           %td
             = @prefecture.name
-            -# = @product.delivery_date_id
         %tr
           %th発送日の目安
           %td
             = @delivery_date.name
-            
+
   .product_price
     %span.product_price__bold
       = @product.price
@@ -62,9 +60,13 @@
         = link_to "編集する", edit_product_path(@product.id), class: 'buy-btn'
       .product_editbox_delete
         = link_to "削除する", '', class: 'buy-btn', method: :delete
-  - else
+  - elsif user_signed_in?
     .product_buy
       = link_to "購入画面に進む","/purchase/#{@product.id}", class: 'buy-btn'
+  - else
+    .product_buy
+      = link_to "購入画面に進む", new_user_registration_path, class: 'buy-btn'
+        
 
   %p.product_describe
     = simple_format(@product.content)
@@ -83,7 +85,7 @@
       前の商品へ
   %li.link_next
     =link_to '' do
-      後ろの商品へ  
+      後ろの商品へ
       = icon('fas', 'chevron-right', class: 'icon-next')
 
 .sns_container
@@ -212,4 +214,3 @@
         = icon('fas', 'chevron-right')
       %li
         = link_to 'いらすとや', ''
-
