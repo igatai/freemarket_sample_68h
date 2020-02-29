@@ -1,5 +1,5 @@
 class PurchaseController < ApplicationController
-
+  before_action :set_product, only: [:show, :pay]
   require 'payjp'
   
   def show
@@ -7,7 +7,7 @@ class PurchaseController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to "/cards/#{current_user.id}"
+      redirect_to cards_path
       flash[:alert] = '購入にはクレジットカード登録が必要です'
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
