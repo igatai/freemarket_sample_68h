@@ -42,7 +42,6 @@ $(function(){
         data: { parent_id: parentCategory },
         dataType: 'json'
       })
-      
       .done(function(children){
         $('#grandchildren_category').remove();
         $('#children_category').remove();
@@ -65,7 +64,7 @@ $(function(){
   $(".contents__detail__box__set").on("change", '#children_category', function(){
     var childContent = $('#children_category option:selected').data('category');
     var childContentvalue = document.getElementById('children_category').value;
-    if (childContentvalue != "---"){ 
+    if (childContentvalue != "---"){
       $.ajax({
         url: 'get_category_grandchildren',
         type: 'GET',
