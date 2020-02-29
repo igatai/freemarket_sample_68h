@@ -30,7 +30,6 @@ Rails.application.routes.draw do
   
   resources :purchase, only: [:show] do
     collection do
-      get 'show', to: 'purchase#show'
       post 'pay', to: 'purchase#pay'
       get 'done', to: 'purchase#done'
     end
