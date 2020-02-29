@@ -6,7 +6,7 @@
         .purchase-content-inner
           .purchase-item-box
             %h3.purchase-item-image
-              = image_tag @product.images[0].image.url
+              = image_tag @product.images[0].image.url, class: "item-image"
             .purchase-item-detail
               %p.purchase-item-detail__name
                 = @product.name

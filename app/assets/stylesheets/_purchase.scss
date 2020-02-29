@@ -52,9 +52,9 @@
       font-size: 22px;
       -webkit-box-pack: center;
       -webkit-box-align: center;
-      &__img{
+      .item-image {
         width: auto;
-        max-height: 80px;
+        max-width: 80px;
       }
     }
   .purchase-item-detail{
