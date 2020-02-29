@@ -1,10 +1,10 @@
 class PurchaseController < ApplicationController
   before_action :set_product, only: [:show, :pay]
+  before_action :set_card, only: [:show, :pay]
   require 'payjp'
   
   def show
     # 登録カード情報
-    card = Card.where(user_id: current_user.id).first
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
       redirect_to cards_path
@@ -27,7 +27,6 @@ class PurchaseController < ApplicationController
   end
 
   def pay
-    card = Card.where(user_id: current_user.id).first
     @purchase = Purchase.new(product_id: params[:id], user_id: current_user.id)
     if @purchase.save!
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
@@ -46,5 +45,9 @@ class PurchaseController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def set_card
+    card = Card.where(user_id: current_user.id).first
   end
 end
