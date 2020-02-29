@@ -17,9 +17,6 @@ class PurchaseController < ApplicationController
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
 
-    # 商品情報
-    @product = Product.find(params[:id])
-
     # 購入者住所情報
     @user = User.find(current_user.id)
 
@@ -30,9 +27,7 @@ class PurchaseController < ApplicationController
   end
 
   def pay
-    @product = Product.find(params[:id])
     card = Card.where(user_id: current_user.id).first
-    
     @purchase = Purchase.new(product_id: params[:id], user_id: current_user.id)
     if @purchase.save!
       Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
@@ -49,4 +44,7 @@ class PurchaseController < ApplicationController
     @purchase = Purchase.new(product_id: params[:id], user_id: current_user.id)
   end
 
+  def set_product
+    @product = Product.find(params[:id])
+  end
 end
