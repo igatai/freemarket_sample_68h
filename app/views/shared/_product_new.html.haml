@@ -7,7 +7,7 @@
       .contents__message
         - if flash[:error].present?
           %ul.error_messages
-            = "You have #{flash[:error].count} errors."
+            = "Error : #{flash[:error].count}"
             - flash[:error].each do |e|
               %li
                 = e
