@@ -11,12 +11,8 @@ class ProductsController < ApplicationController
   end
 
   def new
-    if @product.blank?
-      @product = Product.new
-      @product.images.new
-    else
-      @product = @errors
-    end
+    @product = Product.new
+    @product.images.new
   end
 
   def create
