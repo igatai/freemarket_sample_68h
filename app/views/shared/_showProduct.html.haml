@@ -105,7 +105,7 @@
 .products_similar
   .products_of_user
     .products_of_user__title
-      = link_to "コロナウイルスさんのその他の出品", ''
+      = link_to "#{@product.user.nickname}さんのその他の出品", ''
     .products_of_user__contents
       .product_box
         = link_to '' do
