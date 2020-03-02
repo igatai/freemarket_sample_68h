@@ -7,7 +7,7 @@
       .contents__message
         - if flash[:error].present?
           %ul.error_messages
-            = "Error : #{flash[:error].count}"
+            = "Error : #{flash[:error].count} 箇所の入力漏れがあります"
             - flash[:error].each do |e|
               %li
                 = e
