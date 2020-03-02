@@ -1,24 +1,22 @@
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "modules/show";
-@import "mixin/mixin";
+@import "modules/account_header";
+@import "modules/account_footer";
+@import "modules/banner";
 @import "modules/variable";
 @import "modules/header";
 @import "modules/footer";
-@import "index";
+@import "modules/camera";
 @import "devise/new";
 @import "devise/newaddress";
 @import "devise/login";
-
-@import "form_input_address";
-
-@import "users";
-@import "cards";
-@import "purchase";
-
-@import "modules/credit";
-@import "modules/account_header";
-@import "modules/account_footer";
-@import "products_new";
-@import "modules/mypage";
+@import "devise/users";
+@import "mixin/mixin";
+@import "card/cards";
+@import "product/index";
+@import "product/main";
+@import "product/new";
+@import "product/show";
+@import "purchase/purchase";
+@import "user/mypage";
