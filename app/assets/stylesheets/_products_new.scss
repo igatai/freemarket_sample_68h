@@ -30,6 +30,15 @@ $gray: rgb(245, 245, 245);
       padding:40px ;
       &__text{}
     }
+    &__message {
+      font-size: 15px;
+      color: red;
+      margin-top: 10px;
+      margin-left: 100px;
+      li {
+        margin-left: 10px;
+      }
+    }
     &__image{
       padding:40px ;
       width:calc(100%);
@@ -186,7 +195,7 @@ $gray: rgb(245, 245, 245);
     &__detail{
       padding:40px ;
       width:calc(100%);
-      height:380px;
+      height:100%;
       background-color:#fff;
       border-bottom: 1px solid $gray ;
       font-size:13px;

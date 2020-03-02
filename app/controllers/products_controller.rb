@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
-  before_action :set_brand, only: [:new, :edit]
-  before_action :set_selection, only: [:new, :edit]
+  before_action :set_brand, only: [:new, :edit, :create]
+  before_action :set_selection, only: [:new, :edit, :create]
+  before_action :set_parrent_category_array, only: [:new, :edit, :create]
   before_action :authenticate_user!, only: [:new]
-
 
   def index
     @product = Product.includes(:images).order("created_at DESC").limit(3)
@@ -10,25 +10,18 @@ class ProductsController < ApplicationController
     @parents = Category.all.order("ancestry ASC").limit(13)
   end
 
-  def new 
+  def new
     @product = Product.new
     @product.images.new
-
-    @category_parent_array = ["---"]
-    #親カテゴリーのみ抽出 => 配列に追加（[表示する値,取得する値] = [parent.name, parent.id]）
-    @category_parent_array.concat(Category.where(ancestry: nil).pluck(:name,:id))
-
   end
-
-
 
   def create
     @user = current_user
     @product = Product.new(product_params)
-    if @product.save!
+    if @product.save
       redirect_to product_path(@product.id)
     else
-      redirect_to new_product_path
+      redirect_to new_product_path, flash: { error: @product.errors.full_messages }
     end
   end
 
@@ -37,24 +30,16 @@ class ProductsController < ApplicationController
     @brand = Brand.find(@product.brand_id)
     @category = Category.find(params[:id])
     @parents = Category.all.order("ancestry ASC").limit(13)
-    @category_parent_array = ["---"]
-    @category_parent_array.concat(Category.where(ancestry: nil).pluck(:name,:id))
   end
 
   def update
     product = Product.find(params[:id])
     product.update(product_params)
-    # redirect_to product_path
     if product.save
       redirect_to product_path(product.id)
     else
       redirect_to edit_product_path, flash: { error: product.errors.full_messages }
     end
-    # if @product.update(product_params)
-      
-    # else
-    #   render :edit
-    # end
   end
 
   def show
@@ -65,6 +50,12 @@ class ProductsController < ApplicationController
     @delivery_date = DeliveryDate.find(@product.delivery_date_id)
     @delivery_method = DeliveryMethod.find(@product.delivery_method_id)
     @prefecture = Prefecture.find(@product.prefecture_id)
+  end
+
+  def set_parrent_category_array
+    @category_parent_array = ["---"]
+    #親カテゴリーのみ抽出 => 配列に追加（[表示する値,取得する値] = [parent.name, parent.id]）
+    @category_parent_array.concat(Category.where(ancestry: nil).pluck(:name,:id))
   end
 
   def destroy
@@ -79,10 +70,7 @@ class ProductsController < ApplicationController
   def get_category_grandchildren
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find(params[:child_id]).children
-
   end
-
-
 
   require 'payjp'
   def pay
@@ -98,10 +86,6 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :content, :condition_id, :status_id, :payment_id, :delivery_date_id, :delivery_method_id, :price, :user_id, :brand_id, :category_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge( user_id: current_user.id)
-  end
-
-  def set_product
-    @product = Product.find(params[:id])
   end
 
   def current
