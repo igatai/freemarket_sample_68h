@@ -90,22 +90,22 @@
 .sns_container
   %ul.share_sns_items
     %li
-      = link_to '' do
+      = link_to 'https://www.facebook.com/' do
         = icon('fab', 'facebook-square', class: 'icon-facebook')
     %li
-      = link_to '' do
+      = link_to 'https://twitter.com/' do
         = icon('fab', 'twitter-square', class: 'icon-twitter')
     %li
-      = link_to '' do
+      = link_to 'https://line.me/ja/' do
         = icon('fab', 'line', class: 'icon-line')
     %li
-      = link_to '' do
+      = link_to 'https://www.pinterest.jp/' do
         = icon('fab', 'pinterest-square', class: 'icon-pinterest')
 
 .products_similar
   .products_of_user
     .products_of_user__title
-      = link_to "コロナウイルスさんのその他の出品", ''
+      = link_to "#{@product.user.nickname}さんのその他の出品", ''
     .products_of_user__contents
       .product_box
         = link_to '' do
