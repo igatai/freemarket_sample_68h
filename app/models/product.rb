@@ -13,6 +13,7 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :brand, optional: true
   belongs_to :user
+  belongs_to :purchase, optional: true
 
   validates :name,                    presence: true, length: {maximum: 40}
   validates :content,                 presence: true, length: {maximum: 1000}
