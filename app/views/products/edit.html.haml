@@ -5,6 +5,13 @@
       .contents__header
         .contents__header_text
           商品の情報を入力
+      .contents__message
+        - if flash[:error].present?
+          %ul.error_messages
+            = "You have #{flash[:error].count} errors."
+            - flash[:error].each do |e|
+              %li
+                = e
       .contents__image
         .contents__image__box
           .contents__image__box__comment

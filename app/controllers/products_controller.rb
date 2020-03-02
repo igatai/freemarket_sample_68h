@@ -35,7 +35,11 @@ class ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     product.update(product_params)
-    redirect_to product_path
+    if product.save
+      redirect_to product_path(product.id)
+    else
+      redirect_to edit_product_path, flash: { error: product.errors.full_messages }
+    end
   end
 
   def show
