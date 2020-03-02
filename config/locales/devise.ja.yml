@@ -25,11 +25,10 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
-
         family_name: 苗字（カナ）
-        first_name: 名前（カナ）　　
+        first_name: 名前（カナ）
         family_name_zenkaku: 苗字（カナ）
-        first_name_zenkaku: 苗字（カナ）
+        first_name_zenkaku: 名前（カナ）
         nickname: ニックネーム
         birthyear: 誕生年
         birthmonth: 誕生月

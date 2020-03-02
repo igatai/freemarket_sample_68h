@@ -11,15 +11,15 @@ ja:
     attributes:
       product:
         name: 商品名
-        content: 商品説明
+        content: 商品の説明
         category: カテゴリー
-        condition_id: 商品状態
-        payment_id: 配送費負担
+        condition_id: 商品の状態
+        payment_id: 配送料の負担
         delivery_date_id: 配送日数
         delivery_method_id: 配送方法
-        price: 価格 
-        prefecture_id: 配送元都道府県
-        images: 画像
+        price: 販売価格 
+        prefecture_id: 配送元の地域
+        images: 出品画像
 
   date:
     abbr_day_names:
