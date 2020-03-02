@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def index
     @purchase = Purchase.pluck('product_id')
     @product = Product.includes(:images).where.not(id: @purchase).order("created_at DESC").limit(3)
-    @brand = Product.where(brand_id: "2").last(3)
+    @brand = Product.where(brand_id: "2").where.not(id: @purchase).last(3)
     @parents = Category.all.order("ancestry ASC").limit(13)
   end
 
