@@ -4,6 +4,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
   
   def show
+
     # 登録カード情報
     if @card.blank?
       #登録された情報がない場合にカード登録画面に移動
@@ -20,7 +21,6 @@ class PurchaseController < ApplicationController
     # 購入者住所情報
     @user = User.find(current_user.id)
 
-    
     if user_signed_in? && current_user.id == @product.user_id
       redirect_to "/products/#{@product.id}"
     end

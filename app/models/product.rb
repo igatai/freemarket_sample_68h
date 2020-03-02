@@ -15,15 +15,16 @@ class Product < ApplicationRecord
   belongs_to :user
   belongs_to :purchase, optional: true
 
-  
-  validates :prefecture_id,           presence: true
-  validates :category_id,             presence: true
-  validates :price,                   presence: true
-  validates :delivery_method_id,      presence: true
-  validates :payment_id,              presence: true
-  validates :status_id,               presence: true
+  validates :name,                    presence: true, length: {maximum: 40}
+  validates :content,                 presence: true, length: {maximum: 1000}
   validates :condition_id,            presence: true
-  validates :content,                 presence: true
-  validates :name,                    presence: true
-  validates :images,                   presence: true
+  validates :status_id,               presence: true
+  validates :payment_id,              presence: true
+  validates :delivery_date_id,        presence: true
+  validates :delivery_method_id,      presence: true
+  validates :price,                   presence: true
+  validates :user_id,                 presence: true
+  validates :category_id,             presence: true
+  validates :prefecture_id,           presence: true
+  validates :images,                  presence: true
 end
