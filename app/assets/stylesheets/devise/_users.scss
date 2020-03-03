@@ -16,37 +16,6 @@
       margin: 0px 8px 0px 0px;
     }
   }
-
-  .account_footer {
-    height: 140px;
-    width: 456px;
-    margin: 0 auto;
-    padding: 40px 0px;
-    vertical-align: bottom;
-    position: relative;
-    text-align: center;
-    background-color: rgb(245, 245, 245);
-    &_container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      font-size: 12px;
-      &_explanation {
-        margin: 0 auto;
-        display: flex;
-        padding-bottom: 20px;
-        a{
-          font-size: 12px;
-          color: #333;
-          text-decoration: none;
-          padding-right: 20px;
-        }
-      }
-      .logo_gray {
-        padding-top: 30px;
-      }
-    }
-  }
 }
 
 .camera {
