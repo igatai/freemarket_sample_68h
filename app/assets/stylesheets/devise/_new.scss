@@ -61,10 +61,13 @@ body{
           color:black;
           background-color: #fff;
           height:48px;
-          padding: 5px;
+          padding: 10px;
           width:25%;
           border:1px solid rgb(177, 177, 177);
           border-radius: 4px;
+        }
+        &__birthday{
+          padding:10px;
         }
           &__bottom{
           margin-top:24px;
@@ -84,6 +87,7 @@ body{
       .text{
         margin-top:24px;
         font-size:16px;
+        padding: 10px;
         &__comment{
           margin-top:5px;
           font-size: 14px;
