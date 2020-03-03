@@ -1,10 +1,10 @@
 .account_body
   %main.purchase-main
-    %section.purchase-mainbox
+    %section.purchase-main__box
       %h2.purchase-head.title-head 購入内容の確認
       %section.purchase-content.purchase-item
-        .purchase-content-inner
-          .purchase-item-box
+        .purchase-content__inner
+          .purchase-item__box
             %h3.purchase-item-image
               = image_tag @product.images[0].image.url, class: "item-image"
             .purchase-item-detail

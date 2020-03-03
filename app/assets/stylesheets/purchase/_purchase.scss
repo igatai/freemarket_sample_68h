@@ -1,16 +1,16 @@
 .purchase-main{
   display: block;
   color: #333;
-}
-.purchase-mainbox{
+  &__box{
   background-color: #fff;
   width: 700px;
   margin: 0 auto;
-  h2{
+    h2{
     font-size: 22px;
     font-weight: bolder;
     padding: 32px;
     text-align: center;
+    }
   }
 }
 .purchase-content{
@@ -140,9 +140,6 @@
     font-size: 14px;
     .purchase-content-inner {
       padding-bottom: 5px;
-    }
-    .purchase-content-zipcode {
-
     }
     .purchase-user-info-card {
       margin:10px 0;
