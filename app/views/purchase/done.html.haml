@@ -1,5 +1,5 @@
 .account_body
-  = render "header"
+  = render "shared/account_header"
   .purchase__done__body
     .purchase__done__body__upper
       購入が完了しました。
@@ -8,4 +8,4 @@
       = link_to root_path, class: "card_change" do
         %button.btn-default トップページ
 
-  = render "footer"
+  = render "shared/account_footer"
