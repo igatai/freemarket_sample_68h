@@ -4,7 +4,8 @@
 
 .main {
   background-color: #f8f8f8;
-  &__view {
+}
+  .main__view {
     width: 100%;
     height: 560px;
     background-image: image-url('bg-mainVisual-pict.jpg');
@@ -58,7 +59,7 @@
       }
     }
   }
-  &__guide {
+  .main__guide {
     padding: 60px 20px;
     &__title {
       font-size: 26px;
@@ -123,7 +124,7 @@
       }
     }
   }
-  &__appeal {
+  .main__appeal {
     height: 400px;
     background-image: image-url('bg-topMiddleDl-pict.jpg');
     background-size: cover;
@@ -171,7 +172,7 @@
       }
     }
   }
-  &__description {
+  .main__description {
     padding: 60px;
     background-color: #fff;
     &__title {
@@ -221,7 +222,7 @@
       }
     }
   }
-  &__pickup {
+  .main__pickup {
     padding: 80px 0 0;
     background-color: #f8f8f8;
     &__title {
@@ -286,7 +287,7 @@
             }
           }
           &__content {
-            background-color: white;
+            background-color: #fff;
             color: #333;
             padding: 16px;
             &__name {
@@ -312,4 +313,3 @@
       }
     }
   }
-}
