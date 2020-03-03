@@ -1,4 +1,4 @@
-= render 'login/header'
+= render 'shared/account_header'
 .box
   %h2 住所情報登録
   = form_for(@address, url: addresses_path, method: "POST") do |f|
@@ -60,4 +60,4 @@
       = f.text_field :building, placeholder: "例) ライオンズマンション2110", class: "field__input"
     .actions
       = f.submit "登録", class: "actions__input"
-= render 'login/footer'
+= render 'shared/account_footer'
