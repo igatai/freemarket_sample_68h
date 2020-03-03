@@ -5,13 +5,32 @@ require 'rails_helper'
 
     #1 全部入力があれば、ログインできる。
     it "is valid with a prefecture_id, category_id, price,
-        delibery_method, payment,status, condition, content, name, user_id" do
-      user = FactoryBot.create(:user)
-      brand = FactoryBot.create(:brand)
+        delibery_method_id, payment_id,status_id, condition_id, content, name, user_id" do
+      user = create(:user)
+      brand = create(:brand)
       prefecture = Prefecture.create(name: "高知県")
-      category = FactoryBot.create(:category)
+      delivery_method = DeliveryMethod.create(id: "1")
+      condition = Condition.create(id: "1")
+      status = Status.create(id: "1")
+      payment = Payment.create(id: "1")
+      delivery_date = DeriveryDate.create(id: "1")
+      
+      
+      # category = create(:category)
+      # category = FactoryBot.create(:category)
    
-      product = build(:product, user_id: user.id,brand_id: brand.id, prefecture_id: prefecture.id,category_id: category.id)
+      product = build(
+        product,
+        user_id: user.id,
+        brand_id: brand.id,
+        prefecture_id: prefecture.id,
+        condition_id: condition.id,
+        status_id: status.id,
+        payment_id: payment.id,
+        delivery_date_id: deliveryDate.id,
+        delivery_method_id: deliveryMethod.id
+        # category_id: category.id
+      )
      
 
       expect(product).to be_valid
@@ -42,30 +61,30 @@ require 'rails_helper'
 
     #6 delivery_methodが空の場合不可
     it "is invalid without a delivery_method" do
-      product = build(:product, delivery_method: "")
+      product = build(:product, delivery_method_id: "")
       product.valid?
-      expect(product.errors[:delivery_method]).to include("can't be blank")
+      expect(product.errors[:delivery_method_id]).to include("can't be blank")
     end
 
     #7 paymentが空の場合不可
     it "is invalid without a payment" do
-      product = build(:product, payment: "")
+      product = build(:product, payment_id: "")
       product.valid?
-      expect(product.errors[:payment]).to include("can't be blank")
+      expect(product.errors[:payment_id]).to include("can't be blank")
     end
 
     #8 statusが空の場合不可
     it "is invalid without a status" do
-      product = build(:product, status: "")
+      product = build(:product, status_id: "")
       product.valid?
-      expect(product.errors[:status]).to include("can't be blank")
+      expect(product.errors[:status_id]).to include("can't be blank")
     end
 
     #9 conditionが空の場合不可
     it "is invalid without a condition" do
-      product = build(:product, condition: "")
+      product = build(:product, condition_id: "")
       product.valid?
-      expect(product.errors[:condition]).to include("can't be blank")
+      expect(product.errors[:condition_id]).to include("can't be blank")
     end
 
     #10 contentが空の場合不可

@@ -1,0 +1,11 @@
+.account_body
+  = render "header"
+  .purchase__done__body
+    .purchase__done__body__upper
+      購入が完了しました。
+      お買い上げありがとうございました！
+    .purchase__done__body__middle
+      = link_to root_path, class: "card_change" do
+        %button.btn-default トップページ
+
+  = render "footer"

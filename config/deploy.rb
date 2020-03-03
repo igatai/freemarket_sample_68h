@@ -7,7 +7,6 @@ set :application, 'freemarket_sample_68h'
 
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'git@github.com:Masaru-0816/freemarket_sample_68h.git'
-#Masaru-0816/freemarket_sample_68h
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
@@ -32,4 +31,23 @@ namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
   end
+  desc 'upload master.key'
+  task :upload do
+    on roles(:app) do |host|
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
+      end
+      upload!('config/master.key', "#{shared_path}/config/master.key")
+    end
+  end
+  before :starting, 'deploy:upload'
+  after :finishing, 'deploy:cleanup'
 end
+
+
+# set :default_env, {
+#   rbenv_root: "/usr/local/rbenv",
+#   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+#   AWS_ACCESS_KEY_ID: Rails.application.credentials.aws[:access_key_id],
+#   AWS_SECRET_ACCESS_KEY: Rails.application.credentials.aws[:secret_access_key]
+# }

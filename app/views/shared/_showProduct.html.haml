@@ -3,11 +3,16 @@
     = @product.name
   .product_content
     .product_content__photo
-      .product_content__photo__mainImage
-        = image_tag @product.images[0].image.url
+      - unless @product.images[0].nil?
+        .product_content__photo__mainImage
+          = image_tag @product.images[0].image.url
+      - else
+        %a.product_content__photo__mainImage
+          = "No Image"
       .product_content__photo__subImage
         .product_content__photo__subImage__thumb
-          -# - @product.images.each do |image|
+          - @product.images.each do |image|
+            = image_tag image.image.url
     %table.product_content__detail-table
       %tbody
         %tr
@@ -21,27 +26,28 @@
         %tr
           %thブランド
           %td
-            = @product.brand.name
+            = @product.brand&.name
         %tr
           %th商品の状態
           %td
-            = @product.status
+            = @status.name
         %tr
           %th配送料の負担
           %td
-            = @product.payment      
+            = @payment.name
         %tr
           %th配送の方法
           %td
-            = @product.delivery_method
+            = @delivery_method.name
         %tr
           %th配送元地域
           %td
-            = @product.delivery_date
+            = @prefecture.name
         %tr
           %th発送日の目安
           %td
-            
+            = @delivery_date.name
+
   .product_price
     %span.product_price__bold
       = @product.price
@@ -50,13 +56,16 @@
   - if user_signed_in? && current_user.id == @product.user_id
     .product_editbox
       .product_editbox_edit
-        = link_to "編集", edit_product_path(@product.id)
-        -# = link_to = link_to "編集する", '', class: 'buy-btn'
+        = link_to "編集する", edit_product_path(@product.id), class: 'buy-btn'
       .product_editbox_delete
         = link_to "削除する", '', class: 'buy-btn', method: :delete
-  - else
+  - elsif user_signed_in?
     .product_buy
       = link_to "購入画面に進む","/purchase/#{@product.id}", class: 'buy-btn'
+  - else
+    .product_buy
+      = link_to "購入画面に進む", new_user_registration_path, class: 'buy-btn'
+        
 
   %p.product_describe
     = simple_format(@product.content)
@@ -75,28 +84,28 @@
       前の商品へ
   %li.link_next
     =link_to '' do
-      後ろの商品へ  
+      後ろの商品へ
       = icon('fas', 'chevron-right', class: 'icon-next')
 
 .sns_container
   %ul.share_sns_items
     %li
-      = link_to '' do
+      = link_to 'https://www.facebook.com/' do
         = icon('fab', 'facebook-square', class: 'icon-facebook')
     %li
-      = link_to '' do
+      = link_to 'https://twitter.com/' do
         = icon('fab', 'twitter-square', class: 'icon-twitter')
     %li
-      = link_to '' do
+      = link_to 'https://line.me/ja/' do
         = icon('fab', 'line', class: 'icon-line')
     %li
-      = link_to '' do
+      = link_to 'https://www.pinterest.jp/' do
         = icon('fab', 'pinterest-square', class: 'icon-pinterest')
 
 .products_similar
   .products_of_user
     .products_of_user__title
-      = link_to "コロナウイルスさんのその他の出品", ''
+      = link_to "#{@product.user.nickname}さんのその他の出品", ''
     .products_of_user__contents
       .product_box
         = link_to '' do
@@ -204,4 +213,3 @@
         = icon('fas', 'chevron-right')
       %li
         = link_to 'いらすとや', ''
-

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
   resources :registration, only: [:index, :new, :create]
-  resources :products, only: [:index, :new, :create, :show, :destroy, :show, :edit, :update] do
+  resources :products, only: [:index, :new, :create, :show, :destroy, :update] do
   #Ajax用
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -19,8 +19,23 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :products, only: [:edit] do
+  #Ajax用
+    member do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+
   resources :useraddress, only: [:index]
-  resources :purchase, only: :show
+  
+  resources :purchase, only: [:show] do
+    collection do
+      post 'pay', to: 'purchase#pay'
+      get 'done', to: 'purchase#done'
+    end
+  end
+
   resources :credit, only: [:index, :new, :create]
   resources :useraddress, only: :new
 
