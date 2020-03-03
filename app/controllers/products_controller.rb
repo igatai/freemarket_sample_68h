@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_selection, only: [:new, :edit, :create]
   before_action :set_parrent_category_array, only: [:new, :edit, :create]
   before_action :authenticate_user!, only: [:new]
+  before_action :set_product, only: [:edit, :show]
 
   def index
     @purchase = Purchase.pluck('product_id')
@@ -27,7 +28,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
     @brand = Brand.find(@product.brand_id)
     @category = Category.find(params[:id])
     @parents = Category.all.order("ancestry ASC").limit(13)
@@ -44,7 +44,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
     @parents = Category.all.order("ancestry ASC").limit(13)
     @status = Status.find(@product.status_id)
     @payment = Payment.find(@product.payment_id)
@@ -89,10 +88,6 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :content, :condition_id, :status_id, :payment_id, :delivery_date_id, :delivery_method_id, :price, :user_id, :brand_id, :category_id, :prefecture_id, images_attributes: [:image, :_destroy, :id]).merge( user_id: current_user.id)
   end
 
-  def current
-    @current_user = Current_user_id
-  end
-
   def set_brand
     @brand_array = Brand.pluck(:name, :id)
   end
@@ -103,6 +98,10 @@ class ProductsController < ApplicationController
     @delivery_date = DeliveryDate.all
     @delivery_method = DeliveryMethod.all
     @prefecture = Prefecture.all
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
 end
