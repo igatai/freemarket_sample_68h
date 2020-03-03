@@ -10,7 +10,15 @@
 }
 
 @mixin img {
-  width: 180px;
-  height: 53px;
+  width: 183px;
+  height: 56px;
   vertical-align: bottom;
+  margin-top: 13px;
+  border-radius: 10px;
 }
+
+@mixin google {
+  width: 200px;
+  height: 80px;
+}
+
