@@ -8,7 +8,7 @@
 /*****NAV*****/
 nav{
   height: 49px;
-  border-top: 1px solid rgb(245, 245, 245);
+  border-top: 1px solid $gray;
   margin-bottom: 5px;
   background-color:#fff;
   -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.16);
@@ -218,12 +218,12 @@ nav ul{
         }
       }
       li:hover {
-          background-color:rgb(245, 245, 245);
+          background-color:$gray;
       }
     }
     &__middle, .mypage__main__left__bottom {
       h5 {
-        background-color: rgb(245, 245, 245);
+        background-color: $gray;
         font-weight: bold;
         padding-top: 40px;
         font-size: 16px;
