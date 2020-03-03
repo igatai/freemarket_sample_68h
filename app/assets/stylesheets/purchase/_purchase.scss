@@ -65,6 +65,7 @@
       padding: 0 0 8px;
       line-height: 1.5;
       text-align: left;
+      word-break: break-word;
     }
     .purchase-price-ja{
       margin: 0;
@@ -130,7 +131,7 @@
         font-size: 10px;
         line-height: 17px;
         text-align: center;
-        color: white;
+        color: #fff;
       }
   .purchase-user-info{
     text-align: left;

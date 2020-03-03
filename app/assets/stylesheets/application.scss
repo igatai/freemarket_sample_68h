@@ -14,11 +14,11 @@
 @import "devise/users";
 @import "mixin/mixin";
 @import "card/cards";
-@import "product/index";
-@import "product/main";
+@import "product/product-index";
 @import "product/new";
 @import "product/show";
 @import "purchase/purchase";
 @import "user/mypage";
 @import "shared/header";
 @import "shared/footer";
+@import "useraddress/form_input_address"
