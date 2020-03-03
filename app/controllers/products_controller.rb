@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @brand = Brand.find(@product.brand_id)
     @category = Category.find(params[:id])
-    # @parents = Category.all.order("ancestry ASC").limit(13)
+    @parents = Category.all.order("ancestry ASC").limit(13)
   end
 
   def update
