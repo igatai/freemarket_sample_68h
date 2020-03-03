@@ -4,7 +4,7 @@ body {
 
 .product_container {
   width: 700px;
-  background-color: white;
+  background-color: #fff;
   padding: 24px 40px 40px;
   margin: 40px auto 15px;
   .product_name {
@@ -19,7 +19,7 @@ body {
     &__photo {
       width: 300px;
       height: 420px;
-      background-color: #fafafa;
+      background-color: #f8f8f8;
       font-size: 25px;
       font-style: oblique;
       &__mainImage img {
@@ -53,7 +53,7 @@ body {
           border: 1px solid #f5f5f5;
         }
         td {
-          background-color: white;
+          background-color: #fff;
           padding: 8px;
           border: 1px solid #f5f5f5;
         }
@@ -107,7 +107,7 @@ body {
   width: 700px;
   margin: 15px auto;
   padding: 20px 40px 20px;
-  background-color: white;
+  background-color: #fff;
   .comment_form {
     p {
       font-size: 14px;
@@ -155,7 +155,7 @@ body {
   width: 700px;
   height: 150px;
   margin: 15px auto;
-  background-color: white;
+  background-color: #fff;
   .share_sns_items {
     display: flex;
     text-align: center;
@@ -204,7 +204,7 @@ body {
       justify-content: space-between;
       .product_box {
         width: 220px;
-        background-color: #ffffff;
+        background-color: #fff;
         margin-top: 20px;
         a {
           color: black;
@@ -216,7 +216,7 @@ body {
         &__profile{
           padding: 16px;
           height: 110px;
-          background-color: #ffffff;
+          background-color: #fff;
           &__name {
             font-weight: normal;
             color: #333;

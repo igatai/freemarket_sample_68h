@@ -10,7 +10,29 @@
 }
 
 @mixin img {
-  width: 180px;
-  height: 53px;
+  width: 183px;
+  height: 56px;
   vertical-align: bottom;
+  margin-top: 13px;
+  border-radius: 10px;
 }
+
+@mixin google {
+  width: 200px;
+  height: 80px;
+}
+@mixin must {
+  font-size:12px;
+  margin-left:10px;
+  padding: 0 4px;
+  border-radius:2px;
+}
+@mixin form {
+  color:black;
+  background-color: #fff;
+  height:48px;
+  padding: 5px;
+  width:100%;
+  border:1px solid rgb(177, 177, 177);
+  border-radius: 4px;
+  }
