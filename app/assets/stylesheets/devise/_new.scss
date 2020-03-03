@@ -2,12 +2,7 @@
 $red: #e62017;
 $gray: rgb(245, 245, 245);
 
-@mixin must {
-  font-size:12px;
-  margin-left:10px;
-  padding: 0 4px;
-  border-radius:2px;
-}
+
 
 body{
   background-color: $gray;

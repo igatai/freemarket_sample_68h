@@ -3,15 +3,7 @@
 $red: #e62017;
 $gray: rgb(245, 245, 245);
 
-@mixin form {
-  color:black;
-  background-color: #fff;
-  height:48px;
-  padding: 5px;
-  width:100%;
-  border:1px solid rgb(177, 177, 177);
-  border-radius: 4px;
-  }
+
 
 body{
   background-color: $gray;
