@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
   before_action :set_brand, only: [:new]
+  before_action :set_product, only: [:show, :edit,:destroy]
 
   def index
-    @product = Product.where(category_id: "1").first(3)
-    @category = Product.where(category_id: "1").first(3)
-    @brand = Product.where(brand_id: "2").first(3)
+    @products = Product.where(category_id: "1").first(3)
+    @categorys = Product.where(category_id: "1").first(3)
+    @brands = Product.where(brand_id: "2").first(3)
     @parents = Category.all.order("ancestry ASC").limit(13)
   end
 
@@ -39,7 +40,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    # binding.pry
     @product = Product.find(params[:id])
   end
 
