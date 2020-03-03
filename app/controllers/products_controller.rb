@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_selection, only: [:new, :edit, :create]
   before_action :set_parrent_category_array, only: [:new, :edit, :create]
   before_action :authenticate_user!, only: [:new]
-  before_action :find_id, only: [:edit, :show]
+  before_action :set_product, only: [:edit, :show]
 
   def index
     @purchase = Purchase.pluck('product_id')
@@ -100,7 +100,7 @@ class ProductsController < ApplicationController
     @prefecture = Prefecture.all
   end
 
-  def find_id
+  def set_product
     @product = Product.find(params[:id])
   end
 
