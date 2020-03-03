@@ -5,6 +5,7 @@
         %a{:href => "/"}
           %img{:src => "/images/logo.png"}
       .header-search
+        -#検索フォーム
         %form{"accept-charset" => "UTF-8", :action => "#", :method => "get",class:'form'}
           %input{:name => "utf8", :type => "hidden", :value => "✓",class: 'form__input'}/
           %input.header-search-input{:name => "key", :placeholder => "キーワードから探す"}/
@@ -15,6 +16,7 @@
       %ul.resultLists
     .header-menu
       %ul.header-menu__left
+        -#プルダウン
         %li.header-menu__left__categories
           %a#catBtn{:href => "#"} 
             = "カテゴリー"
@@ -26,7 +28,7 @@
                     = render partial: 'shared/header_parent', locals: { parent: parent }
 
             %ul.categoryTree
-
+            -#プルダウン
         %li.header-menu__brand
           %li.header-menu__brand__box
             %a{:href => "#"} ブランド
@@ -44,6 +46,7 @@
               %li
                 %a.header-menu__brand__box__list__name{:href => "#"} ブランド一覧
       %ul.header-menu__right
+        -#ログイン中のユーザーだった場合の分岐
         - if user_signed_in?
           = link_to "マイページ", user_path(current_user.id)
           = link_to "ログアウト", destroy_user_session_path, method: :delete
