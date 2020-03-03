@@ -1,6 +1,6 @@
 = render './shared/account_header' 
 .box
-  %h2 会員情報入力
+  %h4 会員情報入力
   = form_for(@user, url: user_registration_path) do |f|
     = render "devise/shared/error_messages", resource: @user
     .field

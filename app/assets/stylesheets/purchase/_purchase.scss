@@ -1,16 +1,16 @@
 .purchase-main{
   display: block;
   color: #333;
-}
-.purchase-mainbox{
+  &__box{
   background-color: #fff;
   width: 700px;
   margin: 0 auto;
-  h2{
+    h2{
     font-size: 22px;
     font-weight: bolder;
     padding: 32px;
     text-align: center;
+    }
   }
 }
 .purchase-content{
@@ -65,6 +65,7 @@
       padding: 0 0 8px;
       line-height: 1.5;
       text-align: left;
+      word-break: break-word;
     }
     .purchase-price-ja{
       margin: 0;
@@ -130,7 +131,7 @@
         font-size: 10px;
         line-height: 17px;
         text-align: center;
-        color: white;
+        color: #fff;
       }
   .purchase-user-info{
     text-align: left;
@@ -139,9 +140,6 @@
     font-size: 14px;
     .purchase-content-inner {
       padding-bottom: 5px;
-    }
-    .purchase-content-zipcode {
-
     }
     .purchase-user-info-card {
       margin:10px 0;
