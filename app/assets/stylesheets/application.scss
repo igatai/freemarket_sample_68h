@@ -1,6 +1,7 @@
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "mixin/mixin";
 @import "modules/account_header";
 @import "modules/account_footer";
 @import "modules/banner";
@@ -12,7 +13,6 @@
 @import "devise/newaddress";
 @import "devise/login";
 @import "devise/users";
-@import "mixin/mixin";
 @import "card/cards";
 @import "product/product-index";
 @import "product/new";
