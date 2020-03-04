@@ -130,10 +130,5 @@ Things you may want to cover:
 - has_one :product
 - belongs_to :user
 
-## brandsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :products
+
 
