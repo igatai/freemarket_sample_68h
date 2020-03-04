@@ -28,32 +28,29 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|mail|string|null: false|
-|password|string|null: false|
-|confirm_password|string|null: false|
-|family_name|string|null: false|
-|first_name|string|null: false|
-|family_name_zenkaku|string|null: false|
-|first_name_zenkaku|string|null: false|
 |birthyear|string|null: false|
 |birthmonth|string|null: false|
 |birthday|string|null: false|
+|family_name_zenkaku|string|null: false|
+|first_name_zenkaku|string|null: false|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|mail|string|null: false|
+|encrypted_password|string|null: false|
+|remember_created_at|
 |phone_number|string|null: false|
 ### Association
-- has_one :credit_card
 - has_one :address
 - has_many :products
+- has_many :purchases
+- has_many :cards
 
-## credit_cardsテーブル
+## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|cardnumber|int|null: false|
-|month|int|null: false|
-|year|int|null: false|
-|css_number|int|null: false|
-|user_id|references|null: false, foreign_key: true|
-
-
+|user_id|references|null: false|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 ### Association
 - belongs_to :user
 
@@ -61,70 +58,82 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |zipcode|int|null: false|
-|city|string|null: false|
+|city|text|null: false|
 |address|text|null: false|
 |building|text|null: false|
-|phone_number|int|null: false|
+|phone_number|text|null: false|
 |user_id|references|null: false, foreign_key: true|
 |prefecture_id|references|null: false, foreign_key: true|
-
 ### Association
 - belongs_to :user
 - belongs_to_active_hash :prefecture
 
+## brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|text|null: false|
+### Association
+- belongs_to :product
 
-
-
-
-## productsテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|content|text|null: false|
-|condition|int|null: false|
-|status|string|null: false|
-|payment|string|null: false|
-|delivery_date|int|null: false|
-|derivery_method|string|null: false|
-|price|int|null: false|
-|user_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, foreign_key: true|
-|category_id|references|null: false, foreign_key: true|
-|prefecture_id|references|null: false, foreign_key: true|
-
-
+|ancestry|string|
 ### Association
-- belongs_to :user
-- belongs_to :category
-- belongs_to :brand
-- has_many :images
-- belongs_to_active_hash :prefecture
+- has_many :products
+- has_ancestory
+
 
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|text|null: false|
 |product_id|references|null: false, foreign_key: true|
-
-
 ### Association
 - belongs_to :product
+
+## productsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|content|text|null: false|
+|condition_id|references|null: false|
+|status_id|references|null: false|
+|payment_id|references|null: false|
+|delivery_date_id|references|null: false|
+|derivery_method_id|references|null: false|
+|price|int|null: false|
+|user_id|references|null: false, foreign_key: true|
+|brand_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|prefecture_id|references|null: false, foreign_key: true|
+### Association
+- has_many :images
+- belongs_to :category
+- belongs_to :brand
+- belongs_to :user
+- belongs_to :purchase, optional: true
+- belongs_to_active_hash :status
+- belongs_to_active_hash :payment
+- belongs_to_active_hash :delivery_date
+- belongs_to_active_hash :delivery_method
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :condition
+
+## purchasesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_id|references|null: false|
+|user_id|references|null: false|
+### Association
+- has_one :product
+- belongs_to :user
 
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-
 ### Association
 - has_many :products
-
-## categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|int|null: false|
-|ancestory|text|---|
-
-### Association
-- has_many :products
-- has_ancestory
 
