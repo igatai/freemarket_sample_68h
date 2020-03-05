@@ -129,7 +129,3 @@ Things you may want to cover:
 ### Association
 - has_one :product
 - belongs_to :user
-
-
-
-## test
